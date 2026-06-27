@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;}
+  body{background:#fff;color:#0A1A33;font-family:'Plus Jakarta Sans',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;}
+  #ds-content::-webkit-scrollbar{width:11px;}
+  #ds-content::-webkit-scrollbar-thumb{background:#D7DEEA;border-radius:99px;border:3px solid #fff;}
+  #ds-content::-webkit-scrollbar-track{background:transparent;}
+  ::selection{background:#CFE0F6;}
+</style>
+</helmet>
+
+<div style="display:flex; height:100vh; width:100%; overflow:hidden;">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside style="width:264px; flex:none; border-right:1px solid #EEF2F7; height:100%; display:flex; flex-direction:column; background:#FCFDFE;">
+    <div style="padding:24px 22px 18px; display:flex; align-items:center; gap:11px; border-bottom:1px solid #F1F4F8;">
+      <img src="assets/costa-mark.svg" alt="Costa" style="width:34px; height:34px; object-fit:contain;">
+      <div style="line-height:1;">
+        <div style="font-family:'Montserrat',sans-serif; font-size:15px; font-weight:800; color:#0A1A33; letter-spacing:0.01em;">COSTA</div>
+        <div style="font-family:'Montserrat',sans-serif; font-size:7px; font-weight:600; color:#7C8AA0; letter-spacing:0.24em; margin-top:2px;">CLEANING CO.</div>
+      </div>
+      <div style="margin-left:auto; font-family:'Geist Mono',monospace; font-size:9.5px; color:#9AA7BA; background:#F1F4F8; padding:3px 7px; border-radius:5px;">v1.0</div>
+    </div>
+
+    <nav style="flex:1; overflow-y:auto; padding:18px 14px;">
+      <div style="font-size:10px; font-weight:700; letter-spacing:0.14em; color:#AEB9C9; padding:0 8px 9px;">FOUNDATIONS</div>
+      <sc-for list="{{ navFoundations }}" as="item" hint-placeholder-count="5">
+        <div onClick="{{ item.on }}" style="{{ item.itemStyle }}">
+          <span style="{{ item.dotStyle }}"></span>
+          <span>{{ item.label }}</span>
+        </div>
+      </sc-for>
+      <div style="font-size:10px; font-weight:700; letter-spacing:0.14em; color:#AEB9C9; padding:18px 8px 9px;">LIBRARY</div>
+      <sc-for list="{{ navLibrary }}" as="item" hint-placeholder-count="2">
+        <div onClick="{{ item.on }}" style="{{ item.itemStyle }}">
+          <span style="{{ item.dotStyle }}"></span>
+          <span>{{ item.label }}</span>
+        </div>
+      </sc-for>
+    </nav>
+
+    <div style="padding:16px 22px; border-top:1px solid #F1F4F8; font-size:11px; color:#9AA7BA; line-height:1.5;">
+      Brand &amp; product system<br>Fort Myers · Lee County, FL
+    </div>
+  </aside>
+
+  <!-- ============ CONTENT ============ -->
+  <main id="ds-content" style="flex:1; height:100%; overflow-y:auto; scroll-behavior:smooth;">
+    <div style="max-width:980px; margin:0 auto; padding:0 56px 140px;">
+
+      <!-- ======= OVERVIEW ======= -->
+      <section id="sec-brand" style="padding-top:72px;">
+        <div style="display:flex; align-items:center; gap:18px;">
+          <img src="assets/costa-mark.svg" alt="Costa wave mark" style="width:72px; height:72px; object-fit:contain;">
+          <div style="line-height:1;">
+            <div style="font-family:'Montserrat',sans-serif; font-size:40px; font-weight:800; color:#0A1A33; letter-spacing:0.005em;">COSTA</div>
+            <div style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:600; color:#5B6B82; letter-spacing:0.34em; margin-top:6px;">CLEANING CO.</div>
+          </div>
+        </div>
+        <h1 style="font-family:'Montserrat',sans-serif; font-size:46px; font-weight:800; letter-spacing:-0.025em; line-height:1.05; margin:34px 0 0; max-width:760px;">The brand &amp; product design system behind a spotless space.</h1>
+        <p style="font-size:17px; line-height:1.6; color:#5B6B82; max-width:660px; margin:20px 0 0;">A single source of truth for the Costa Cleaning marketplace — the airy, premium consumer experience that connects homeowners and office managers to vetted, insured cleaning professionals. Built to feel effortless, trustworthy, and unmistakably Costa.</p>
+
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:40px;">
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:20px; background:#FCFDFE;">
+            <div style="width:38px; height:38px; border-radius:11px; background:#EAF1FB; display:flex; align-items:center; justify-content:center; color:#0048B0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div style="font-weight:700; font-size:15px; margin-top:14px;">Trustworthy</div>
+            <div style="font-size:13px; color:#7C8AA0; line-height:1.5; margin-top:5px;">Insured, vetted, guaranteed. Every signal earns confidence.</div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:20px; background:#FCFDFE;">
+            <div style="width:38px; height:38px; border-radius:11px; background:#EAF1FB; display:flex; align-items:center; justify-content:center; color:#0048B0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+            </div>
+            <div style="font-weight:700; font-size:15px; margin-top:14px;">Effortless</div>
+            <div style="font-size:13px; color:#7C8AA0; line-height:1.5; margin-top:5px;">Low-friction booking. From quote to clean in minutes.</div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:20px; background:#FCFDFE;">
+            <div style="width:38px; height:38px; border-radius:11px; background:#EAF1FB; display:flex; align-items:center; justify-content:center; color:#0048B0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg>
+            </div>
+            <div style="font-weight:700; font-size:15px; margin-top:14px;">Premium</div>
+            <div style="font-size:13px; color:#7C8AA0; line-height:1.5; margin-top:5px;">Calm, airy, considered. A clean look for a clean service.</div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:20px; background:#FCFDFE;">
+            <div style="width:38px; height:38px; border-radius:11px; background:#EAF1FB; display:flex; align-items:center; justify-content:center; color:#0048B0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div style="font-weight:700; font-size:15px; margin-top:14px;">Local</div>
+            <div style="font-size:13px; color:#7C8AA0; line-height:1.5; margin-top:5px;">Rooted in Fort Myers. A neighbor you can rely on.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= COLOR ======= -->
+      <section id="sec-color" style="padding-top:96px;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">FOUNDATIONS</div>
+        <h2 style="font-family:'Montserrat',sans-serif; font-size:32px; font-weight:800; letter-spacing:-0.02em; margin:8px 0 0;">Color</h2>
+        <p style="font-size:15px; line-height:1.6; color:#5B6B82; max-width:620px; margin:12px 0 0;">One confident cobalt carries the brand; a cool neutral ramp does the structural work. Color is used sparingly and with intent — surfaces stay light and airy.</p>
+
+        <!-- primary -->
+        <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:14px; margin-top:30px;">
+          <div style="border-radius:18px; overflow:hidden; border:1px solid #EEF2F7;">
+            <div style="background:#0048B0; height:150px; display:flex; align-items:flex-end; padding:18px;">
+              <img src="assets/costa-mark-white.svg" alt="" style="width:40px; height:40px; object-fit:contain; opacity:.95;">
+            </div>
+            <div style="padding:16px 18px;">
+              <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                <div style="font-weight:700; font-size:15px;">Costa Cobalt</div>
+                <div style="font-family:'Geist Mono',monospace; font-size:13px; color:#0048B0;">#0048B0</div>
+              </div>
+              <div style="font-size:12.5px; color:#7C8AA0; margin-top:5px;">Primary actions, links, brand mark, active states. The one hue that says "Costa."</div>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div style="flex:1; border-radius:14px; background:#082A6B; padding:16px; display:flex; flex-direction:column; justify-content:flex-end; color:#fff;">
+              <div style="font-weight:700; font-size:13.5px;">Deep Navy</div>
+              <div style="font-family:'Geist Mono',monospace; font-size:11.5px; opacity:.75; margin-top:2px;">#082A6B · hover / depth</div>
+            </div>
+            <div style="flex:1; border-radius:14px; background:#5C9BFF; padding:16px; display:flex; flex-direction:column; justify-content:flex-end; color:#062a5e;">
+              <div style="font-weight:700; font-size:13.5px;">Sky</div>
+              <div style="font-family:'Geist Mono',monospace; font-size:11.5px; opacity:.8; margin-top:2px;">#5C9BFF · accents</div>
+            </div>
+            <div style="flex:1; border-radius:14px; background:#EAF1FB; padding:16px; display:flex; flex-direction:column; justify-content:flex-end; border:1px solid #DCE8F8;">
+              <div style="font-weight:700; font-size:13.5px; color:#0A1A33;">Tint</div>
+              <div style="font-family:'Geist Mono',monospace; font-size:11.5px; color:#7C8AA0; margin-top:2px;">#EAF1FB · soft fills</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- neutrals -->
+        <div style="font-weight:700; font-size:15px; margin-top:34px;">Neutrals</div>
+        <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">Text, borders, and surfaces — a faintly cool gray ramp.</div>
+        <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-top:14px;">
+          <div><div style="height:64px; border-radius:11px; background:#0A1A33;"></div><div style="font-size:11px; font-weight:600; margin-top:7px;">Ink</div><div style="font-family:'Geist Mono',monospace; font-size:9.5px; color:#9AA7BA;">#0A1A33</div></div>
+          <div><div style="height:64px; border-radius:11px; background:#3A4760;"></div><div style="font-size:11px; font-weight:600; margin-top:7px;">Slate</div><div style="font-family:'Geist Mono',monospace; font-size:9.5px; color:#9AA7BA;">#3A4760</div></div>
+          <div><div style="height:64px; border-radius:11px; background:#5B6B82;"></div><div style="font-size:11px; font-weight:600; margin-top:7px;">Muted</div><div style="font-family:'Geist Mono',monospace; font-size:9.5px; color:#9AA7BA;">#5B6B82</div></div>
+          <div><div style="height:64px; border-radius:11px; background:#9AA7BA;"></div><div style="font-size:11px; font-weight:600; margin-top:7px;">Hint</div><div style="font-family:'Geist Mono',monospace; font-size:9.5px; color:#9AA7BA;">#9AA7BA</div></div>
+          <div><div style="height:64px; border-radius:11px; background:#EEF2F7;"></div><div style="font-size:11px; font-weight:600; margin-top:7px;">Border</div><div style="font-family:'Geist Mono',monospace; font-size:9.5px; color:#9AA7BA;">#EEF2F7</div></div>
+          <div><div style="height:64px; border-radius:11px; background:#F6F8FB; border:1px solid #EEF2F7;"></div><div style="font-size:11px; font-weight:600; margin-top:7px;">Surface</div><div style="font-family:'Geist Mono',monospace; font-size:9.5px; color:#9AA7BA;">#F6F8FB</div></div>
+        </div>
+
+        <!-- status -->
+        <div style="font-weight:700; font-size:15px; margin-top:34px;">Status</div>
+        <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">Restrained, never neon. Each pairs a solid with a tint background.</div>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:14px;">
+          <div style="border:1px solid #EEF2F7; border-radius:14px; overflow:hidden;">
+            <div style="height:44px; background:#1E9E5A;"></div>
+            <div style="padding:12px 14px; background:#E7F6EE;"><div style="font-weight:700; font-size:13px; color:#0A1A33;">Positive</div><div style="font-family:'Geist Mono',monospace; font-size:11px; color:#1E9E5A;">#1E9E5A</div></div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:14px; overflow:hidden;">
+            <div style="height:44px; background:#C77A0A;"></div>
+            <div style="padding:12px 14px; background:#FCF3E2;"><div style="font-weight:700; font-size:13px; color:#0A1A33;">Warning</div><div style="font-family:'Geist Mono',monospace; font-size:11px; color:#C77A0A;">#C77A0A</div></div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:14px; overflow:hidden;">
+            <div style="height:44px; background:#D23B3B;"></div>
+            <div style="padding:12px 14px; background:#FBEAEA;"><div style="font-weight:700; font-size:13px; color:#0A1A33;">Negative</div><div style="font-family:'Geist Mono',monospace; font-size:11px; color:#D23B3B;">#D23B3B</div></div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:14px; overflow:hidden;">
+            <div style="height:44px; background:#0048B0;"></div>
+            <div style="padding:12px 14px; background:#EAF1FB;"><div style="font-weight:700; font-size:13px; color:#0A1A33;">Info</div><div style="font-family:'Geist Mono',monospace; font-size:11px; color:#0048B0;">#0048B0</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= TYPOGRAPHY ======= -->
+      <section id="sec-type" style="padding-top:96px;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">FOUNDATIONS</div>
+        <h2 style="font-family:'Montserrat',sans-serif; font-size:32px; font-weight:800; letter-spacing:-0.02em; margin:8px 0 0;">Typography</h2>
+        <p style="font-size:15px; line-height:1.6; color:#5B6B82; max-width:620px; margin:12px 0 0;">Montserrat sets a confident, geometric voice for display and the wordmark. Plus Jakarta Sans keeps body text warm and legible. Space Mono gives numbers, prices, and IDs a precise, tabular feel.</p>
+
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:30px;">
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:22px;">
+            <div style="font-family:'Montserrat',sans-serif; font-size:44px; font-weight:800; line-height:1; color:#0A1A33;">Aa</div>
+            <div style="font-weight:700; font-size:14px; margin-top:16px;">Montserrat</div>
+            <div style="font-size:12.5px; color:#7C8AA0; margin-top:4px; line-height:1.5;">Display &amp; wordmark · 700–800</div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:22px;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:44px; font-weight:700; line-height:1; color:#0A1A33;">Aa</div>
+            <div style="font-weight:700; font-size:14px; margin-top:16px;">Plus Jakarta Sans</div>
+            <div style="font-size:12.5px; color:#7C8AA0; margin-top:4px; line-height:1.5;">Body &amp; UI · 400–700</div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:22px;">
+            <div style="font-family:'Geist Mono',monospace; font-size:42px; font-weight:700; line-height:1; color:#0A1A33;">12</div>
+            <div style="font-weight:700; font-size:14px; margin-top:16px;">Space Mono</div>
+            <div style="font-size:12.5px; color:#7C8AA0; margin-top:4px; line-height:1.5;">Numbers · prices · IDs</div>
+          </div>
+        </div>
+
+        <!-- scale -->
+        <div style="border:1px solid #EEF2F7; border-radius:18px; margin-top:18px; overflow:hidden;">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; padding:20px 24px; border-bottom:1px solid #F1F4F8;">
+            <div style="font-family:'Montserrat',sans-serif; font-size:40px; font-weight:800; letter-spacing:-0.025em;">Display</div>
+            <div style="font-family:'Geist Mono',monospace; font-size:11px; color:#9AA7BA;">Montserrat 800 · 40/44 · -0.025em</div>
+          </div>
+          <div style="display:flex; align-items:baseline; justify-content:space-between; padding:20px 24px; border-bottom:1px solid #F1F4F8;">
+            <div style="font-family:'Montserrat',sans-serif; font-size:28px; font-weight:700; letter-spacing:-0.02em;">Section title</div>
+            <div style="font-family:'Geist Mono',monospace; font-size:11px; color:#9AA7BA;">Montserrat 700 · 28 · -0.02em</div>
+          </div>
+          <div style="display:flex; align-items:baseline; justify-content:space-between; padding:20px 24px; border-bottom:1px solid #F1F4F8;">
+            <div style="font-size:19px; font-weight:700;">Card heading</div>
+            <div style="font-family:'Geist Mono',monospace; font-size:11px; color:#9AA7BA;">Jakarta 700 · 19</div>
+          </div>
+          <div style="display:flex; align-items:baseline; justify-content:space-between; padding:20px 24px; border-bottom:1px solid #F1F4F8;">
+            <div style="font-size:15px; color:#3A4760; line-height:1.5;">Body — the quick, calm copy that explains a service.</div>
+            <div style="font-family:'Geist Mono',monospace; font-size:11px; color:#9AA7BA;">Jakarta 400 · 15/24</div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:18px 24px;">
+            <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">EYEBROW LABEL</div>
+            <div style="font-family:'Geist Mono',monospace; font-size:11px; color:#9AA7BA;">Jakarta 700 · 11 · 0.14em · caps</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= LOGO & MARK ======= -->
+      <section id="sec-logo" style="padding-top:96px;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">FOUNDATIONS</div>
+        <h2 style="font-family:'Montserrat',sans-serif; font-size:32px; font-weight:800; letter-spacing:-0.02em; margin:8px 0 0;">Logo &amp; mark</h2>
+        <p style="font-size:15px; line-height:1.6; color:#5B6B82; max-width:620px; margin:12px 0 0;">The layered wave is the heart of the identity — three swells that read as water, motion, and a fresh start. It pairs with the Montserrat wordmark, or stands alone as an app icon.</p>
+
+        <!-- lockups -->
+        <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:14px; margin-top:30px;">
+          <div style="border:1px solid #EEF2F7; border-radius:18px; padding:40px; display:flex; align-items:center; justify-content:center;">
+            <div style="display:flex; align-items:center; gap:18px;">
+              <img src="assets/costa-mark.svg" alt="Costa wave mark" style="width:66px; height:66px; object-fit:contain;">
+              <div style="line-height:1;">
+                <div style="font-family:'Montserrat',sans-serif; font-size:34px; font-weight:800; color:#0A1A33; letter-spacing:0.005em;">COSTA</div>
+                <div style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:600; color:#5B6B82; letter-spacing:0.32em; margin-top:5px;">CLEANING CO.</div>
+              </div>
+            </div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:18px; background:#0048B0; padding:40px; display:flex; align-items:center; justify-content:center;">
+            <div style="display:flex; align-items:center; gap:14px;">
+              <img src="assets/costa-mark-white.svg" alt="Costa wave mark, white" style="width:50px; height:50px; object-fit:contain;">
+              <div style="line-height:1;">
+                <div style="font-family:'Montserrat',sans-serif; font-size:26px; font-weight:800; color:#fff; letter-spacing:0.005em;">COSTA</div>
+                <div style="font-family:'Montserrat',sans-serif; font-size:9px; font-weight:600; color:rgba(255,255,255,.8); letter-spacing:0.3em; margin-top:4px;">CLEANING CO.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- mark variants -->
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:14px;">
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:26px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+            <img src="assets/costa-mark.svg" alt="" style="width:54px; height:54px; object-fit:contain;">
+            <div style="font-size:12px; color:#7C8AA0; font-weight:600;">Mark · cobalt</div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:26px; background:#0A1A33; display:flex; flex-direction:column; align-items:center; gap:14px;">
+            <img src="assets/costa-mark-white.svg" alt="" style="width:54px; height:54px; object-fit:contain;">
+            <div style="font-size:12px; color:#8FA6C8; font-weight:600;">Mark · white</div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:18px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;">
+            <img src="assets/costa-icon.svg" alt="Costa app icon" style="width:62px; height:62px; border-radius:15px; box-shadow:0 6px 16px rgba(10,26,51,.22);">
+            <div style="font-size:12px; color:#7C8AA0; font-weight:600;">App icon</div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:18px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;">
+            <div style="width:58px; height:58px; border-radius:50%; background:#EAF1FB; display:flex; align-items:center; justify-content:center;">
+              <img src="assets/costa-mark.svg" alt="" style="width:34px; height:34px; object-fit:contain;">
+            </div>
+            <div style="font-size:12px; color:#7C8AA0; font-weight:600;">Avatar / favicon</div>
+          </div>
+        </div>
+
+        <!-- clear space + dos/donts -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px;">
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:22px;">
+            <div style="font-weight:700; font-size:14px;">Clear space &amp; minimum size</div>
+            <div style="font-size:13px; color:#7C8AA0; line-height:1.5; margin-top:5px;">Keep clear space equal to the height of the wave on all sides. Never render the mark below 24px or the full lockup below 120px wide.</div>
+            <div style="display:flex; align-items:center; gap:20px; margin-top:18px;">
+              <div style="position:relative; padding:22px; border:1px dashed #CFE0F6; border-radius:12px;"><img src="assets/costa-mark.svg" alt="" style="width:46px; height:46px; object-fit:contain; display:block;"></div>
+              <div style="display:flex; align-items:flex-end; gap:12px;">
+                <img src="assets/costa-mark.svg" alt="" style="width:24px; height:24px; object-fit:contain;">
+                <img src="assets/costa-mark.svg" alt="" style="width:18px; height:18px; object-fit:contain; opacity:.4;">
+              </div>
+            </div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:22px;">
+            <div style="font-weight:700; font-size:14px;">Do &amp; don't</div>
+            <div style="display:flex; flex-direction:column; gap:9px; margin-top:14px;">
+              <div style="display:flex; align-items:center; gap:9px; font-size:13px; color:#3A4760;"><span style="width:18px;height:18px;border-radius:50%;background:#E7F6EE;color:#1E9E5A;display:flex;align-items:center;justify-content:center;flex:none;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Use cobalt on light, white on cobalt or ink.</div>
+              <div style="display:flex; align-items:center; gap:9px; font-size:13px; color:#3A4760;"><span style="width:18px;height:18px;border-radius:50%;background:#E7F6EE;color:#1E9E5A;display:flex;align-items:center;justify-content:center;flex:none;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Keep the wave and wordmark proportions locked.</div>
+              <div style="display:flex; align-items:center; gap:9px; font-size:13px; color:#3A4760;"><span style="width:18px;height:18px;border-radius:50%;background:#FBEAEA;color:#D23B3B;display:flex;align-items:center;justify-content:center;flex:none;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Don't recolor, rotate, or add effects to the wave.</div>
+              <div style="display:flex; align-items:center; gap:9px; font-size:13px; color:#3A4760;"><span style="width:18px;height:18px;border-radius:50%;background:#FBEAEA;color:#D23B3B;display:flex;align-items:center;justify-content:center;flex:none;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Don't place the cobalt mark on busy or low-contrast backgrounds.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= SPACING & ELEVATION ======= -->
+      <section id="sec-spacing" style="padding-top:96px;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">FOUNDATIONS</div>
+        <h2 style="font-family:'Montserrat',sans-serif; font-size:32px; font-weight:800; letter-spacing:-0.02em; margin:8px 0 0;">Spacing &amp; elevation</h2>
+        <p style="font-size:15px; line-height:1.6; color:#5B6B82; max-width:620px; margin:12px 0 0;">A 4px grid keeps layouts calm and aligned. Generous radii feel soft and premium; shadows are low and rare — structure comes from light borders, not depth.</p>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:30px;">
+          <!-- spacing scale -->
+          <div style="border:1px solid #EEF2F7; border-radius:18px; padding:24px;">
+            <div style="font-weight:700; font-size:15px;">Spacing scale</div>
+            <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">Base unit 4px.</div>
+            <div style="display:flex; flex-direction:column; gap:11px; margin-top:18px;">
+              <div style="display:flex; align-items:center; gap:14px;"><div style="width:4px; height:18px; background:#0048B0; border-radius:2px;"></div><span style="font-family:'Geist Mono',monospace; font-size:12px; color:#5B6B82;">4 · xs</span></div>
+              <div style="display:flex; align-items:center; gap:14px;"><div style="width:8px; height:18px; background:#0048B0; border-radius:2px;"></div><span style="font-family:'Geist Mono',monospace; font-size:12px; color:#5B6B82;">8 · sm</span></div>
+              <div style="display:flex; align-items:center; gap:14px;"><div style="width:12px; height:18px; background:#0048B0; border-radius:2px;"></div><span style="font-family:'Geist Mono',monospace; font-size:12px; color:#5B6B82;">12 · md</span></div>
+              <div style="display:flex; align-items:center; gap:14px;"><div style="width:16px; height:18px; background:#0048B0; border-radius:2px;"></div><span style="font-family:'Geist Mono',monospace; font-size:12px; color:#5B6B82;">16 · lg</span></div>
+              <div style="display:flex; align-items:center; gap:14px;"><div style="width:24px; height:18px; background:#0048B0; border-radius:2px;"></div><span style="font-family:'Geist Mono',monospace; font-size:12px; color:#5B6B82;">24 · xl</span></div>
+              <div style="display:flex; align-items:center; gap:14px;"><div style="width:40px; height:18px; background:#0048B0; border-radius:2px;"></div><span style="font-family:'Geist Mono',monospace; font-size:12px; color:#5B6B82;">40 · 2xl</span></div>
+            </div>
+          </div>
+          <!-- radius -->
+          <div style="border:1px solid #EEF2F7; border-radius:18px; padding:24px;">
+            <div style="font-weight:700; font-size:15px;">Radius</div>
+            <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">Soft, never sharp.</div>
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:18px;">
+              <div><div style="height:54px; background:#EAF1FB; border:1px solid #DCE8F8; border-radius:8px;"></div><div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7C8AA0; margin-top:7px;">8 · control</div></div>
+              <div><div style="height:54px; background:#EAF1FB; border:1px solid #DCE8F8; border-radius:12px;"></div><div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7C8AA0; margin-top:7px;">12 · button</div></div>
+              <div><div style="height:54px; background:#EAF1FB; border:1px solid #DCE8F8; border-radius:16px;"></div><div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7C8AA0; margin-top:7px;">16 · card</div></div>
+              <div><div style="height:54px; background:#EAF1FB; border:1px solid #DCE8F8; border-radius:22px;"></div><div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7C8AA0; margin-top:7px;">22 · sheet</div></div>
+              <div><div style="height:54px; background:#EAF1FB; border:1px solid #DCE8F8; border-radius:999px;"></div><div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7C8AA0; margin-top:7px;">pill</div></div>
+              <div><div style="height:54px; background:#EAF1FB; border:1px solid #DCE8F8; border-radius:50%;"></div><div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7C8AA0; margin-top:7px;">circle</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- elevation -->
+        <div style="border:1px solid #EEF2F7; border-radius:18px; padding:28px; margin-top:14px; background:#F6F8FB;">
+          <div style="font-weight:700; font-size:15px;">Elevation</div>
+          <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">Three soft steps. Use the brand glow only on primary actions.</div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:24px;">
+            <div style="text-align:center;"><div style="height:72px; background:#fff; border-radius:14px; box-shadow:0 1px 2px rgba(10,26,51,.06);"></div><div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7C8AA0; margin-top:11px;">sm · card</div></div>
+            <div style="text-align:center;"><div style="height:72px; background:#fff; border-radius:14px; box-shadow:0 4px 16px rgba(10,26,51,.07);"></div><div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7C8AA0; margin-top:11px;">md · raised</div></div>
+            <div style="text-align:center;"><div style="height:72px; background:#fff; border-radius:14px; box-shadow:0 14px 36px rgba(10,26,51,.12);"></div><div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7C8AA0; margin-top:11px;">lg · popover</div></div>
+            <div style="text-align:center;"><div style="height:72px; background:#0048B0; border-radius:14px; box-shadow:0 8px 20px rgba(0,72,176,.30);"></div><div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7C8AA0; margin-top:11px;">glow · primary</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= COMPONENTS ======= -->
+      <section id="sec-components" style="padding-top:96px;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">LIBRARY</div>
+        <h2 style="font-family:'Montserrat',sans-serif; font-size:32px; font-weight:800; letter-spacing:-0.02em; margin:8px 0 0;">Components</h2>
+        <p style="font-size:15px; line-height:1.6; color:#5B6B82; max-width:620px; margin:12px 0 0;">The building blocks of the Costa marketplace — from buttons to the cleaner cards customers tap to book. Calm by default, confident where it counts.</p>
+
+        <!-- BUTTONS -->
+        <div style="font-weight:700; font-size:17px; margin-top:36px;">Buttons</div>
+        <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">Primary cobalt for the one action that matters per view. Secondary and ghost recede.</div>
+        <div style="background:#F6F8FB; border:1px solid #EEF2F7; border-radius:16px; padding:28px; margin-top:14px;">
+          <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+            <button style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:14px; font-weight:700; padding:12px 22px; border-radius:12px; box-shadow:0 6px 16px rgba(0,72,176,.22);">Book a clean</button>
+            <button style="font-family:inherit; cursor:pointer; background:#fff; color:#0048B0; font-size:14px; font-weight:700; padding:12px 22px; border-radius:12px; border:1.5px solid #CFE0F6;">Get a quote</button>
+            <button style="font-family:inherit; border:none; cursor:pointer; background:transparent; color:#0048B0; font-size:14px; font-weight:700; padding:12px 16px; border-radius:12px;">Learn more</button>
+            <button style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:14px; font-weight:700; padding:12px 20px; border-radius:12px; display:inline-flex; align-items:center; gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/></svg>Schedule</button>
+            <button style="font-family:inherit; border:none; cursor:not-allowed; background:#E7ECF3; color:#9AA7BA; font-size:14px; font-weight:700; padding:12px 22px; border-radius:12px;">Disabled</button>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:16px;">
+            <button style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:12.5px; font-weight:700; padding:8px 16px; border-radius:9px;">Small</button>
+            <button style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:14px; font-weight:700; padding:12px 22px; border-radius:12px;">Medium</button>
+            <button style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:16px; font-weight:700; padding:16px 30px; border-radius:14px;">Large</button>
+            <button style="font-family:inherit; border:none; cursor:pointer; background:#D23B3B; color:#fff; font-size:14px; font-weight:700; padding:12px 22px; border-radius:12px;">Cancel booking</button>
+          </div>
+          <div style="background:#0A1A33; border-radius:12px; padding:18px; margin-top:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+            <button style="font-family:inherit; border:none; cursor:pointer; background:#fff; color:#0048B0; font-size:14px; font-weight:800; padding:12px 22px; border-radius:12px;">Book now</button>
+            <button style="font-family:inherit; cursor:pointer; background:rgba(255,255,255,.1); color:#fff; font-size:14px; font-weight:700; padding:12px 22px; border-radius:12px; border:1px solid rgba(255,255,255,.28);">On dark</button>
+          </div>
+        </div>
+
+        <!-- BADGES -->
+        <div style="font-weight:700; font-size:17px; margin-top:36px;">Badges &amp; trust signals</div>
+        <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">Carry status and credibility. A colored dot plus a word — never an emoji.</div>
+        <div style="background:#F6F8FB; border:1px solid #EEF2F7; border-radius:16px; padding:28px; margin-top:14px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+          <span style="display:inline-flex; align-items:center; gap:7px; background:#E7F6EE; color:#15834A; font-size:12.5px; font-weight:700; padding:6px 13px; border-radius:999px;"><span style="width:6px;height:6px;border-radius:50%;background:#1E9E5A;"></span>Insured</span>
+          <span style="display:inline-flex; align-items:center; gap:7px; background:#EAF1FB; color:#0048B0; font-size:12.5px; font-weight:700; padding:6px 13px; border-radius:999px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Background-checked</span>
+          <span style="display:inline-flex; align-items:center; gap:7px; background:#FCF3E2; color:#9A5E08; font-size:12.5px; font-weight:700; padding:6px 13px; border-radius:999px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#C77A0A" stroke="none"><path d="M12 2 15 9 22 9 16.5 13.5 18.5 21 12 16.5 5.5 21 7.5 13.5 2 9 9 9z"/></svg>5.0 rated</span>
+          <span style="display:inline-flex; align-items:center; gap:7px; background:#0A1A33; color:#fff; font-size:12.5px; font-weight:700; padding:6px 13px; border-radius:999px;">$2M liability</span>
+          <span style="display:inline-flex; align-items:center; gap:7px; background:#fff; color:#3A4760; font-size:12.5px; font-weight:600; padding:6px 13px; border-radius:999px; border:1px solid #E1E8F1;">W-2 employee</span>
+          <span style="display:inline-flex; align-items:center; gap:7px; background:#EAF1FB; color:#0048B0; font-size:12.5px; font-weight:700; padding:6px 13px; border-radius:999px;">Top Pro</span>
+          <span style="display:inline-flex; align-items:center; gap:7px; background:#FBEAEA; color:#B43030; font-size:12.5px; font-weight:700; padding:6px 13px; border-radius:999px;"><span style="width:6px;height:6px;border-radius:50%;background:#D23B3B;"></span>Cancelled</span>
+        </div>
+
+        <!-- INPUTS -->
+        <div style="font-weight:700; font-size:17px; margin-top:36px;">Inputs &amp; forms</div>
+        <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">Quiet fields with clear labels — the backbone of a low-friction quote flow.</div>
+        <div style="background:#F6F8FB; border:1px solid #EEF2F7; border-radius:16px; padding:28px; margin-top:14px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:640px;">
+            <div>
+              <label style="font-size:12.5px; font-weight:700; color:#3A4760;">Full name</label>
+              <input value="Jordan Reyes" readonly style="font-family:inherit; width:100%; margin-top:7px; padding:12px 14px; border:1.5px solid #E1E8F1; border-radius:11px; font-size:14px; color:#0A1A33; background:#fff; outline:none;">
+            </div>
+            <div>
+              <label style="font-size:12.5px; font-weight:700; color:#0048B0;">Phone number</label>
+              <input value="(239) 980-6084" readonly style="font-family:inherit; width:100%; margin-top:7px; padding:12px 14px; border:1.5px solid #0048B0; border-radius:11px; font-size:14px; color:#0A1A33; background:#fff; outline:none; box-shadow:0 0 0 3px rgba(0,72,176,.14);">
+              <div style="font-size:11.5px; color:#9AA7BA; margin-top:6px;">Focused state · 3px cobalt ring</div>
+            </div>
+            <div style="grid-column:1 / -1;">
+              <label style="font-size:12.5px; font-weight:700; color:#3A4760;">How can we help?</label>
+              <textarea readonly style="font-family:inherit; width:100%; margin-top:7px; padding:12px 14px; border:1.5px solid #E1E8F1; border-radius:11px; font-size:14px; color:#0A1A33; background:#fff; outline:none; resize:none; height:78px; line-height:1.5;">Move-out deep clean for a 2-bed apartment in Cape Coral, ready by Friday.</textarea>
+            </div>
+            <div>
+              <label style="font-size:12.5px; font-weight:700; color:#D23B3B;">Email address</label>
+              <input value="jordan@" readonly style="font-family:inherit; width:100%; margin-top:7px; padding:12px 14px; border:1.5px solid #D23B3B; border-radius:11px; font-size:14px; color:#0A1A33; background:#fff; outline:none;">
+              <div style="font-size:11.5px; color:#D23B3B; margin-top:6px;">Please enter a valid email.</div>
+            </div>
+            <div>
+              <label style="font-size:12.5px; font-weight:700; color:#3A4760;">Service type</label>
+              <div style="position:relative; margin-top:7px;">
+                <div style="width:100%; padding:12px 14px; border:1.5px solid #E1E8F1; border-radius:11px; font-size:14px; color:#0A1A33; background:#fff; display:flex; align-items:center; justify-content:space-between;">Deep cleaning<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AA7BA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SWITCH + CHECKBOX/RADIO -->
+        <div style="font-weight:700; font-size:17px; margin-top:36px;">Toggles &amp; selection</div>
+        <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">For preferences like recurring plans, eco products, and entry method.</div>
+        <div style="background:#F6F8FB; border:1px solid #EEF2F7; border-radius:16px; padding:28px; margin-top:14px; display:flex; flex-wrap:wrap; gap:36px; align-items:center;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:46px; height:27px; border-radius:999px; background:#0048B0; position:relative; box-shadow:inset 0 0 0 1px rgba(0,0,0,.04);"><div style="width:21px; height:21px; border-radius:50%; background:#fff; position:absolute; top:3px; right:3px; box-shadow:0 1px 3px rgba(10,26,51,.3);"></div></div>
+            <span style="font-size:13.5px; font-weight:600; color:#0A1A33;">Recurring plan</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:46px; height:27px; border-radius:999px; background:#D7DEEA; position:relative;"><div style="width:21px; height:21px; border-radius:50%; background:#fff; position:absolute; top:3px; left:3px; box-shadow:0 1px 3px rgba(10,26,51,.2);"></div></div>
+            <span style="font-size:13.5px; font-weight:600; color:#5B6B82;">One-time only</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:11px;">
+            <div style="width:22px; height:22px; border-radius:7px; background:#0048B0; display:flex; align-items:center; justify-content:center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <span style="font-size:13.5px; font-weight:600; color:#0A1A33;">Eco-friendly products</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:11px;">
+            <div style="width:22px; height:22px; border-radius:50%; border:2px solid #0048B0; display:flex; align-items:center; justify-content:center;"><div style="width:10px; height:10px; border-radius:50%; background:#0048B0;"></div></div>
+            <span style="font-size:13.5px; font-weight:600; color:#0A1A33;">I'll be home</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= COMPONENTS (cards & data) ======= -->
+      <div style="padding-top:40px;">
+        <div style="font-weight:700; font-size:17px;">Service cards</div>
+        <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">The catalog tile — one per service, with an icon, a plain-language line, and a starting price.</div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:14px;">
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:20px; background:#fff; box-shadow:0 1px 2px rgba(10,26,51,.04);">
+            <div style="width:42px; height:42px; border-radius:12px; background:#EAF1FB; color:#0048B0; display:flex; align-items:center; justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+            <div style="font-weight:700; font-size:15px; margin-top:14px;">Residential cleaning</div>
+            <div style="font-size:12.5px; color:#7C8AA0; line-height:1.5; margin-top:5px;">Reliable recurring cleans that keep your home fresh.</div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:16px;"><span style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:700; color:#0A1A33;">from $99</span><span style="font-size:12.5px; font-weight:700; color:#0048B0;">Book →</span></div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:20px; background:#fff; box-shadow:0 1px 2px rgba(10,26,51,.04);">
+            <div style="width:42px; height:42px; border-radius:12px; background:#EAF1FB; color:#0048B0; display:flex; align-items:center; justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 7h.01M15 7h.01M9 12h.01M15 12h.01M9 17h6"/></svg></div>
+            <div style="font-weight:700; font-size:15px; margin-top:14px;">Office &amp; commercial</div>
+            <div style="font-size:12.5px; color:#7C8AA0; line-height:1.5; margin-top:5px;">Nightly janitorial that keeps teams productive.</div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:16px;"><span style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:700; color:#0A1A33;">custom</span><span style="font-size:12.5px; font-weight:700; color:#0048B0;">Quote →</span></div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:20px; background:#fff; box-shadow:0 1px 2px rgba(10,26,51,.04);">
+            <div style="width:42px; height:42px; border-radius:12px; background:#EAF1FB; color:#0048B0; display:flex; align-items:center; justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg></div>
+            <div style="font-weight:700; font-size:15px; margin-top:14px;">Deep cleaning</div>
+            <div style="font-size:12.5px; color:#7C8AA0; line-height:1.5; margin-top:5px;">Our top-to-bottom method for stubborn grime.</div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:16px;"><span style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:700; color:#0A1A33;">from $189</span><span style="font-size:12.5px; font-weight:700; color:#0048B0;">Book →</span></div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:20px; background:#fff; box-shadow:0 1px 2px rgba(10,26,51,.04);">
+            <div style="width:42px; height:42px; border-radius:12px; background:#EAF1FB; color:#0048B0; display:flex; align-items:center; justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18M12 3v18"/></svg></div>
+            <div style="font-weight:700; font-size:15px; margin-top:14px;">Window cleaning</div>
+            <div style="font-size:12.5px; color:#7C8AA0; line-height:1.5; margin-top:5px;">Streak-free glass, inside and out.</div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:16px;"><span style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:700; color:#0A1A33;">from $79</span><span style="font-size:12.5px; font-weight:700; color:#0048B0;">Book →</span></div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:20px; background:#fff; box-shadow:0 1px 2px rgba(10,26,51,.04);">
+            <div style="width:42px; height:42px; border-radius:12px; background:#EAF1FB; color:#0048B0; display:flex; align-items:center; justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1z"/><path d="M10 10V5a2 2 0 0 1 4 0v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/></svg></div>
+            <div style="font-weight:700; font-size:15px; margin-top:14px;">Post-construction</div>
+            <div style="font-size:12.5px; color:#7C8AA0; line-height:1.5; margin-top:5px;">Reveal a remodel — dust, debris, and haze gone.</div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:16px;"><span style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:700; color:#0A1A33;">custom</span><span style="font-size:12.5px; font-weight:700; color:#0048B0;">Quote →</span></div>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:16px; padding:20px; background:#fff; box-shadow:0 1px 2px rgba(10,26,51,.04);">
+            <div style="width:42px; height:42px; border-radius:12px; background:#EAF1FB; color:#0048B0; display:flex; align-items:center; justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg></div>
+            <div style="font-weight:700; font-size:15px; margin-top:14px;">Move in / move out</div>
+            <div style="font-size:12.5px; color:#7C8AA0; line-height:1.5; margin-top:5px;">Deposit-back cleans for a spotless handover.</div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:16px;"><span style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:700; color:#0A1A33;">from $169</span><span style="font-size:12.5px; font-weight:700; color:#0048B0;">Book →</span></div>
+          </div>
+        </div>
+
+        <!-- TRUST STATS -->
+        <div style="font-weight:700; font-size:17px; margin-top:36px;">Trust stats</div>
+        <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">Numbers set in mono, the proof that earns the booking.</div>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid #EEF2F7; border-radius:18px; overflow:hidden; margin-top:14px;">
+          <div style="padding:26px; border-right:1px solid #EEF2F7;"><div style="font-family:'Geist Mono',monospace; font-size:30px; font-weight:700; color:#0048B0;">5.0</div><div style="font-size:12.5px; color:#5B6B82; font-weight:600; margin-top:4px;">Google rating</div></div>
+          <div style="padding:26px; border-right:1px solid #EEF2F7;"><div style="font-family:'Geist Mono',monospace; font-size:30px; font-weight:700; color:#0048B0;">50</div><div style="font-size:12.5px; color:#5B6B82; font-weight:600; margin-top:4px;">point inspection</div></div>
+          <div style="padding:26px; border-right:1px solid #EEF2F7;"><div style="font-family:'Geist Mono',monospace; font-size:30px; font-weight:700; color:#0048B0;">$2M+</div><div style="font-size:12.5px; color:#5B6B82; font-weight:600; margin-top:4px;">liability insured</div></div>
+          <div style="padding:26px;"><div style="font-family:'Geist Mono',monospace; font-size:30px; font-weight:700; color:#0048B0;">24h</div><div style="font-size:12.5px; color:#5B6B82; font-weight:600; margin-top:4px;">sparkle guarantee</div></div>
+        </div>
+
+        <!-- TESTIMONIAL + PRO CARD -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:36px; align-items:start;">
+          <div>
+            <div style="font-weight:700; font-size:17px;">Testimonial</div>
+            <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">Real words, gently framed.</div>
+            <div style="border:1px solid #EEF2F7; border-radius:18px; padding:24px; margin-top:14px; box-shadow:0 1px 2px rgba(10,26,51,.04);">
+              <div style="display:flex; gap:3px; color:#C77A0A;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#C77A0A"><path d="M12 2 15 9 22 9 16.5 13.5 18.5 21 12 16.5 5.5 21 7.5 13.5 2 9 9 9z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C77A0A"><path d="M12 2 15 9 22 9 16.5 13.5 18.5 21 12 16.5 5.5 21 7.5 13.5 2 9 9 9z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C77A0A"><path d="M12 2 15 9 22 9 16.5 13.5 18.5 21 12 16.5 5.5 21 7.5 13.5 2 9 9 9z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C77A0A"><path d="M12 2 15 9 22 9 16.5 13.5 18.5 21 12 16.5 5.5 21 7.5 13.5 2 9 9 9z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C77A0A"><path d="M12 2 15 9 22 9 16.5 13.5 18.5 21 12 16.5 5.5 21 7.5 13.5 2 9 9 9z"/></svg>
+              </div>
+              <p style="font-size:15.5px; line-height:1.55; color:#1B2A40; margin:14px 0 0; font-weight:500;">"Costa Cleaning was exactly what we needed. Comfortable crew, friendly, and they left everything perfect."</p>
+              <div style="display:flex; align-items:center; gap:11px; margin-top:18px;">
+                <div style="width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg,#0048B0,#5C9BFF); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:14px;">J</div>
+                <div><div style="font-weight:700; font-size:13.5px;">James M.</div><div style="font-size:12px; color:#9AA7BA;">Fort Myers · Residential</div></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div style="font-weight:700; font-size:17px;">Cleaner profile</div>
+            <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">The marketplace card customers tap to book a pro.</div>
+            <div style="border:1px solid #EEF2F7; border-radius:18px; padding:20px; margin-top:14px; box-shadow:0 4px 16px rgba(10,26,51,.06);">
+              <div style="display:flex; gap:14px; align-items:center;">
+                <div style="position:relative;">
+                  <div style="width:58px; height:58px; border-radius:50%; background:linear-gradient(135deg,#0E63CE,#5C9BFF); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:20px;">M</div>
+                  <div style="position:absolute; bottom:-2px; right:-2px; width:20px; height:20px; border-radius:50%; background:#1E9E5A; border:2.5px solid #fff; display:flex; align-items:center; justify-content:center;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+                </div>
+                <div style="flex:1;">
+                  <div style="display:flex; align-items:center; gap:8px;"><span style="font-weight:700; font-size:16px;">Maria S.</span><span style="background:#EAF1FB; color:#0048B0; font-size:10.5px; font-weight:700; padding:3px 8px; border-radius:999px;">Top Pro</span></div>
+                  <div style="font-size:12.5px; color:#7C8AA0; margin-top:3px;">Deep clean &amp; move-out specialist</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:18px; margin-top:16px; padding:14px 0; border-top:1px solid #F1F4F8; border-bottom:1px solid #F1F4F8;">
+                <div><div style="font-family:'Geist Mono',monospace; font-weight:700; font-size:15px;">4.98</div><div style="font-size:11px; color:#9AA7BA;">rating</div></div>
+                <div><div style="font-family:'Geist Mono',monospace; font-weight:700; font-size:15px;">312</div><div style="font-size:11px; color:#9AA7BA;">cleans</div></div>
+                <div><div style="font-family:'Geist Mono',monospace; font-weight:700; font-size:15px;">6 yrs</div><div style="font-size:11px; color:#9AA7BA;">with Costa</div></div>
+              </div>
+              <div style="display:flex; gap:7px; margin-top:14px; flex-wrap:wrap;">
+                <span style="background:#E7F6EE; color:#15834A; font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px;">Insured</span>
+                <span style="background:#F6F8FB; color:#3A4760; font-size:11px; font-weight:600; padding:4px 10px; border-radius:999px; border:1px solid #E7ECF3;">W-2 employee</span>
+                <span style="background:#F6F8FB; color:#3A4760; font-size:11px; font-weight:600; padding:4px 10px; border-radius:999px; border:1px solid #E7ECF3;">Eco products</span>
+              </div>
+              <button style="font-family:inherit; border:none; cursor:pointer; width:100%; margin-top:16px; background:#0048B0; color:#fff; font-size:14px; font-weight:700; padding:12px; border-radius:12px;">Book Maria</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MEMBERSHIP TIERS -->
+        <div style="font-weight:700; font-size:17px; margin-top:36px;">Membership &amp; pricing tiers</div>
+        <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">One-off or membership — the choice that powers recurring revenue.</div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:14px; align-items:stretch;">
+          <div style="border:1px solid #EEF2F7; border-radius:18px; padding:24px; background:#fff; display:flex; flex-direction:column;">
+            <div style="font-weight:700; font-size:15px;">One-time</div>
+            <div style="font-size:12.5px; color:#7C8AA0; margin-top:4px;">A single, no-commitment clean.</div>
+            <div style="margin-top:18px; display:flex; align-items:baseline; gap:4px;"><span style="font-family:'Geist Mono',monospace; font-size:32px; font-weight:700;">$129</span><span style="font-size:13px; color:#9AA7BA;">/ visit</span></div>
+            <div style="display:flex; flex-direction:column; gap:9px; margin-top:18px; flex:1;">
+              <div style="display:flex; align-items:center; gap:9px; font-size:13px; color:#3A4760;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Vetted, insured pro</div>
+              <div style="display:flex; align-items:center; gap:9px; font-size:13px; color:#3A4760;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>50-point inspection</div>
+              <div style="display:flex; align-items:center; gap:9px; font-size:13px; color:#3A4760;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>24h sparkle guarantee</div>
+            </div>
+            <button style="font-family:inherit; cursor:pointer; margin-top:20px; background:#fff; color:#0048B0; font-size:14px; font-weight:700; padding:12px; border-radius:12px; border:1.5px solid #CFE0F6;">Book once</button>
+          </div>
+          <div style="border:1.5px solid #0048B0; border-radius:18px; padding:24px; background:#fff; display:flex; flex-direction:column; position:relative; box-shadow:0 14px 36px rgba(0,72,176,.14);">
+            <div style="position:absolute; top:-11px; left:24px; background:#0048B0; color:#fff; font-size:10.5px; font-weight:700; letter-spacing:0.04em; padding:5px 11px; border-radius:999px;">MOST POPULAR</div>
+            <div style="font-weight:700; font-size:15px;">Costa Membership</div>
+            <div style="font-size:12.5px; color:#7C8AA0; margin-top:4px;">Recurring cleans, priority booking.</div>
+            <div style="margin-top:18px; display:flex; align-items:baseline; gap:4px;"><span style="font-family:'Geist Mono',monospace; font-size:32px; font-weight:700; color:#0048B0;">$109</span><span style="font-size:13px; color:#9AA7BA;">/ visit</span></div>
+            <div style="display:flex; flex-direction:column; gap:9px; margin-top:18px; flex:1;">
+              <div style="display:flex; align-items:center; gap:9px; font-size:13px; color:#3A4760;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in one-time</div>
+              <div style="display:flex; align-items:center; gap:9px; font-size:13px; color:#3A4760;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Same pro every time</div>
+              <div style="display:flex; align-items:center; gap:9px; font-size:13px; color:#3A4760;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Priority scheduling</div>
+              <div style="display:flex; align-items:center; gap:9px; font-size:13px; color:#3A4760;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>15% off add-ons</div>
+            </div>
+            <button style="font-family:inherit; border:none; cursor:pointer; margin-top:20px; background:#0048B0; color:#fff; font-size:14px; font-weight:700; padding:12px; border-radius:12px; box-shadow:0 6px 16px rgba(0,72,176,.22);">Start membership</button>
+          </div>
+          <div style="border:1px solid #EEF2F7; border-radius:18px; padding:24px; background:#0A1A33; display:flex; flex-direction:column;">
+            <div style="font-weight:700; font-size:15px; color:#fff;">Business</div>
+            <div style="font-size:12.5px; color:#8FA6C8; margin-top:4px;">Offices, clinics, and facilities.</div>
+            <div style="margin-top:18px; display:flex; align-items:baseline; gap:4px;"><span style="font-family:'Geist Mono',monospace; font-size:28px; font-weight:700; color:#fff;">Custom</span></div>
+            <div style="display:flex; flex-direction:column; gap:9px; margin-top:18px; flex:1;">
+              <div style="display:flex; align-items:center; gap:9px; font-size:13px; color:#C7D3E6;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5C9BFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Same-day walkthrough</div>
+              <div style="display:flex; align-items:center; gap:9px; font-size:13px; color:#C7D3E6;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5C9BFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Dedicated account lead</div>
+              <div style="display:flex; align-items:center; gap:9px; font-size:13px; color:#C7D3E6;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5C9BFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Flexible terms, no lock-in</div>
+            </div>
+            <button style="font-family:inherit; border:none; cursor:pointer; margin-top:20px; background:#fff; color:#0A1A33; font-size:14px; font-weight:800; padding:12px; border-radius:12px;">Request a quote</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======= PATTERNS ======= -->
+      <section id="sec-patterns" style="padding-top:96px;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">LIBRARY</div>
+        <h2 style="font-family:'Montserrat',sans-serif; font-size:32px; font-weight:800; letter-spacing:-0.02em; margin:8px 0 0;">Patterns</h2>
+        <p style="font-size:15px; line-height:1.6; color:#5B6B82; max-width:620px; margin:12px 0 0;">The components, composed. How the system shows up as real product — the marketing chrome, the low-friction booking flow, and the customer app that books, tracks, and pays.</p>
+
+        <!-- SITE HEADER -->
+        <div style="font-weight:700; font-size:17px; margin-top:36px;">Marketing header</div>
+        <div style="border:1px solid #EEF2F7; border-radius:16px; margin-top:14px; overflow:hidden;">
+          <div style="display:flex; align-items:center; gap:14px; padding:16px 22px; background:#fff;">
+            <img src="assets/costa-mark.svg" alt="" style="width:30px; height:30px; object-fit:contain;">
+            <span style="font-family:'Montserrat',sans-serif; font-size:15px; font-weight:800; letter-spacing:0.01em;">COSTA <span style="font-size:9px; font-weight:600; color:#9AA7BA; letter-spacing:0.18em;">CLEANING CO.</span></span>
+            <div style="display:flex; gap:24px; margin-left:24px; font-size:13.5px; font-weight:600; color:#3A4760;"><span>Services</span><span>Service areas</span><span>Membership</span><span>About</span></div>
+            <div style="margin-left:auto; display:flex; align-items:center; gap:14px;"><span style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:600; color:#0A1A33;">(239) 980-6084</span><button style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:13px; font-weight:700; padding:10px 18px; border-radius:11px;">Get my quote</button></div>
+          </div>
+        </div>
+
+        <!-- BOOKING FLOW -->
+        <div style="font-weight:700; font-size:17px; margin-top:36px;">Low-friction booking flow</div>
+        <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">Three steps from "I need a clean" to a paid booking — trust built at every step, Stripe at the finish.</div>
+        <div style="border:1px solid #EEF2F7; border-radius:20px; margin-top:14px; overflow:hidden; box-shadow:0 14px 36px rgba(10,26,51,.07);">
+          <div style="display:flex; align-items:center; gap:0; padding:20px 28px; background:#FCFDFE; border-bottom:1px solid #F1F4F8;">
+            <div style="display:flex; align-items:center; gap:10px;"><div style="width:26px; height:26px; border-radius:50%; background:#1E9E5A; display:flex; align-items:center; justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><span style="font-size:13px; font-weight:700; color:#0A1A33;">Service &amp; space</span></div>
+            <div style="flex:1; height:2px; background:#0048B0; margin:0 14px;"></div>
+            <div style="display:flex; align-items:center; gap:10px;"><div style="width:26px; height:26px; border-radius:50%; background:#0048B0; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; box-shadow:0 0 0 4px rgba(0,72,176,.14);">2</div><span style="font-size:13px; font-weight:700; color:#0A1A33;">Date &amp; pro</span></div>
+            <div style="flex:1; height:2px; background:#E7ECF3; margin:0 14px;"></div>
+            <div style="display:flex; align-items:center; gap:10px;"><div style="width:26px; height:26px; border-radius:50%; background:#E7ECF3; color:#9AA7BA; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;">3</div><span style="font-size:13px; font-weight:600; color:#9AA7BA;">Confirm &amp; pay</span></div>
+          </div>
+          <div style="display:grid; grid-template-columns:1.5fr 1fr;">
+            <div style="padding:28px;">
+              <div style="font-family:'Montserrat',sans-serif; font-size:20px; font-weight:700; letter-spacing:-0.01em;">Pick a date &amp; your pro</div>
+              <div style="font-size:13px; color:#7C8AA0; margin-top:4px;">Deep clean · 2 bed / 2 bath · Cape Coral</div>
+              <div style="display:flex; gap:9px; margin-top:18px;">
+                <div style="flex:1; text-align:center; border:1px solid #E7ECF3; border-radius:12px; padding:12px 0;"><div style="font-size:11px; color:#9AA7BA; font-weight:600;">THU</div><div style="font-family:'Geist Mono',monospace; font-size:17px; font-weight:600; margin-top:3px;">12</div></div>
+                <div style="flex:1; text-align:center; border:1.5px solid #0048B0; background:#EAF1FB; border-radius:12px; padding:12px 0;"><div style="font-size:11px; color:#0048B0; font-weight:700;">FRI</div><div style="font-family:'Geist Mono',monospace; font-size:17px; font-weight:600; color:#0048B0; margin-top:3px;">13</div></div>
+                <div style="flex:1; text-align:center; border:1px solid #E7ECF3; border-radius:12px; padding:12px 0;"><div style="font-size:11px; color:#9AA7BA; font-weight:600;">SAT</div><div style="font-family:'Geist Mono',monospace; font-size:17px; font-weight:600; margin-top:3px;">14</div></div>
+                <div style="flex:1; text-align:center; border:1px solid #E7ECF3; border-radius:12px; padding:12px 0;"><div style="font-size:11px; color:#9AA7BA; font-weight:600;">MON</div><div style="font-family:'Geist Mono',monospace; font-size:17px; font-weight:600; margin-top:3px;">16</div></div>
+              </div>
+              <div style="display:flex; align-items:center; gap:13px; border:1.5px solid #0048B0; border-radius:14px; padding:14px; margin-top:16px; background:#fff;">
+                <div style="width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,#0E63CE,#5C9BFF); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700;">M</div>
+                <div style="flex:1;"><div style="font-weight:700; font-size:14px;">Maria S. · Top Pro</div><div style="font-size:12px; color:#7C8AA0;">★ 4.98 · arrives 9:00–9:30 AM</div></div>
+                <div style="width:22px; height:22px; border-radius:50%; background:#0048B0; display:flex; align-items:center; justify-content:center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+              </div>
+              <div style="display:flex; align-items:center; gap:13px; border:1px solid #E7ECF3; border-radius:14px; padding:14px; margin-top:10px;">
+                <div style="width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,#3A4760,#8FA6C8); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700;">D</div>
+                <div style="flex:1;"><div style="font-weight:700; font-size:14px;">Daniel R.</div><div style="font-size:12px; color:#7C8AA0;">★ 4.95 · arrives 10:00–10:30 AM</div></div>
+              </div>
+            </div>
+            <div style="padding:28px; background:#F6F8FB; border-left:1px solid #F1F4F8;">
+              <div style="font-size:11px; font-weight:700; letter-spacing:0.12em; color:#9AA7BA;">SUMMARY</div>
+              <div style="display:flex; justify-content:space-between; font-size:13.5px; margin-top:16px; color:#3A4760;"><span>Deep clean</span><span style="font-family:'Geist Mono',monospace;">$189.00</span></div>
+              <div style="display:flex; justify-content:space-between; font-size:13.5px; margin-top:10px; color:#3A4760;"><span>Eco add-on</span><span style="font-family:'Geist Mono',monospace;">$15.00</span></div>
+              <div style="display:flex; justify-content:space-between; font-size:13.5px; margin-top:10px; color:#1E9E5A;"><span>Member discount</span><span style="font-family:'Geist Mono',monospace;">−$20.00</span></div>
+              <div style="height:1px; background:#E7ECF3; margin:16px 0;"></div>
+              <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font-weight:700; font-size:14px;">Total</span><span style="font-family:'Geist Mono',monospace; font-weight:600; font-size:18px; color:#0A1A33;">$184.00</span></div>
+              <button style="font-family:inherit; border:none; cursor:pointer; width:100%; margin-top:18px; background:#0048B0; color:#fff; font-size:14px; font-weight:700; padding:13px; border-radius:12px; box-shadow:0 6px 16px rgba(0,72,176,.22);">Continue to payment</button>
+              <div style="display:flex; align-items:center; justify-content:center; gap:7px; margin-top:12px; font-size:11.5px; color:#9AA7BA;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Secured by Stripe</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CUSTOMER APP -->
+        <div style="font-weight:700; font-size:17px; margin-top:40px;">Customer app</div>
+        <div style="font-size:13px; color:#7C8AA0; margin-top:3px;">Book, track, and rebook — the membership home screen and live clean tracking.</div>
+        <div style="display:flex; gap:26px; margin-top:18px; padding:32px; background:linear-gradient(160deg,#EAF1FB,#F6F8FB); border:1px solid #EEF2F7; border-radius:20px; justify-content:center;">
+          <!-- phone 1: home -->
+          <div style="width:288px; background:#0A1A33; border-radius:42px; padding:9px; box-shadow:0 24px 54px rgba(10,26,51,.22); flex:none;">
+            <div style="background:#F6F8FB; border-radius:34px; overflow:hidden; height:580px; position:relative;">
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 22px 0; font-family:'Geist Mono',monospace; font-size:12px; font-weight:600; color:#0A1A33;"><span>9:41</span><span>5G</span></div>
+              <div style="padding:16px 20px 0;">
+                <div style="font-size:13px; color:#7C8AA0; font-weight:600;">Good morning,</div>
+                <div style="font-family:'Montserrat',sans-serif; font-size:24px; font-weight:800; letter-spacing:-0.02em;">Jordan</div>
+                <div style="background:#0048B0; border-radius:18px; padding:18px; margin-top:16px; color:#fff; position:relative; overflow:hidden;">
+                  <img src="assets/costa-mark-white.svg" alt="" style="position:absolute; right:-22px; bottom:-26px; width:120px; height:120px; opacity:.12;">
+                  <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; opacity:.8;">NEXT CLEAN</div>
+                  <div style="font-family:'Montserrat',sans-serif; font-size:19px; font-weight:700; margin-top:7px;">Friday, 9:00 AM</div>
+                  <div style="font-size:12.5px; opacity:.9; margin-top:3px;">Deep clean · Maria S.</div>
+                  <div style="display:flex; gap:8px; margin-top:14px;"><div style="background:#fff; color:#0048B0; font-size:12px; font-weight:700; padding:8px 14px; border-radius:9px;">Track</div><div style="background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.3); color:#fff; font-size:12px; font-weight:600; padding:8px 14px; border-radius:9px;">Reschedule</div></div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;">
+                  <div style="background:#fff; border:1px solid #EEF2F7; border-radius:14px; padding:14px;"><div style="width:32px;height:32px;border-radius:9px;background:#EAF1FB;color:#0048B0;display:flex;align-items:center;justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5v14"/></svg></div><div style="font-size:12.5px; font-weight:700; margin-top:9px;">Book a clean</div></div>
+                  <div style="background:#fff; border:1px solid #EEF2F7; border-radius:14px; padding:14px;"><div style="width:32px;height:32px;border-radius:9px;background:#EAF1FB;color:#0048B0;display:flex;align-items:center;justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></div><div style="font-size:12.5px; font-weight:700; margin-top:9px;">Rebook last</div></div>
+                </div>
+                <div style="display:flex; align-items:center; justify-content:space-between; background:#fff; border:1px solid #EEF2F7; border-radius:14px; padding:13px 15px; margin-top:10px;"><div style="display:flex; align-items:center; gap:10px;"><span style="background:#EAF1FB; color:#0048B0; font-size:10px; font-weight:700; padding:4px 9px; border-radius:999px;">MEMBER</span><span style="font-size:12.5px; font-weight:600; color:#3A4760;">$109 / visit rate</span></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AA7BA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+              </div>
+              <div style="position:absolute; bottom:0; left:0; right:0; display:flex; justify-content:space-around; padding:14px 0 22px; background:#fff; border-top:1px solid #F1F4F8;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0048B0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C0CADA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C0CADA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C0CADA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+              </div>
+            </div>
+          </div>
+          <!-- phone 2: tracking -->
+          <div style="width:288px; background:#0A1A33; border-radius:42px; padding:9px; box-shadow:0 24px 54px rgba(10,26,51,.22); flex:none;">
+            <div style="background:#fff; border-radius:34px; overflow:hidden; height:580px; position:relative;">
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 22px 0; font-family:'Geist Mono',monospace; font-size:12px; font-weight:600; color:#0A1A33;"><span>9:41</span><span>5G</span></div>
+              <div style="padding:14px 20px 0; display:flex; align-items:center; gap:10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A1A33" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span style="font-family:'Montserrat',sans-serif; font-size:17px; font-weight:700;">Your clean</span></div>
+              <div style="margin:14px 20px 0; height:128px; border-radius:16px; background:linear-gradient(160deg,#DCE8F8,#EAF1FB); border:1px solid #DCE8F8; position:relative; overflow:hidden;">
+                <div style="position:absolute; left:24px; top:30px; width:8px; height:8px; border-radius:50%; background:#0048B0; box-shadow:0 0 0 5px rgba(0,72,176,.18);"></div>
+                <div style="position:absolute; right:34px; bottom:28px; color:#0048B0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                <svg style="position:absolute; inset:0;" width="100%" height="100%"><path d="M30 38 Q120 50 230 100" fill="none" stroke="#0048B0" stroke-width="2.5" stroke-dasharray="5 6" stroke-linecap="round"/></svg>
+              </div>
+              <div style="padding:16px 20px 0;">
+                <div style="display:flex; align-items:center; gap:11px;"><div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,#0E63CE,#5C9BFF); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700;">M</div><div style="flex:1;"><div style="font-weight:700; font-size:14px;">Maria is on the way</div><div style="font-size:12px; color:#7C8AA0;">ETA 9:04 AM · 0.8 mi away</div></div><span style="background:#E7F6EE; color:#15834A; font-size:10.5px; font-weight:700; padding:5px 9px; border-radius:999px;">En route</span></div>
+                <div style="margin-top:18px; display:flex; flex-direction:column;">
+                  <div style="display:flex; gap:12px;"><div style="display:flex; flex-direction:column; align-items:center;"><div style="width:18px;height:18px;border-radius:50%;background:#1E9E5A;display:flex;align-items:center;justify-content:center;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div style="width:2px; flex:1; background:#1E9E5A; min-height:22px;"></div></div><div style="padding-bottom:14px;"><div style="font-size:13px; font-weight:700;">Booking confirmed</div><div style="font-size:11.5px; color:#9AA7BA;">Wed, 4:21 PM</div></div></div>
+                  <div style="display:flex; gap:12px;"><div style="display:flex; flex-direction:column; align-items:center;"><div style="width:18px;height:18px;border-radius:50%;background:#0048B0;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(0,72,176,.14);"></div><div style="width:2px; flex:1; background:#E7ECF3; min-height:22px;"></div></div><div style="padding-bottom:14px;"><div style="font-size:13px; font-weight:700; color:#0048B0;">Maria en route</div><div style="font-size:11.5px; color:#9AA7BA;">Today, 8:48 AM</div></div></div>
+                  <div style="display:flex; gap:12px;"><div style="display:flex; flex-direction:column; align-items:center;"><div style="width:18px;height:18px;border-radius:50%;border:2px solid #D7DEEA;background:#fff;"></div></div><div><div style="font-size:13px; font-weight:600; color:#9AA7BA;">Clean in progress</div></div></div>
+                </div>
+                <button style="font-family:inherit; border:none; cursor:pointer; width:100%; margin-top:18px; background:#EAF1FB; color:#0048B0; font-size:13.5px; font-weight:700; padding:12px; border-radius:12px; display:flex; align-items:center; justify-content:center; gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>Message Maria</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="font-weight:700; font-size:17px; margin-top:40px;">Footer</div>
+        <div style="border:1px solid #EEF2F7; border-radius:16px; margin-top:14px; overflow:hidden;">
+          <div style="background:#0A1A33; padding:34px 32px;">
+            <div style="display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:24px;">
+              <div>
+                <div style="display:flex; align-items:center; gap:11px;"><img src="assets/costa-mark-white.svg" alt="" style="width:32px; height:32px; object-fit:contain;"><span style="font-family:'Montserrat',sans-serif; font-size:15px; font-weight:800; color:#fff;">COSTA <span style="font-size:8px; font-weight:600; color:#8FA6C8; letter-spacing:0.18em;">CLEANING CO.</span></span></div>
+                <div style="font-size:13px; color:#A9B8D1; line-height:1.6; margin-top:14px; max-width:240px;">Professional, insured cleaning for homes and businesses across Fort Myers and Lee County.</div>
+                <div style="font-family:'Geist Mono',monospace; font-size:13px; color:#fff; margin-top:14px;">(239) 980-6084</div>
+              </div>
+              <div><div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:#5E739A;">SERVICES</div><div style="display:flex; flex-direction:column; gap:9px; margin-top:14px; font-size:13px; color:#C7D3E6;"><span>Residential</span><span>Office</span><span>Deep cleaning</span><span>Move in / out</span></div></div>
+              <div><div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:#5E739A;">COMPANY</div><div style="display:flex; flex-direction:column; gap:9px; margin-top:14px; font-size:13px; color:#C7D3E6;"><span>About us</span><span>Service areas</span><span>Membership</span><span>Careers</span></div></div>
+              <div><div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:#5E739A;">GET STARTED</div><button style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:13px; font-weight:700; padding:11px 18px; border-radius:11px; margin-top:14px;">Get my quote</button><div style="font-size:12px; color:#8FA6C8; margin-top:12px; line-height:1.5;">Mon–Sat · 8AM–7PM</div></div>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,.1); margin-top:26px; padding-top:18px; display:flex; justify-content:space-between; font-size:12px; color:#7C8AA0;"><span>© 2026 Costa Cleaning Co. All rights reserved.</span><span>Privacy · Terms</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!--SECTIONS_END-->
+    </div>
+  </main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { active: 'sec-brand' };
+
+  componentDidMount() {
+    this._content = document.getElementById('ds-content');
+    this._ids = ['sec-brand','sec-color','sec-type','sec-logo','sec-spacing','sec-components','sec-patterns'];
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = null;
+        const c = this._content;
+        if (!c) return;
+        let cur = this._ids[0];
+        for (const id of this._ids) {
+          const el = document.getElementById(id);
+          if (el && el.offsetTop - c.scrollTop <= 140) cur = id;
+        }
+        if (cur !== this.state.active) this.setState({ active: cur });
+      });
+    };
+    if (this._content) this._content.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+  componentWillUnmount() {
+    if (this._content) this._content.removeEventListener('scroll', this._onScroll);
+  }
+
+  go(id) {
+    const c = document.getElementById('ds-content');
+    const el = document.getElementById(id);
+    if (c && el) c.scrollTo({ top: el.offsetTop - 24, behavior: 'smooth' });
+    this.setState({ active: id });
+  }
+
+  navItem(id, label) {
+    const on = this.state.active === id;
+    const itemStyle = [
+      'display:flex','align-items:center','gap:10px',
+      'padding:9px 12px','border-radius:10px','cursor:pointer',
+      'font-size:13.5px','letter-spacing:-0.01em','margin-bottom:2px',
+      'transition:background .12s,color .12s',
+      'font-weight:' + (on ? '700' : '600'),
+      'color:' + (on ? '#0048B0' : '#5B6B82'),
+      'background:' + (on ? '#EAF1FB' : 'transparent'),
+    ].join(';');
+    const dotStyle = [
+      'width:6px','height:6px','border-radius:99px','flex:none',
+      'transition:background .12s',
+      'background:' + (on ? '#0048B0' : '#CDD6E2'),
+    ].join(';');
+    return { id, label, itemStyle, dotStyle, on: () => this.go(id) };
+  }
+
+  renderVals() {
+    return {
+      navFoundations: [
+        this.navItem('sec-brand','Overview'),
+        this.navItem('sec-color','Color'),
+        this.navItem('sec-type','Typography'),
+        this.navItem('sec-logo','Logo & mark'),
+        this.navItem('sec-spacing','Spacing & elevation'),
+      ],
+      navLibrary: [
+        this.navItem('sec-components','Components'),
+        this.navItem('sec-patterns','Patterns'),
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

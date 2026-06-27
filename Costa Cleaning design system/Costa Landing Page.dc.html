@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Affordable House &amp; Office Cleaning in Fort Myers, FL | Costa Cleaning Co.</title>
+<meta name="description" content="Rated 5.0 on Google. Costa Cleaning Co. provides professional, insured house and office cleaning in Fort Myers, Cape Coral &amp; SW Florida. Get a free, flat-rate quote in 60 seconds.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Affordable House &amp; Office Cleaning in Fort Myers, FL">
+<meta property="og:description" content="Vetted, insured cleaning pros. 5.0-star rated. Free flat-rate quotes. Book in minutes.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HouseCleaningService","name":"Costa Cleaning Co.","image":"assets/costa-icon-cobalt.svg","telephone":"+1-239-980-6084","email":"info@costacleaning.co","url":"https://costacleaning.co","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Fort Myers","addressRegion":"FL","addressCountry":"US"},"areaServed":["Fort Myers","Cape Coral","Lehigh Acres","North Fort Myers","Punta Gorda","Estero","Sanibel","Bonita Springs"],"openingHours":"Mo-Sa 08:00-19:00","aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"127"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can I schedule a cleaning?","acceptedText":"Same-week appointments are often available; most cleans are scheduled within a few days.","acceptedAnswer":{"@type":"Answer","text":"We offer flexible scheduling and can usually arrange your cleaning within a few days. Same-week appointments are often available."}},{"@type":"Question","name":"Are your cleaners background-checked and insured?","acceptedAnswer":{"@type":"Answer","text":"Every team member is a vetted W-2 employee who has passed a background check. We are fully bonded and carry $2M+ in liability insurance."}},{"@type":"Question","name":"Do I have to sign a long-term contract?","acceptedAnswer":{"@type":"Answer","text":"No. We offer flexible service terms and earn your business every visit. Annual agreements are available for budget stability but never required."}}]}
+</script>
+<script src="image-slot.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:#fff;color:#0A1A33;font-family:'Plus Jakarta Sans',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;}
+  ::selection{background:#CFE0F6;}
+  image-slot{display:block;}
+  @keyframes fadeUp{ from{ transform:translateY(14px); } to{ transform:none; } }
+  .flow-step{ animation:fadeUp .4s cubic-bezier(.2,.7,.3,1); }
+  @media (max-width: 760px){
+    #flow-inner{ padding:34px 20px 90px !important; }
+    .flow-q{ font-size:27px !important; }
+    #hero-bg{ background-position:72% center !important; }
+    #hero-grad{ background:linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.72) 100%) !important; }
+    #hero-inner{ padding:30px 18px 40px !important; }
+    #hero-content{ max-width:100% !important; min-height:0 !important; }
+    #hero-h1{ font-size:35px !important; }
+    #hero-search{ max-width:100% !important; }
+    #hero-searchbar{ flex-direction:column !important; padding:8px !important; }
+    #hf-service, #hf-zip{ flex:none !important; width:100% !important; }
+    #hf-div{ display:none !important; }
+    #hf-zip{ border-top:1px solid #EEF2F7 !important; padding:11px 8px 4px 10px !important; }
+    #hf-btn{ width:100% !important; padding:14px !important; justify-content:center !important; margin-top:6px !important; }
+    #hero-proof{ display:flex !important; }
+  }
+</style>
+</helmet>
+
+<div style="width:100%; overflow-x:hidden;">
+
+  <!-- ===== TYPEFORM-STYLE FLOW ===== -->
+  <sc-if value="{{ flowOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed; inset:0; z-index:1000; background:#F6F9FD; overflow-y:auto;">
+    <div style="position:fixed; top:0; left:0; right:0; height:4px; background:#E7ECF3; z-index:3;"><div style="height:100%; width:{{ progressPct }}; background:#0048B0; transition:width .35s cubic-bezier(.2,.7,.3,1);"></div></div>
+    <div style="position:sticky; top:0; background:rgba(246,249,253,.85); backdrop-filter:blur(8px); z-index:2;">
+      <div style="max-width:680px; margin:0 auto; padding:18px 24px; display:flex; align-items:center; gap:10px;">
+        <img src="assets/costa-mark.svg" alt="Costa" style="width:28px; height:28px; object-fit:contain;">
+        <span style="font-family:'Montserrat',sans-serif; font-size:14px; font-weight:800; letter-spacing:0.01em;">COSTA</span>
+        <span style="margin-left:auto; font-size:13px; color:#7C8AA0; font-weight:600;">{{ stepNum }}</span>
+        <button onClick="{{ closeFlow }}" style="font-family:inherit; cursor:pointer; border:none; background:#fff; border:1px solid #E1E8F1; width:34px; height:34px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#5B6B82;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+      </div>
+    </div>
+
+    <div id="flow-inner" style="max-width:600px; margin:0 auto; padding:54px 24px 100px;">
+
+      <!-- STEP 0: welcome -->
+      <sc-if value="{{ isF0 }}" hint-placeholder-val="{{ false }}">
+      <div class="flow-step">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">LET'S GET STARTED</div>
+        <h2 class="flow-q" style="font-family:'Montserrat',sans-serif; font-size:35px; font-weight:800; letter-spacing:-0.02em; line-height:1.08; color:#0A1A33; margin:12px 0 0;">Great — let's build your perfect clean.</h2>
+        <p style="font-size:16.5px; color:#5B6B82; line-height:1.55; margin:14px 0 0;">A few quick questions so your price is exact and your pro is the right fit. Takes about 60 seconds.</p>
+        <div style="display:flex; gap:10px; margin-top:26px;">
+          <div style="flex:1; background:#fff; border:1px solid #E7ECF3; border-radius:14px; padding:16px;"><div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:#9AA7BA;">SERVICE</div><div style="font-size:16px; font-weight:700; margin-top:5px;">{{ service }}</div></div>
+          <div style="flex:1; background:#fff; border:1px solid #E7ECF3; border-radius:14px; padding:16px;"><div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:#9AA7BA;">LOCATION</div><div style="font-size:16px; font-weight:700; margin-top:5px;">{{ flowLocationText }}</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; margin-top:32px;">
+          <button onClick="{{ flowNext }}" style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:16px; font-weight:700; padding:15px 30px; border-radius:13px; box-shadow:0 8px 20px rgba(0,72,176,.24);">Let's go</button>
+          <span style="font-size:13px; color:#9AA7BA; font-weight:600;">press Enter ↵</span>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- STEP 1: property type -->
+      <sc-if value="{{ isF1 }}" hint-placeholder-val="{{ false }}">
+      <div class="flow-step">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">STEP 1</div>
+        <h2 class="flow-q" style="font-family:'Montserrat',sans-serif; font-size:33px; font-weight:800; letter-spacing:-0.02em; line-height:1.1; color:#0A1A33; margin:10px 0 0;">What are we cleaning?</h2>
+        <div style="display:flex; flex-direction:column; gap:11px; margin-top:26px;">
+          <sc-for list="{{ propertyList }}" as="item" hint-placeholder-count="4">
+            <div onClick="{{ item.on }}" style="{{ item.style }}"><span>{{ item.label }}</span></div>
+          </sc-for>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px; margin-top:30px;">
+          <button onClick="{{ flowBack }}" style="font-family:inherit; border:none; cursor:pointer; background:transparent; color:#5B6B82; font-size:15px; font-weight:700; padding:14px 8px; display:inline-flex; align-items:center; gap:5px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>Back</button>
+          <button onClick="{{ flowNext }}" style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:16px; font-weight:700; padding:15px 30px; border-radius:13px; box-shadow:0 8px 20px rgba(0,72,176,.24);">Continue</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- STEP 2: size -->
+      <sc-if value="{{ isF2 }}" hint-placeholder-val="{{ false }}">
+      <div class="flow-step">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">STEP 2</div>
+        <h2 class="flow-q" style="font-family:'Montserrat',sans-serif; font-size:33px; font-weight:800; letter-spacing:-0.02em; line-height:1.1; color:#0A1A33; margin:10px 0 0;">How big is the space?</h2>
+        <p style="font-size:16px; color:#5B6B82; line-height:1.55; margin:12px 0 0;">This keeps your flat-rate price accurate — no surprises at the door.</p>
+        <div style="display:flex; flex-direction:column; gap:12px; margin-top:26px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; background:#fff; border:1px solid #E7ECF3; border-radius:14px; padding:18px 22px;">
+            <span style="font-size:17px; font-weight:700;">Bedrooms</span>
+            <div style="display:flex; align-items:center; gap:18px;"><button onClick="{{ setBeds(-1) }}" style="font-family:inherit; cursor:pointer; width:40px; height:40px; border-radius:11px; border:1.5px solid #E1E8F1; background:#fff; font-size:22px; color:#0048B0;">–</button><span style="font-family:'Geist Mono',monospace; font-size:20px; font-weight:600; width:24px; text-align:center;">{{ beds }}</span><button onClick="{{ setBeds(1) }}" style="font-family:inherit; cursor:pointer; width:40px; height:40px; border-radius:11px; border:1.5px solid #E1E8F1; background:#fff; font-size:22px; color:#0048B0;">+</button></div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; background:#fff; border:1px solid #E7ECF3; border-radius:14px; padding:18px 22px;">
+            <span style="font-size:17px; font-weight:700;">Bathrooms</span>
+            <div style="display:flex; align-items:center; gap:18px;"><button onClick="{{ setBaths(-1) }}" style="font-family:inherit; cursor:pointer; width:40px; height:40px; border-radius:11px; border:1.5px solid #E1E8F1; background:#fff; font-size:22px; color:#0048B0;">–</button><span style="font-family:'Geist Mono',monospace; font-size:20px; font-weight:600; width:24px; text-align:center;">{{ baths }}</span><button onClick="{{ setBaths(1) }}" style="font-family:inherit; cursor:pointer; width:40px; height:40px; border-radius:11px; border:1.5px solid #E1E8F1; background:#fff; font-size:22px; color:#0048B0;">+</button></div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px; margin-top:30px;">
+          <button onClick="{{ flowBack }}" style="font-family:inherit; border:none; cursor:pointer; background:transparent; color:#5B6B82; font-size:15px; font-weight:700; padding:14px 8px; display:inline-flex; align-items:center; gap:5px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>Back</button>
+          <button onClick="{{ flowNext }}" style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:16px; font-weight:700; padding:15px 30px; border-radius:13px; box-shadow:0 8px 20px rgba(0,72,176,.24);">Continue</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- STEP 3: frequency -->
+      <sc-if value="{{ isF3 }}" hint-placeholder-val="{{ false }}">
+      <div class="flow-step">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">STEP 3</div>
+        <h2 class="flow-q" style="font-family:'Montserrat',sans-serif; font-size:33px; font-weight:800; letter-spacing:-0.02em; line-height:1.1; color:#0A1A33; margin:10px 0 0;">How often would you like us?</h2>
+        <p style="font-size:16px; color:#5B6B82; line-height:1.55; margin:12px 0 0;">Members save 15% on every visit and keep the same trusted pro.</p>
+        <div style="display:flex; flex-direction:column; gap:11px; margin-top:24px;">
+          <sc-for list="{{ freqList }}" as="item" hint-placeholder-count="4">
+            <div onClick="{{ item.on }}" style="{{ item.style }}"><span style="display:flex; flex-direction:column; gap:2px;"><span>{{ item.label }}</span><span style="font-size:13px; font-weight:600; opacity:.7;">{{ item.desc }}</span></span></div>
+          </sc-for>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px; margin-top:30px;">
+          <button onClick="{{ flowBack }}" style="font-family:inherit; border:none; cursor:pointer; background:transparent; color:#5B6B82; font-size:15px; font-weight:700; padding:14px 8px; display:inline-flex; align-items:center; gap:5px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>Back</button>
+          <button onClick="{{ flowNext }}" style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:16px; font-weight:700; padding:15px 30px; border-radius:13px; box-shadow:0 8px 20px rgba(0,72,176,.24);">Continue</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- STEP 4: add-ons -->
+      <sc-if value="{{ isF4 }}" hint-placeholder-val="{{ false }}">
+      <div class="flow-step">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">STEP 4</div>
+        <h2 class="flow-q" style="font-family:'Montserrat',sans-serif; font-size:33px; font-weight:800; letter-spacing:-0.02em; line-height:1.1; color:#0A1A33; margin:10px 0 0;">Want any extras?</h2>
+        <p style="font-size:16px; color:#5B6B82; line-height:1.55; margin:12px 0 0;">Optional — tap any that apply. You can change these later.</p>
+        <div style="display:flex; flex-direction:column; gap:11px; margin-top:24px;">
+          <sc-for list="{{ addonList }}" as="item" hint-placeholder-count="5">
+            <div onClick="{{ item.on }}" style="{{ item.style }}"><span style="display:flex; align-items:center; gap:13px;"><span style="{{ item.boxStyle }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>{{ item.label }}</span><span style="font-size:14px; font-weight:600; opacity:.7;">{{ item.price }}</span></div>
+          </sc-for>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px; margin-top:30px;">
+          <button onClick="{{ flowBack }}" style="font-family:inherit; border:none; cursor:pointer; background:transparent; color:#5B6B82; font-size:15px; font-weight:700; padding:14px 8px; display:inline-flex; align-items:center; gap:5px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>Back</button>
+          <button onClick="{{ flowNext }}" style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:16px; font-weight:700; padding:15px 30px; border-radius:13px; box-shadow:0 8px 20px rgba(0,72,176,.24);">Continue</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- STEP 5: schedule -->
+      <sc-if value="{{ isF5 }}" hint-placeholder-val="{{ false }}">
+      <div class="flow-step">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">STEP 5</div>
+        <h2 class="flow-q" style="font-family:'Montserrat',sans-serif; font-size:33px; font-weight:800; letter-spacing:-0.02em; line-height:1.1; color:#0A1A33; margin:10px 0 0;">When works best?</h2>
+        <div style="font-size:13px; font-weight:700; color:#9AA7BA; letter-spacing:0.06em; margin-top:24px;">TIMEFRAME</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:11px;">
+          <sc-for list="{{ scheduleList }}" as="item" hint-placeholder-count="4">
+            <div onClick="{{ item.on }}" style="{{ item.style }}"><span>{{ item.label }}</span></div>
+          </sc-for>
+        </div>
+        <div style="font-size:13px; font-weight:700; color:#9AA7BA; letter-spacing:0.06em; margin-top:22px;">ARRIVAL WINDOW</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:11px;">
+          <sc-for list="{{ arrivalList }}" as="item" hint-placeholder-count="4">
+            <div onClick="{{ item.on }}" style="{{ item.style }}"><span>{{ item.label }}</span></div>
+          </sc-for>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px; margin-top:30px;">
+          <button onClick="{{ flowBack }}" style="font-family:inherit; border:none; cursor:pointer; background:transparent; color:#5B6B82; font-size:15px; font-weight:700; padding:14px 8px; display:inline-flex; align-items:center; gap:5px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>Back</button>
+          <button onClick="{{ flowNext }}" style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:16px; font-weight:700; padding:15px 30px; border-radius:13px; box-shadow:0 8px 20px rgba(0,72,176,.24);">Continue</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- STEP 6: details / account -->
+      <sc-if value="{{ isF6 }}" hint-placeholder-val="{{ false }}">
+      <div class="flow-step">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">STEP 6</div>
+        <h2 class="flow-q" style="font-family:'Montserrat',sans-serif; font-size:33px; font-weight:800; letter-spacing:-0.02em; line-height:1.1; color:#0A1A33; margin:10px 0 0;">Where should we send your quote?</h2>
+        <p style="font-size:16px; color:#5B6B82; line-height:1.55; margin:12px 0 0;">This creates your free Costa account so you can book, track, and rebook in one place.</p>
+        <div style="display:flex; flex-direction:column; gap:12px; margin-top:24px;">
+          <input value="{{ name }}" onChange="{{ onName }}" placeholder="Full name" style="font-family:inherit; padding:16px 18px; border:1.5px solid #E1E8F1; border-radius:13px; font-size:16px; outline:none; background:#fff;">
+          <input value="{{ email }}" onChange="{{ onEmail }}" placeholder="Email address" style="font-family:inherit; padding:16px 18px; border:1.5px solid #E1E8F1; border-radius:13px; font-size:16px; outline:none; background:#fff;">
+          <input value="{{ phone }}" onChange="{{ onPhone }}" placeholder="Phone number" style="font-family:inherit; padding:16px 18px; border:1.5px solid #E1E8F1; border-radius:13px; font-size:16px; outline:none; background:#fff;">
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; margin-top:14px; font-size:12.5px; color:#9AA7BA;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Bank-level encryption · we never sell your info.</div>
+        <div style="display:flex; align-items:center; gap:6px; margin-top:26px;">
+          <button onClick="{{ flowBack }}" style="font-family:inherit; border:none; cursor:pointer; background:transparent; color:#5B6B82; font-size:15px; font-weight:700; padding:14px 8px; display:inline-flex; align-items:center; gap:5px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>Back</button>
+          <button onClick="{{ flowNext }}" style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:16px; font-weight:700; padding:15px 30px; border-radius:13px; box-shadow:0 8px 20px rgba(0,72,176,.24);">See my price</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- STEP 7: review + estimate -->
+      <sc-if value="{{ isF7 }}" hint-placeholder-val="{{ false }}">
+      <div class="flow-step">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">ALMOST DONE</div>
+        <h2 class="flow-q" style="font-family:'Montserrat',sans-serif; font-size:33px; font-weight:800; letter-spacing:-0.02em; line-height:1.1; color:#0A1A33; margin:10px 0 0;">Here's your clean</h2>
+        <div style="background:#0A1A33; border-radius:20px; padding:26px; margin-top:22px; color:#fff; position:relative; overflow:hidden;">
+          <img src="assets/costa-mark-white.svg" alt="" style="position:absolute; right:-30px; bottom:-34px; width:150px; height:150px; opacity:.08;">
+          <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; color:#7FB2FF; position:relative;">ESTIMATED FLAT RATE</div>
+          <div style="font-family:'Geist Mono',monospace; font-size:40px; font-weight:600; margin-top:8px; position:relative;">{{ estimateFlowRange }}</div>
+          <div style="font-size:13px; color:#A9B8D1; margin-top:6px; position:relative;">Final price confirmed before anyone is charged.</div>
+        </div>
+        <div style="background:#fff; border:1px solid #E7ECF3; border-radius:16px; margin-top:14px; overflow:hidden;">
+          <div style="display:flex; justify-content:space-between; padding:14px 18px; border-bottom:1px solid #F1F4F8; font-size:14.5px;"><span style="color:#7C8AA0;">Service</span><span style="font-weight:700;">{{ service }}</span></div>
+          <div style="display:flex; justify-content:space-between; padding:14px 18px; border-bottom:1px solid #F1F4F8; font-size:14.5px;"><span style="color:#7C8AA0;">Property</span><span style="font-weight:700;">{{ propertyType }}</span></div>
+          <div style="display:flex; justify-content:space-between; padding:14px 18px; border-bottom:1px solid #F1F4F8; font-size:14.5px;"><span style="color:#7C8AA0;">Size</span><span style="font-weight:700;">{{ reviewSize }}</span></div>
+          <div style="display:flex; justify-content:space-between; padding:14px 18px; border-bottom:1px solid #F1F4F8; font-size:14.5px;"><span style="color:#7C8AA0;">Frequency</span><span style="font-weight:700;">{{ flowFreqLabel }}</span></div>
+          <div style="display:flex; justify-content:space-between; padding:14px 18px; border-bottom:1px solid #F1F4F8; font-size:14.5px;"><span style="color:#7C8AA0;">Add-ons</span><span style="font-weight:700;">{{ addonsCount }}</span></div>
+          <div style="display:flex; justify-content:space-between; padding:14px 18px; font-size:14.5px;"><span style="color:#7C8AA0;">Location</span><span style="font-weight:700;">{{ flowLocationText }}</span></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px; margin-top:26px;">
+          <button onClick="{{ flowBack }}" style="font-family:inherit; border:none; cursor:pointer; background:transparent; color:#5B6B82; font-size:15px; font-weight:700; padding:14px 8px; display:inline-flex; align-items:center; gap:5px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>Back</button>
+          <button onClick="{{ flowNext }}" style="font-family:inherit; border:none; cursor:pointer; flex:1; background:#0048B0; color:#fff; font-size:16px; font-weight:700; padding:16px; border-radius:13px; box-shadow:0 8px 20px rgba(0,72,176,.24);">Create account &amp; confirm</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- STEP 8: success + app -->
+      <sc-if value="{{ isF8 }}" hint-placeholder-val="{{ false }}">
+      <div class="flow-step" style="text-align:center;">
+        <div style="width:74px; height:74px; border-radius:50%; background:#E7F6EE; color:#15834A; display:flex; align-items:center; justify-content:center; margin:8px auto 0;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></div>
+        <h2 class="flow-q" style="font-family:'Montserrat',sans-serif; font-size:35px; font-weight:800; letter-spacing:-0.02em; line-height:1.08; color:#0A1A33; margin:20px 0 0;">You're all set!</h2>
+        <p style="font-size:16.5px; color:#5B6B82; line-height:1.55; margin:12px auto 0; max-width:420px;">Your Costa account is created. A specialist will text you shortly to confirm your {{ service }} in {{ flowLocationText }}.</p>
+
+        <div style="background:#fff; border:1px solid #E7ECF3; border-radius:20px; padding:26px; margin-top:28px; box-shadow:0 14px 36px rgba(10,26,51,.07);">
+          <div style="font-family:'Montserrat',sans-serif; font-size:19px; font-weight:800; letter-spacing:-0.01em;">Get the Costa app</div>
+          <p style="font-size:14px; color:#7C8AA0; line-height:1.5; margin:7px 0 0;">Manage your booking, track your pro live, and rebook in two taps.</p>
+          <div style="display:flex; gap:22px; align-items:center; justify-content:center; margin-top:22px; flex-wrap:wrap;">
+            <div style="width:124px; height:124px; border-radius:16px; background:#F6F8FB; border:1px solid #E7ECF3; display:flex; align-items:center; justify-content:center; position:relative;">
+              <img src="assets/costa-mark.svg" alt="" style="width:40px; height:40px; object-fit:contain;">
+              <div style="position:absolute; bottom:8px; font-size:9.5px; font-weight:700; color:#9AA7BA; letter-spacing:0.04em;">SCAN TO INSTALL</div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <div style="display:flex; align-items:center; gap:10px; background:#0A1A33; color:#fff; border-radius:12px; padding:10px 18px; cursor:pointer; min-width:180px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.04c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.9-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.23 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.14-2.53.99-1.45 1.4-2.85 1.42-2.93-.03-.01-2.73-1.05-2.76-4.16zM14.6 4.62c.72-.87 1.2-2.08 1.07-3.29-1.03.04-2.28.69-3.02 1.56-.66.77-1.24 2-1.08 3.18 1.15.09 2.32-.58 3.03-1.45z"></path></svg><span style="display:flex; flex-direction:column; line-height:1.1; text-align:left;"><span style="font-size:9px; opacity:.8;">Download on the</span><span style="font-size:15px; font-weight:700;">App Store</span></span></div>
+              <div style="display:flex; align-items:center; gap:10px; background:#0A1A33; color:#fff; border-radius:12px; padding:10px 18px; cursor:pointer; min-width:180px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 2.5v19l11-9.5L3 2.5zm13.5 6.2L6.8 3.1l8.4 7.3 1.3-1.7zm3 2.1-2.6-1.5-1.6 2 1.6 2 2.6-1.5c.8-.5.8-1 0-1zm-3.7 4.2-8.6 7.5 9.7-5.6-1.1-1.9z"></path></svg><span style="display:flex; flex-direction:column; line-height:1.1; text-align:left;"><span style="font-size:9px; opacity:.8;">Get it on</span><span style="font-size:15px; font-weight:700;">Google Play</span></span></div>
+            </div>
+          </div>
+        </div>
+        <button onClick="{{ closeFlow }}" style="font-family:inherit; cursor:pointer; background:none; border:none; color:#0048B0; font-size:14.5px; font-weight:700; margin-top:22px;">Back to site</button>
+      </div>
+      </sc-if>
+
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===== PROMO BAR ===== -->
+  <sc-if value="{{ showPromoBar }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#0A1A33; color:#fff; text-align:center; padding:9px 16px; font-size:13px; font-weight:600; letter-spacing:0.01em;">
+      <span style="color:#7FB2FF;">Now matching pros in 30+ states</span> · Book a trusted Costa cleaning pro in minutes — or <span style="text-decoration:underline; cursor:pointer;">apply to clean with Costa</span>
+    </div>
+  </sc-if>
+
+  <!-- ===== HEADER ===== -->
+  <header style="position:sticky; top:0; z-index:50; background:rgba(255,255,255,.88); backdrop-filter:blur(10px); border-bottom:1px solid #EEF2F7;">
+    <div style="max-width:1180px; margin:0 auto; padding:13px 24px; display:flex; align-items:center; gap:16px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="assets/costa-mark.svg" alt="Costa Cleaning Co. logo" style="width:32px; height:32px; object-fit:contain;">
+        <span style="font-family:'Montserrat',sans-serif; font-size:16px; font-weight:800; letter-spacing:0.01em;">COSTA <span style="font-size:9px; font-weight:600; color:#9AA7BA; letter-spacing:0.16em;">CLEANING CO.</span></span>
+      </div>
+      <nav style="display:flex; gap:26px; margin-left:30px; font-size:14px; font-weight:600; color:#3A4760;">
+        <a href="#services" style="color:inherit; text-decoration:none;">Services</a>
+        <a href="#how" style="color:inherit; text-decoration:none;">How it works</a>
+        <a href="#pricing" style="color:inherit; text-decoration:none;">Pricing</a>
+        <a href="#areas" style="color:inherit; text-decoration:none;">Service areas</a>
+        <a href="#reviews" style="color:inherit; text-decoration:none;">Reviews</a>
+      </nav>
+      <div style="margin-left:auto; display:flex; align-items:center; gap:16px;">
+        <a href="tel:+12399806084" style="display:flex; align-items:center; gap:7px; text-decoration:none; color:#0A1A33;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0048B0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384z"></path></svg>
+          <span style="font-family:'Geist Mono',monospace; font-size:14px; font-weight:600;">(239) 980-6084</span>
+        </a>
+        <button onClick="{{ goQuote }}" style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; font-size:14px; font-weight:700; padding:11px 18px; border-radius:11px; box-shadow:0 4px 12px rgba(0,72,176,.22);">Get my free quote</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero" style="position:relative; background:#0A1A33; overflow:hidden;">
+    <div id="hero-bg" style="position:absolute; inset:0; background-image:url('assets/hero-kitchen.jpg'); background-size:cover; background-position:64% center;"></div>
+    <div id="hero-grad" style="position:absolute; inset:0; background:linear-gradient(100deg, #ffffff 0%, #ffffff 33%, rgba(255,255,255,0.94) 45%, rgba(255,255,255,0.6) 57%, rgba(255,255,255,0) 75%);"></div>
+    <div id="hero-inner" style="position:relative; max-width:1180px; margin:0 auto; padding:90px 24px 96px;">
+      <div id="hero-content" style="max-width:564px; min-height:430px;">
+        <div style="display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid #E1E8F1; box-shadow:0 1px 2px rgba(10,26,51,.05); padding:6px 13px; border-radius:999px; font-size:12.5px; font-weight:700;">
+          <span style="display:flex; gap:1px; color:#F2A900;">★★★★★</span>
+          <span style="color:#3A4760;">Rated 5.0 on Google · 127+ reviews</span>
+        </div>
+        <h1 style="font-family:'Montserrat',sans-serif; font-size:50px; font-weight:800; letter-spacing:-0.03em; line-height:1.03; margin:20px 0 0;" id="hero-h1">Book That Cleaning.</h1>
+        
+        <p style="font-size:17.5px; line-height:1.55; color:#5B6B82; margin:18px 0 0; max-width:520px;">Costa matches busy professionals, families, and property managers with vetted, insured cleaning pros.</p><div style="display:flex; flex-wrap:wrap; gap:9px; margin-top:22px;">
+          <span style="display:inline-flex; align-items:center; gap:7px; background:#E7F6EE; color:#15834A; font-size:13px; font-weight:700; padding:7px 13px; border-radius:999px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Licensed &amp; insured</span>
+          <span style="display:inline-flex; align-items:center; gap:7px; background:#EAF1FB; color:#0048B0; font-size:13px; font-weight:700; padding:7px 13px; border-radius:999px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Background-checked teams</span>
+          <span style="display:inline-flex; align-items:center; gap:7px; background:#F6F8FB; color:#3A4760; font-size:13px; font-weight:700; padding:7px 13px; border-radius:999px; border:1px solid #E7ECF3;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>No contracts</span>
+        </div>
+        <div id="hero-search" style="margin-top:28px; max-width:548px;">
+          <div id="hero-searchbar" style="display:flex; align-items:stretch; background:#fff; border:1.5px solid #DCE5F0; border-radius:16px; padding:7px; box-shadow:0 12px 32px rgba(10,26,51,.10);">
+            <div id="hf-service" style="position:relative; flex:1.25; display:flex; align-items:center; padding-left:8px;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0048B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"></path></svg>
+              <select value="{{ searchService }}" onChange="{{ onService }}" style="appearance:none; -webkit-appearance:none; border:none; outline:none; background:transparent; font-family:inherit; font-size:15px; font-weight:600; color:#0A1A33; width:100%; padding:14px 24px 14px 9px; cursor:pointer;">
+                <option value="House cleaning">House cleaning</option>
+                <option value="Deep cleaning">Deep cleaning</option>
+                <option value="Move in / out">Move in / out</option>
+                <option value="Window cleaning">Window cleaning</option>
+                <option value="Office / commercial">Office cleaning</option>
+                <option value="Post-construction">Post-construction</option>
+              </select>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AA7BA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute; right:6px; pointer-events:none;"><path d="m6 9 6 6 6-6"></path></svg>
+            </div>
+            <div id="hf-div" style="width:1px; background:#EEF2F7; margin:7px 0;"></div>
+            <div id="hf-zip" style="flex:0.85; display:flex; align-items:center; gap:7px; padding:0 8px 0 13px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0048B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <input value="{{ zip }}" onChange="{{ onZip }}" inputmode="numeric" maxlength="5" placeholder="ZIP code" style="border:none; outline:none; background:transparent; font-family:inherit; font-size:15px; font-weight:600; color:#0A1A33; width:100%; min-width:0;">
+            </div>
+            <button id="hf-btn" onClick="{{ submitSearch }}" style="font-family:inherit; border:none; cursor:pointer; background:#0048B0; color:#fff; border-radius:12px; padding:0 22px; display:flex; align-items:center; gap:9px; font-size:15px; font-weight:700; box-shadow:0 6px 14px rgba(0,72,176,.26);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>Search</button>
+          </div>
+          <div style="font-size:13px; color:#7C8AA0; margin-top:13px;">Free quote · no obligation · or call <a href="tel:+12399806084" style="color:#0048B0; font-weight:700; text-decoration:none;">(239) 980-6084</a></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:11px; margin-top:22px;">
+          <div style="display:flex;">
+            <div style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,#0048B0,#5C9BFF); border:2px solid #fff; margin-right:-9px;"></div>
+            <div style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,#15834A,#5FD09B); border:2px solid #fff; margin-right:-9px;"></div>
+            <div style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,#3A4760,#8FA6C8); border:2px solid #fff; margin-right:-9px;"></div>
+            <div style="width:32px; height:32px; border-radius:50%; background:#EAF1FB; border:2px solid #fff; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; color:#0048B0;">2k+</div>
+          </div>
+          <span style="font-size:13.5px; color:#5B6B82; font-weight:600;">Trusted by 50+ homes, families &amp; professionals <span>{{ locationLabel }}</span></span>
+        </div>
+        <div id="hero-proof" style="display:none; gap:10px; margin-top:20px;">
+          <div style="flex:1; display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #EEF2F7; border-radius:14px; padding:12px 14px; box-shadow:0 4px 14px rgba(10,26,51,.06);">
+            <div style="font-family:'Geist Mono',monospace; font-size:20px; font-weight:600; color:#0048B0;">5.0★</div>
+            <div style="font-size:12px; color:#5B6B82; font-weight:600; line-height:1.25;">Google<br>rating</div>
+          </div>
+          <div style="flex:1; display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #EEF2F7; border-radius:14px; padding:12px 14px; box-shadow:0 4px 14px rgba(10,26,51,.06);">
+            <div style="width:34px;height:34px;border-radius:10px;background:#E7F6EE;color:#15834A;display:flex;align-items:center;justify-content:center;flex:none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg></div>
+            <div style="font-size:12px; color:#5B6B82; font-weight:600; line-height:1.25;">100%<br>guarantee</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- trust logo bar -->
+    <div style="border-top:1px solid #EEF2F7; background:#fff;">
+      <div style="max-width:1180px; margin:0 auto; padding:18px 24px; display:flex; align-items:center; gap:34px; flex-wrap:wrap; justify-content:center;">
+        <span style="font-size:11px; font-weight:700; letter-spacing:0.12em; color:#AEB9C9;">AS TRUSTED ON</span>
+        <span style="font-weight:800; font-size:18px; color:#9AA7BA; letter-spacing:-0.01em;">Google</span>
+        <span style="font-weight:800; font-size:18px; color:#9AA7BA;">BBB</span>
+        <span style="font-weight:800; font-size:18px; color:#9AA7BA;">Yelp</span>
+        <span style="font-weight:800; font-size:18px; color:#9AA7BA;">Meta</span>
+        <span style="font-weight:700; font-size:13px; color:#5B6B82; background:#F6F8FB; border:1px solid #EEF2F7; padding:6px 12px; border-radius:999px;">$2M+ liability insured</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" style="max-width:1180px; margin:0 auto; padding:80px 24px 20px; scroll-margin-top:80px;">
+    <div style="text-align:center; max-width:640px; margin:0 auto;">
+      <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">OUR SERVICES</div>
+      <h2 style="font-family:'Montserrat',sans-serif; font-size:36px; font-weight:800; letter-spacing:-0.025em; margin:10px 0 0;">Every kind of clean, one trusted team</h2>
+      <p style="font-size:16px; line-height:1.55; color:#5B6B82; margin:14px 0 0;">From weekly home cleaning to post-construction turnovers — flat-rate, fully insured, and done by people we vet and train ourselves.</p>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:6px 24px; margin-top:36px; padding:10px 0 4px;">
+      <div onClick="{{ goQuote }}" style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:9px; cursor:pointer; width:120px; padding:14px 6px; border-radius:16px; transition:background .14s, transform .14s;" style-hover="background:#F6F9FD; transform:translateY(-3px);">
+        <div style="color:#0048B0; height:36px; display:flex; align-items:center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+        <h3 style="font-size:13.5px; font-weight:700; margin:0; color:#0A1A33; letter-spacing:-0.01em; line-height:1.2;">House cleaning</h3>
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; font-weight:600; color:#5B6B82;">From $99</span>
+      </div>
+      <div onClick="{{ goQuote }}" style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:9px; cursor:pointer; width:120px; padding:14px 6px; border-radius:16px; transition:background .14s, transform .14s;" style-hover="background:#F6F9FD; transform:translateY(-3px);">
+        <div style="color:#0048B0; height:36px; display:flex; align-items:center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 7h.01M15 7h.01M9 12h.01M15 12h.01M9 17h6"/></svg></div>
+        <h3 style="font-size:13.5px; font-weight:700; margin:0; color:#0A1A33; letter-spacing:-0.01em; line-height:1.2;">Office cleaning</h3>
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; font-weight:600; color:#5B6B82;">Custom</span>
+      </div>
+      <div onClick="{{ goQuote }}" style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:9px; cursor:pointer; width:120px; padding:14px 6px; border-radius:16px; transition:background .14s, transform .14s;" style-hover="background:#F6F9FD; transform:translateY(-3px);">
+        <div style="color:#0048B0; height:36px; display:flex; align-items:center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg></div>
+        <h3 style="font-size:13.5px; font-weight:700; margin:0; color:#0A1A33; letter-spacing:-0.01em; line-height:1.2;">Deep cleaning</h3>
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; font-weight:600; color:#5B6B82;">From $159</span>
+      </div>
+      <div onClick="{{ goQuote }}" style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:9px; cursor:pointer; width:120px; padding:14px 6px; border-radius:16px; transition:background .14s, transform .14s;" style-hover="background:#F6F9FD; transform:translateY(-3px);">
+        <div style="color:#0048B0; height:36px; display:flex; align-items:center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg></div>
+        <h3 style="font-size:13.5px; font-weight:700; margin:0; color:#0A1A33; letter-spacing:-0.01em; line-height:1.2;">Move in / out</h3>
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; font-weight:600; color:#5B6B82;">From $169</span>
+      </div>
+      <div onClick="{{ goQuote }}" style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:9px; cursor:pointer; width:120px; padding:14px 6px; border-radius:16px; transition:background .14s, transform .14s;" style-hover="background:#F6F9FD; transform:translateY(-3px);">
+        <div style="color:#0048B0; height:36px; display:flex; align-items:center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18M12 3v18"/></svg></div>
+        <h3 style="font-size:13.5px; font-weight:700; margin:0; color:#0A1A33; letter-spacing:-0.01em; line-height:1.2;">Window cleaning</h3>
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; font-weight:600; color:#5B6B82;">From $79</span>
+      </div>
+      <div onClick="{{ goQuote }}" style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:9px; cursor:pointer; width:120px; padding:14px 6px; border-radius:16px; transition:background .14s, transform .14s;" style-hover="background:#F6F9FD; transform:translateY(-3px);">
+        <div style="color:#0048B0; height:36px; display:flex; align-items:center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1z"/><path d="M10 10V5a2 2 0 0 1 4 0v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/></svg></div>
+        <h3 style="font-size:13.5px; font-weight:700; margin:0; color:#0A1A33; letter-spacing:-0.01em; line-height:1.2;">Post-construction</h3>
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; font-weight:600; color:#5B6B82;">Custom</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY US ===== -->
+  <section style="background:#F6F9FD; margin-top:60px;">
+    <div style="max-width:1180px; margin:0 auto; padding:72px 24px;">
+      <div style="text-align:center; max-width:620px; margin:0 auto;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">WHY COSTA</div>
+        <h2 style="font-family:'Montserrat',sans-serif; font-size:36px; font-weight:800; letter-spacing:-0.025em; margin:10px 0 0;">Why Fort Myers trusts us</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:42px;">
+        <div style="background:#fff; border:1px solid #EEF2F7; border-radius:18px; padding:28px;">
+          <div style="width:48px; height:48px; border-radius:14px; background:#EAF1FB; color:#0048B0; display:flex; align-items:center; justify-content:center;"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg></div>
+          <h3 style="font-size:18px; font-weight:700; margin:18px 0 0;">Vetted &amp; trained pros</h3>
+          <p style="font-size:14px; color:#5B6B82; line-height:1.55; margin:8px 0 0;">No gig workers. Our team is background-checked, fully insured, and trained in our signature top-to-bottom method.</p>
+        </div>
+        <div style="background:#fff; border:1px solid #EEF2F7; border-radius:18px; padding:28px;">
+          <div style="width:48px; height:48px; border-radius:14px; background:#E7F6EE; color:#15834A; display:flex; align-items:center; justify-content:center;"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6"></path></svg></div>
+          <h3 style="font-size:18px; font-weight:700; margin:18px 0 0;">Eco-conscious care</h3>
+          <p style="font-size:14px; color:#5B6B82; line-height:1.55; margin:8px 0 0;">Non-toxic, pet-safe, high-performance products that protect your family, your team, and the Florida coast.</p>
+        </div>
+        <div style="background:#fff; border:1px solid #EEF2F7; border-radius:18px; padding:28px;">
+          <div style="width:48px; height:48px; border-radius:14px; background:#EAF1FB; color:#0048B0; display:flex; align-items:center; justify-content:center;"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg></div>
+          <h3 style="font-size:18px; font-weight:700; margin:18px 0 0;">100% guarantee</h3>
+          <p style="font-size:14px; color:#5B6B82; line-height:1.55; margin:8px 0 0;">If it isn't perfect, we make it right within 24 hours — period. Every clean ends with a 50-point inspection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="how" style="max-width:1180px; margin:0 auto; padding:80px 24px 30px; scroll-margin-top:80px;">
+    <div style="text-align:center; max-width:620px; margin:0 auto;">
+      <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; color:#0048B0;">HOW IT WORKS</div>
+      <h2 style="font-family:'Montserrat',sans-serif; font-size:36px; font-weight:800; letter-spacing:-0.025em; margin:10px 0 0;">Booked in minutes, clean in days</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:42px;">
+      <div style="position:relative; padding:24px; border:1px solid #EEF2F7; border-radius:18px;">
+        <div style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:600; color:#0048B0;">01</div>
+        <h3 style="font-size:16px; font-weight:700; margin:12px 0 0;">Get your free quote</h3>
+        <p style="font-size:13px; color:#7C8AA0; line-height:1.5; margin:7px 0 0;">Flat-rate, transparent pricing in about a minute — online or by phone.</p>
+      </div>
+      <div style="position:relative; padding:24px; border:1px solid #EEF2F7; border-radius:18px;">
+        <div style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:600; color:#0048B0;">02</div>
+        <h3 style="font-size:16px; font-weight:700; margin:12px 0 0;">Customize your clean</h3>
+        <p style="font-size:13px; color:#7C8AA0; line-height:1.5; margin:7px 0 0;">We build a checklist around your space and the spots you care about most.</p>
+      </div>
+      <div style="position:relative; padding:24px; border:1px solid #EEF2F7; border-radius:18px;">
+        <div style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:600; color:#0048B0;">03</div>
+        <h3 style="font-size:16px; font-weight:700; margin:12px 0 0;">Track our arrival</h3>
+        <p style="font-size:13px; color:#7C8AA0; line-height:1.5; margin:7px 0 0;">Your vetted team arrives on time, with text updates to your phone.</p>
+      </div>
+      <div style="position:relative; padding:24px; border:1.5px solid #0048B0; border-radius:18px; background:#F6F9FD;">
+        <div style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:600; color:#0048B0;">04</div>
+        <h3 style="font-size:16px; font-weight:700; margin:12px 0 0;">Enjoy the guarantee</h3>
+        <p style="font-size:13px; color:#7C8AA0; line-height:1.5; margin:7px 0 0;">A 50-point inspection and our 24-hour Sparkle Guarantee on every visit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUOTE WIDGET ===== -->
+  <section id="quote" style="scroll-margin-top:74px; margin-top:50px; background:linear-gradient(160deg,#0A1A33 0%,#0E2A57 100%); position:relative; overflow:hidden;">
+    <img src="assets/costa-mark-white.svg" alt="" style="position:absolute; right:-60px; top:-40px; width:320px; height:320px; opacity:.06;">
+    <div style="max-width:1180px; margin:0 auto; padding:68px 24px; display:grid; grid-template-columns:0.9fr 1.1fr; gap:48px; align-items:center; position:relative;">
+      <div style="color:#fff;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; color:#7FB2FF;">INSTANT QUOTE</div>
+        <h2 style="font-family:'Montserrat',sans-serif; font-size:38px; font-weight:800; letter-spacing:-0.025em; line-height:1.05; margin:12px 0 0;">Get your flat-rate quote in 60 seconds</h2>
+        <p style="font-size:16px; line-height:1.55; color:#B8C6DE; margin:16px 0 0; max-width:380px;">No walkthroughs, no waiting for a callback. See your price, then lock in a time that works.</p>
+        <div style="display:flex; flex-direction:column; gap:13px; margin-top:26px;">
+          <div style="display:flex; align-items:center; gap:11px; font-size:14.5px; color:#E3EBF6; font-weight:600;"><span style="width:24px;height:24px;border-radius:50%;background:rgba(127,178,255,.18);color:#7FB2FF;display:flex;align-items:center;justify-content:center;flex:none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>Transparent flat-rate pricing</div>
+          <div style="display:flex; align-items:center; gap:11px; font-size:14.5px; color:#E3EBF6; font-weight:600;"><span style="width:24px;height:24px;border-radius:50%;background:rgba(127,178,255,.18);color:#7FB2FF;display:flex;align-items:center;justify-content:center;flex:none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>No obligation, no spam</div>
+          <div style="display:flex; align-items:center; gap:11px; font-size:14.5px; color:#E3EBF6; font-weight:600;"><span style="width:24px;height:24px;border-radius:50%;background:rgba(127,178,255,.18);color:#7FB2FF;display:flex;align-items:center;justify-content:center;flex:none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>We text you back within the hour</div>
+        </div>
+      </div>
+
+      <!-- card -->
+      <div style="background:#fff; border-radius:22px; padding:28px; box-shadow:0 30px 60px rgba(5,16,40,.4);">
+        <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <!-- progress -->
+          <div style="display:flex; align-items:center; gap:8px;">
+            <div style="height:5px; flex:1; border-radius:99px; background:#0048B0;"></div>
+            <div style="height:5px; flex:1; border-radius:99px; background:{{ step2bar }};"></div>
+            <div style="height:5px; flex:1; border-radius:99px; background:{{ step3bar }};"></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-top:10px;">
+            <span style="font-size:12px; font-weight:700; color:#9AA7BA;">Step {{ qStep }} of 3</span>
+            <sc-if value="{{ urgencyMode }}" hint-placeholder-val="{{ true }}"><span style="font-size:12px; font-weight:700; color:#C77A0A;">Only 3 Friday slots left</span></sc-if>
+          </div>
+
+          <!-- STEP 1 -->
+          <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ true }}">
+          <div style="margin-top:18px;">
+            <div style="font-family:'Montserrat',sans-serif; font-size:20px; font-weight:700; letter-spacing:-0.01em; color:#0A1A33;">What do you need cleaned?</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-top:16px;">
+              <sc-for list="{{ serviceList }}" as="svc" hint-placeholder-count="6">
+                <div onClick="{{ svc.on }}" style="{{ svc.itemStyle }}"><span style="{{ svc.dotStyle }}"></span>{{ svc.name }}</div>
+              </sc-for>
+            </div>
+          </div>
+          </sc-if>
+
+          <!-- STEP 2 -->
+          <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:18px;">
+            <div style="font-family:'Montserrat',sans-serif; font-size:20px; font-weight:700; letter-spacing:-0.01em; color:#0A1A33;">Tell us about the space</div>
+            <div style="display:flex; align-items:center; justify-content:space-between; border:1px solid #EEF2F7; border-radius:13px; padding:14px 16px; margin-top:16px;">
+              <span style="font-size:14.5px; font-weight:600;">Bedrooms</span>
+              <div style="display:flex; align-items:center; gap:14px;"><button onClick="{{ setBeds(-1) }}" style="font-family:inherit; cursor:pointer; width:32px; height:32px; border-radius:9px; border:1px solid #E1E8F1; background:#fff; font-size:18px; color:#0048B0;">–</button><span style="font-family:'Geist Mono',monospace; font-size:16px; font-weight:600; width:18px; text-align:center;">{{ beds }}</span><button onClick="{{ setBeds(1) }}" style="font-family:inherit; cursor:pointer; width:32px; height:32px; border-radius:9px; border:1px solid #E1E8F1; background:#fff; font-size:18px; color:#0048B0;">+</button></div>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; border:1px solid #EEF2F7; border-radius:13px; padding:14px 16px; margin-top:10px;">
+              <span style="font-size:14.5px; font-weight:600;">Bathrooms</span>
+              <div style="display:flex; align-items:center; gap:14px;"><button onClick="{{ setBaths(-1) }}" style="font-family:inherit; cursor:pointer; width:32px; height:32px; border-radius:9px; border:1px solid #E1E8F1; background:#fff; font-size:18px; color:#0048B0;">–</button><span style="font-family:'Geist Mono',monospace; font-size:16px; font-weight:600; width:18px; text-align:center;">{{ baths }}</span><button onClick="{{ setBaths(1) }}" style="font-family:inherit; cursor:pointer; width:32px; height:32px; border-radius:9px; border:1px solid #E1E8F1; background:#fff; font-size:18px; color:#0048B0;">+</button></div>
+            </div>
+            <div style="display:flex; gap:9px; margin-top:14px;">
+              <div onClick="{{ setFreqOne }}" style="{{ freqOneStyle }}"><div style="font-weight:700; font-size:14px;">One-time</div><div style="font-size:11.5px; opacity:.8; margin-top:2px;">Single visit</div></div>
+              <div onClick="{{ setFreqRec }}" style="{{ freqRecStyle }}"><div style="font-weight:700; font-size:14px;">Recurring · save 15%</div><div style="font-size:11.5px; opacity:.8; margin-top:2px;">Weekly / bi-weekly</div></div>
+            </div>
+          </div>
+          </sc-if>
+
+          <!-- STEP 3 -->
+          <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:18px;">
+            <div style="background:#EAF1FB; border:1px solid #DCE8F8; border-radius:14px; padding:16px; text-align:center;">
+              <div style="font-size:12px; font-weight:700; color:#0048B0; letter-spacing:0.04em;">YOUR ESTIMATE</div>
+              <div style="font-family:'Geist Mono',monospace; font-size:34px; font-weight:600; color:#0A1A33; margin-top:6px;">{{ estimateRange }}</div>
+              <div style="font-size:12.5px; color:#5B6B82; margin-top:4px;">{{ service }} · final price confirmed before booking</div>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;">
+              <input placeholder="Full name" style="font-family:inherit; padding:12px 14px; border:1.5px solid #E1E8F1; border-radius:11px; font-size:14px; outline:none;">
+              <input placeholder="Phone number" style="font-family:inherit; padding:12px 14px; border:1.5px solid #E1E8F1; border-radius:11px; font-size:14px; outline:none;">
+              <input placeholder="Email address" style="font-family:inherit; grid-column:1 / -1; padding:12px 14px; border:1.5px solid #E1E8F1; border-radius:11px; font-size:14px; outline:none;">
+            </div>
+          </div>
+          </sc-if>
+
+          <!-- nav buttons -->
+          <div style="display:flex; gap:10px; margin-top:20px;">
+            <sc-if value="{{ canGoBack }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ prevStep }}" style="font-family:inherit; cursor:pointer; background:#fff; color:#3A4760; font-size:14px; font-weight:700; padding:13px 18px; border-radius:12px; border:1.5px solid #E1E8F1;">Back</button>
+            </sc-if>
+            <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ submitQuote }}" style="font-family:inherit; border:none; cursor:pointer; flex:1; background:#0048B0; color:#fff; font-size:15px; font-weight:700; padding:13px; border-radius:12px; box-shadow:0 6px 16px rgba(0,72,176,.24);">Send my free quote</button>
+            </sc-if>
+            <sc-if value="{{ notStep3 }}" hint-placeholder-val="{{ true }}">
+              <button onClick="{{ nextStep }}" style="font-family:inherit; border:none; cursor:pointer; flex:1; background:#0048B0; color:#fff; font-size:15px; font-weight:700; padding:13px; border-radius:12px; box-shadow:0 6px 16px rgba(0,72,176,.24);">Continue</button>
+            </sc-if>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; gap:7px; margin-top:13px; font-size:11.5px; color:#9AA7BA;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Your info is private. No spam, ever.</div>
+        </div>
+        </sc-if>
+
+        <!-- success -->
+        <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center; padding:18px 8px;">
+          <div style="width:62px; height:62px; border-radius:50%; background:#E7F6EE; color:#15834A; display:flex; align-items:center; justify-content:center; margin:0 auto;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></div>
+          <div style="font-family:'Montserrat',sans-serif; font-size:23px; font-weight:800; letter-spacing:-0.02em; margin-top:18px;">Quote on the way</div>
+          <p style="font-size:14.5px; color:#5B6B82; line-height:1.55; margin:10px auto 0; max-width:320px;">Thanks! A Costa specialist will text you within the hour to confirm your {{ service }} and lock in a time.</p>
+          <div style="background:#F6F8FB; border:1px solid #EEF2F7; border-radius:13px; padding:14px; margin-top:18px; display:flex; align-items:center; justify-content:center; gap:9px;"><span style="font-size:13px; color:#5B6B82;">Estimated total</span><span style="font-family:'Geist Mono',monospace; font-size:18px; font-weight:600; color:#0048B0;">{{ estimateRange }}</span></div>
+          <button onClick="{{ resetQuote }}" style="font-family:inherit; cursor:pointer; background:none; border:none; color:#0048B0; font-size:13.5px; font-weight:700; margin-top:16px;">Start another quote</button>
+        </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!--LP_END-->
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showPromoBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;CRO controls&quot;},&quot;stickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;CRO controls&quot;},&quot;urgencyMode&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;CRO controls&quot;}}">
+const SERVICES = {
+  'House cleaning': { base: 99, room: 16, custom: false },
+  'Deep cleaning':  { base: 159, room: 26, custom: false },
+  'Move in / out':  { base: 169, room: 28, custom: false },
+  'Window cleaning':{ base: 79, room: 10, custom: false },
+  'Office / commercial': { base: 0, room: 0, custom: true },
+  'Post-construction':   { base: 0, room: 0, custom: true },
+};
+
+class Component extends DCLogic {
+  state = {
+    scrolled: false,
+    qStep: 1,
+    service: 'Deep cleaning',
+    beds: 2,
+    baths: 2,
+    freq: 'one-time',
+    submitted: false,
+    openFaq: 0,
+    locationLabel: 'nationwide',
+    locationCity: '',
+    zip: '',
+    searchService: 'Deep cleaning',
+    flowOpen: false,
+    flowStep: 0,
+    propertyType: 'Home',
+    flowFreq: 'weekly',
+    addons: { eco: true, fridge: false, oven: false, windows: false, laundry: false },
+    datePref: 'This week',
+    arrival: 'Morning (8–11a)',
+    name: '', email: '', phone: '',
+  };
+
+  componentDidMount() {
+    this._onScroll = () => {
+      const s = window.scrollY > 520;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._mounted = true;
+    // clear any stale IP-guessed location from a previous version
+    try { localStorage.removeItem('costa_geo'); } catch (e) {}
+  }
+  componentWillUnmount() { this._mounted = false; window.removeEventListener('scroll', this._onScroll); }
+
+  // Location comes from the ZIP the visitor enters — accurate and user-confirmed.
+  // (IP geolocation is intentionally NOT used: it often returns the ISP / data-
+  // center city and is easily thrown off by VPNs and mobile carriers, which is
+  // why it can show a city you're nowhere near.) Until a ZIP is entered we stay
+  // generic ("nationwide").
+  async _lookupZip(zip) {
+    try {
+      const res = await fetch('https://api.zippopotam.us/us/' + zip);
+      if (!res.ok) return;
+      const d = await res.json();
+      const place = d.places && d.places[0];
+      if (place && this._mounted) {
+        this.setState({
+          locationLabel: 'in ' + place['place name'] + ', ' + place['state abbreviation'],
+          locationCity: place['place name'],
+        });
+      }
+    } catch (e) { /* keep generic */ }
+  }
+
+  openFlow(svc) {
+    const service = svc || this.state.searchService;
+    this.setState({ flowOpen: true, flowStep: 0, service });
+    if (this.state.zip && this.state.zip.length === 5) this._lookupZip(this.state.zip);
+    try { window.scrollTo({ top: 0 }); } catch (e) {}
+  }
+
+  estimateFlow() {
+    const svc = SERVICES[this.state.service];
+    if (!svc || svc.custom) return null;
+    let p = svc.base + this.state.beds * svc.room + this.state.baths * Math.round(svc.room * 0.7);
+    if (this.state.flowFreq !== 'one-time') p = Math.round(p * 0.85);
+    const a = this.state.addons;
+    if (a.eco) p += 15; if (a.fridge) p += 25; if (a.oven) p += 25; if (a.windows) p += 40; if (a.laundry) p += 20;
+    return p;
+  }
+
+  scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 68, behavior: 'smooth' });
+  }
+
+  estimate() {
+    const svc = SERVICES[this.state.service];
+    if (!svc || svc.custom) return null;
+    let p = svc.base + this.state.beds * svc.room + this.state.baths * Math.round(svc.room * 0.7);
+    if (this.state.freq === 'recurring') p = Math.round(p * 0.85);
+    return p;
+  }
+
+  renderVals() {
+    const est = this.estimate();
+    const svc = SERVICES[this.state.service];
+    const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+    const ef = this.estimateFlow();
+    const selCard = (active) => [
+      'display:flex', 'align-items:center', 'justify-content:space-between', 'gap:12px',
+      'padding:17px 20px', 'border-radius:14px', 'cursor:pointer', 'font-weight:700',
+      'transition:all .12s', 'font-size:16px', 'text-align:left',
+      'border:1.5px solid ' + (active ? '#0048B0' : '#E1E8F1'),
+      'background:' + (active ? '#EAF1FB' : '#fff'),
+      'color:' + (active ? '#0048B0' : '#0A1A33'),
+      'box-shadow:' + (active ? '0 4px 14px rgba(0,72,176,.12)' : '0 1px 2px rgba(10,26,51,.04)'),
+    ].join(';');
+    return {
+      // tweaks
+      showPromoBar: this.props.showPromoBar ?? true,
+      stickyCta: this.props.stickyCta ?? true,
+      urgencyMode: this.props.urgencyMode ?? true,
+      showSticky: (this.props.stickyCta ?? true) && this.state.scrolled && !this.state.submitted,
+
+      // nav
+      goQuote: () => this.openFlow(),
+
+      // personalization
+      locationLabel: this.state.locationLabel,
+      locationCity: this.state.locationCity,
+      zip: this.state.zip,
+      searchService: this.state.searchService,
+      onZip: (e) => { const v = (e.target.value || '').replace(/[^0-9]/g, '').slice(0, 5); this.setState({ zip: v }); if (v.length === 5) this._lookupZip(v); },
+      onService: (e) => this.setState({ searchService: e.target.value }),
+      submitSearch: () => this.openFlow(this.state.searchService),
+
+      // ===== Typeform-style full-page flow =====
+      flowOpen: this.state.flowOpen,
+      flowStep: this.state.flowStep,
+      closeFlow: () => this.setState({ flowOpen: false }),
+      flowNext: () => this.setState(s => ({ flowStep: Math.min(s.flowStep + 1, 8) })),
+      flowBack: () => this.setState(s => ({ flowStep: Math.max(s.flowStep - 1, 0) })),
+      flowBackVisible: this.state.flowStep > 0 && this.state.flowStep < 8,
+      progressPct: Math.round((this.state.flowStep / 8) * 100) + '%',
+      stepNum: 'Step ' + (this.state.flowStep + 1) + ' of 9',
+      isF0: this.state.flowStep === 0, isF1: this.state.flowStep === 1, isF2: this.state.flowStep === 2,
+      isF3: this.state.flowStep === 3, isF4: this.state.flowStep === 4, isF5: this.state.flowStep === 5,
+      isF6: this.state.flowStep === 6, isF7: this.state.flowStep === 7, isF8: this.state.flowStep === 8,
+      service: this.state.service,
+      flowLocationText: this.state.locationCity || (this.state.zip ? ('ZIP ' + this.state.zip) : 'your area'),
+      propertyType: this.state.propertyType,
+      propertyList: ['Home', 'Apartment / condo', 'Rental property', 'Office / commercial'].map(label => ({
+        label, active: this.state.propertyType === label,
+        on: () => this.setState({ propertyType: label }),
+        style: selCard(this.state.propertyType === label),
+      })),
+      freqList: [
+        { v: 'one-time', label: 'One-time clean', desc: 'A single visit' },
+        { v: 'weekly', label: 'Weekly', desc: 'Save 15% · most popular' },
+        { v: 'biweekly', label: 'Every 2 weeks', desc: 'Save 15%' },
+        { v: 'monthly', label: 'Monthly', desc: 'Save 15%' },
+      ].map(o => ({ ...o, active: this.state.flowFreq === o.v, on: () => this.setState({ flowFreq: o.v }), style: selCard(this.state.flowFreq === o.v) })),
+      addonList: [
+        { key: 'eco', label: 'Eco-friendly products', price: '+$15' },
+        { key: 'fridge', label: 'Clean inside fridge', price: '+$25' },
+        { key: 'oven', label: 'Clean inside oven', price: '+$25' },
+        { key: 'windows', label: 'Interior windows', price: '+$40' },
+        { key: 'laundry', label: 'Laundry & linens', price: '+$20' },
+      ].map(o => {
+        const active = !!this.state.addons[o.key];
+        return {
+          ...o, active,
+          on: () => this.setState(s => ({ addons: { ...s.addons, [o.key]: !s.addons[o.key] } })),
+          style: selCard(active),
+          boxStyle: 'width:24px;height:24px;border-radius:7px;flex:none;display:flex;align-items:center;justify-content:center;transition:all .12s;border:2px solid ' + (active ? '#0048B0' : '#CDD6E2') + ';background:' + (active ? '#0048B0' : '#fff') + ';',
+        };
+      }),
+      scheduleList: ['This week', 'Next week', 'Within a month', 'Just exploring'].map(label => ({ label, active: this.state.datePref === label, on: () => this.setState({ datePref: label }), style: selCard(this.state.datePref === label) })),
+      arrivalList: ['Morning (8–11a)', 'Midday (11a–2p)', 'Afternoon (2–5p)', 'Flexible'].map(label => ({ label, active: this.state.arrival === label, on: () => this.setState({ arrival: label }), style: selCard(this.state.arrival === label) })),
+      name: this.state.name, email: this.state.email, phone: this.state.phone,
+      onName: (e) => this.setState({ name: e.target.value }),
+      onEmail: (e) => this.setState({ email: e.target.value }),
+      onPhone: (e) => this.setState({ phone: e.target.value }),
+      flowFreqLabel: ({ 'one-time': 'One-time', weekly: 'Weekly', biweekly: 'Every 2 weeks', monthly: 'Monthly' })[this.state.flowFreq],
+      addonsCount: Object.values(this.state.addons).filter(Boolean).length + ' selected',
+      reviewSize: this.state.beds + ' bed · ' + this.state.baths + ' bath',
+      estimateFlowText: ef == null ? 'Custom quote' : ('$' + ef),
+      estimateFlowRange: ef == null ? 'Custom quote' : ('$' + Math.round(ef * 0.94) + '–$' + Math.round(ef * 1.1)),
+
+      // quote widget
+      qStep: this.state.qStep,
+      isStep1: this.state.qStep === 1,
+      isStep2: this.state.qStep === 2,
+      isStep3: this.state.qStep === 3,
+      service: this.state.service,
+      beds: this.state.beds,
+      baths: this.state.baths,
+      freq: this.state.freq,
+      isRecurring: this.state.freq === 'recurring',
+      isCustom: !!(svc && svc.custom),
+      estimateText: est == null ? 'Custom quote' : ('$' + est),
+      estimateLow: est == null ? '' : ('$' + Math.round(est * 0.92)),
+      estimateHigh: est == null ? '' : ('$' + Math.round(est * 1.12)),
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      canGoBack: this.state.qStep > 1,
+      notStep3: this.state.qStep !== 3,
+      step2bar: this.state.qStep >= 2 ? '#0048B0' : '#E7ECF3',
+      step3bar: this.state.qStep >= 3 ? '#0048B0' : '#E7ECF3',
+      estimateRange: est == null ? 'Custom quote' : ('$' + Math.round(est * 0.92) + '–$' + Math.round(est * 1.12)),
+      freqOneStyle: (
+        'flex:1; cursor:pointer; border-radius:12px; padding:13px 14px; transition:all .12s; ' +
+        'border:1.5px solid ' + (this.state.freq === 'one-time' ? '#0048B0' : '#E7ECF3') + '; ' +
+        'background:' + (this.state.freq === 'one-time' ? '#EAF1FB' : '#fff') + '; ' +
+        'color:' + (this.state.freq === 'one-time' ? '#0048B0' : '#3A4760') + ';'
+      ),
+      freqRecStyle: (
+        'flex:1; cursor:pointer; border-radius:12px; padding:13px 14px; transition:all .12s; ' +
+        'border:1.5px solid ' + (this.state.freq === 'recurring' ? '#0048B0' : '#E7ECF3') + '; ' +
+        'background:' + (this.state.freq === 'recurring' ? '#EAF1FB' : '#fff') + '; ' +
+        'color:' + (this.state.freq === 'recurring' ? '#0048B0' : '#3A4760') + ';'
+      ),
+
+      pickService: (name) => () => this.setState({ service: name }),
+      serviceStyle: (name) => this.state.service === name,
+      setBeds: (d) => () => this.setState(s => ({ beds: clamp(s.beds + d, 0, 9) })),
+      setBaths: (d) => () => this.setState(s => ({ baths: clamp(s.baths + d, 1, 9) })),
+      setFreqOne: () => this.setState({ freq: 'one-time' }),
+      setFreqRec: () => this.setState({ freq: 'recurring' }),
+      nextStep: () => this.setState(s => ({ qStep: clamp(s.qStep + 1, 1, 3) })),
+      prevStep: () => this.setState(s => ({ qStep: clamp(s.qStep - 1, 1, 3) })),
+      submitQuote: () => this.setState({ submitted: true }),
+      resetQuote: () => this.setState({ submitted: false, qStep: 1 }),
+
+      // service cards as selectable list for step 1
+      serviceList: Object.keys(SERVICES).map(name => ({
+        name,
+        on: () => this.setState({ service: name }),
+        active: this.state.service === name,
+        itemStyle: [
+          'display:flex','align-items:center','gap:10px','cursor:pointer',
+          'padding:13px 14px','border-radius:12px','font-size:14px','font-weight:600',
+          'transition:all .12s',
+          'border:1.5px solid ' + (this.state.service === name ? '#0048B0' : '#E7ECF3'),
+          'background:' + (this.state.service === name ? '#EAF1FB' : '#fff'),
+          'color:' + (this.state.service === name ? '#0048B0' : '#3A4760'),
+        ].join(';'),
+        dotStyle: [
+          'width:18px','height:18px','border-radius:50%','flex:none',
+          'display:flex','align-items:center','justify-content:center',
+          'border:2px solid ' + (this.state.service === name ? '#0048B0' : '#CDD6E2'),
+          'background:' + (this.state.service === name ? '#0048B0' : '#fff'),
+        ].join(';'),
+      })),
+
+      // faq
+      faqs: [
+        { q: 'How quickly can I schedule a cleaning?', a: 'We offer flexible scheduling and can usually arrange your cleaning within a few days. Same-week appointments are often available across Fort Myers and Cape Coral.' },
+        { q: 'Are your cleaners background-checked and insured?', a: 'Yes. Every team member is a vetted W-2 employee who has passed a background check. We are fully bonded and carry $2M+ in liability insurance to protect your home or business.' },
+        { q: 'Do you bring your own supplies and eco-friendly products?', a: 'We bring everything needed and use non-toxic, pet-safe, high-performance products by default. Have a preference or allergy? Just tell us in your quote.' },
+        { q: 'Do I have to sign a long-term contract?', a: 'Never. We earn your business every visit. Memberships give you a better rate and priority booking, but you can pause or cancel anytime.' },
+        { q: 'What if I am not happy with the clean?', a: 'Our 24-hour Sparkle Guarantee means if anything is missed, we return within 24 hours and make it right — at no extra cost.' },
+      ].map((f, i) => ({
+        ...f,
+        idx: i,
+        open: this.state.openFaq === i,
+        toggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i })),
+        rowStyle: 'border:1px solid #EEF2F7; border-radius:14px; padding:18px 20px; cursor:pointer; background:' + (this.state.openFaq === i ? '#FCFDFE' : '#fff') + ';',
+        iconStyle: 'transition:transform .2s; transform:rotate(' + (this.state.openFaq === i ? '180deg' : '0deg') + ');',
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

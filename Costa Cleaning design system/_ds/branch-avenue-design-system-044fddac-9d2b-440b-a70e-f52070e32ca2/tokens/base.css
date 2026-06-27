@@ -1,0 +1,52 @@
+/* ─────────────────────────────────────────────────────────────
+   Branch Avenue — Base / reset
+   Minimal, opinionated normalization. Sets the default type and
+   surface so any page that links styles.css starts on-brand.
+   ───────────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'cv01' 1, 'ss01' 1;
+}
+
+h1, h2, h3, h4, h5, h6, p, figure { margin: 0; }
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+a { color: var(--text-link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Tabular figures wherever monospace numerics render */
+.tnum { font-feature-settings: 'tnum' 1, 'lnum' 1; }
+
+::selection { background: var(--green-100); color: var(--green-900); }
+
+/* Thin, unobtrusive scrollbars to match the console aesthetic */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-300) transparent;
+}
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: var(--radius-full);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover { background: var(--gray-400); background-clip: padding-box; }

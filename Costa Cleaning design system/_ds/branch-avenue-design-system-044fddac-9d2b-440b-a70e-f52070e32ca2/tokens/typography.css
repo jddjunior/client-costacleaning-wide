@@ -1,0 +1,113 @@
+/* ─────────────────────────────────────────────────────────────
+   Branch Avenue — Typography
+   Geist for UI text, Geist Mono for numerics, IDs, and code.
+   Operator console: dense, legible, tabular figures everywhere
+   numbers matter.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Families ────────────────────────────────────────────── */
+  --font-sans: 'Geist', 'Onest', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Menlo', monospace;
+
+  /* ── Weights ─────────────────────────────────────────────── */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* ── Size scale (px) ─────────────────────────────────────── */
+  --text-2xs:  11px;
+  --text-xs:   12px;
+  --text-sm:   13px;   /* console default for dense UI */
+  --text-base: 14px;   /* body */
+  --text-md:   15px;
+  --text-lg:   16px;
+  --text-xl:   18px;
+  --text-2xl:  20px;
+  --text-3xl:  24px;
+  --display-sm: 30px;
+  --display-md: 36px;
+  --display-lg: 48px;
+
+  /* ── Line heights ────────────────────────────────────────── */
+  --leading-none:    1;
+  --leading-tight:   1.2;
+  --leading-snug:    1.35;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+
+  /* ── Letter spacing ──────────────────────────────────────── */
+  --tracking-tighter: -0.02em;  /* display headings   */
+  --tracking-tight:   -0.011em; /* headings / UI      */
+  --tracking-normal:  0;
+  --tracking-wide:    0.04em;    /* eyebrows / labels  */
+  --tracking-caps:    0.06em;    /* all-caps labels    */
+
+  /* ── Numeric feature: tabular figures ────────────────────── */
+  --num-tabular: 'tnum' 1, 'lnum' 1;  /* @kind other */
+}
+
+/* Convenience utility classes (optional — semantic aliases above
+   are the primary API). */
+.ba-display {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--display-md);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tighter);
+  color: var(--text-primary);
+}
+.ba-h1 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+.ba-h2 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+.ba-h3 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  color: var(--text-primary);
+}
+.ba-body {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+}
+.ba-label {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--text-primary);
+}
+.ba-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-2xs);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.ba-mono {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-sm);
+  font-feature-settings: var(--num-tabular);
+  color: var(--text-primary);
+}

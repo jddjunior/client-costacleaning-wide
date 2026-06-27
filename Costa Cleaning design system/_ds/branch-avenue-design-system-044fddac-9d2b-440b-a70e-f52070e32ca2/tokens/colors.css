@@ -1,0 +1,133 @@
+/* ─────────────────────────────────────────────────────────────
+   Branch Avenue — Color
+   A near-monochrome operator palette: true-neutral grays carry
+   structure, one deep pine-green brand carries action + identity.
+   Status hues are restrained, never neon.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Neutral ramp (true neutral, faintly cool) ───────────── */
+  --gray-0:   #ffffff;
+  --gray-25:  #fbfbfc;
+  --gray-50:  #f7f8f9;
+  --gray-100: #f0f1f3;
+  --gray-150: #e8eaed;
+  --gray-200: #dfe2e6;
+  --gray-300: #cbcfd4;
+  --gray-400: #a4a9b0;
+  --gray-500: #787e87;
+  --gray-600: #565c65;
+  --gray-700: #3c424b;
+  --gray-800: #272c33;
+  --gray-900: #181c22;
+  --gray-950: #0e1116;
+
+  /* ── Brand · Pine green ──────────────────────────────────── */
+  --green-50:  #ecf5f0;
+  --green-100: #d3e8dd;
+  --green-200: #a9d2bd;
+  --green-300: #74b596;
+  --green-400: #3f9670;
+  --green-500: #1f7d54;
+  --green-600: #166848;  /* primary */
+  --green-700: #11543a;  /* hover   */
+  --green-800: #0e442f;  /* active  */
+  --green-900: #0a3122;
+
+  /* ── Status · Red (negative / error) ─────────────────────── */
+  --red-50:  #fcecec;
+  --red-100: #f7d4d4;
+  --red-200: #efb0b0;
+  --red-500: #d04545;
+  --red-600: #bb3a3a;
+  --red-700: #9c2f2f;
+
+  /* ── Status · Amber (warning / pending) ──────────────────── */
+  --amber-50:  #fbf1df;
+  --amber-100: #f6e2bd;
+  --amber-200: #eccd8c;
+  --amber-500: #c98a1e;
+  --amber-600: #a8720f;
+  --amber-700: #875b0c;
+
+  /* ── Status · Blue (info / running) ──────────────────────── */
+  --blue-50:  #eaf1fb;
+  --blue-100: #d3e2f6;
+  --blue-200: #aac6ec;
+  --blue-500: #2f6db5;
+  --blue-600: #275ea0;
+  --blue-700: #1f4d85;
+
+  /* ── Status · Violet (AI / agent — used sparingly) ───────── */
+  --violet-50:  #f0edfb;
+  --violet-100: #ddd6f5;
+  --violet-500: #6d54c9;
+  --violet-600: #5b43b3;
+  --violet-700: #4a3596;
+
+  /* ── Categorical (charts / verticals) ────────────────────── */
+  --cat-os:        #166848;  /* Avenue OS    */
+  --cat-transport: #275ea0;  /* Transport    */
+  --cat-agency:    #a8720f;  /* Agency       */
+  --cat-ai:        #5b43b3;  /* AI / agents  */
+
+  /* ════════════════════════════════════════════════════════════
+     SEMANTIC ALIASES — reach for these in product code
+     ════════════════════════════════════════════════════════════ */
+
+  /* Surfaces */
+  --bg-app:       var(--gray-50);   /* app canvas             */
+  --bg-surface:   var(--gray-0);    /* cards, panels, sheets  */
+  --bg-subtle:    var(--gray-100);  /* inset / hover rows     */
+  --bg-muted:     var(--gray-150);  /* track / disabled fill  */
+  --bg-inverse:   var(--gray-950);  /* command bar, tooltips  */
+  --bg-overlay:   rgba(14, 17, 22, 0.45);
+
+  /* Borders */
+  --border-subtle: var(--gray-150);
+  --border:        var(--gray-200);
+  --border-strong: var(--gray-300);
+  --border-inverse: rgba(255, 255, 255, 0.12);
+
+  /* Text */
+  --text-primary:   var(--gray-900);
+  --text-secondary: var(--gray-600);
+  --text-tertiary:  var(--gray-500);
+  --text-disabled:  var(--gray-400);
+  --text-inverse:   var(--gray-0);
+  --text-link:      var(--green-700);
+
+  /* Brand */
+  --brand:         var(--green-600);
+  --brand-hover:   var(--green-700);
+  --brand-active:  var(--green-800);
+  --brand-subtle:  var(--green-50);
+  --brand-border:  var(--green-200);
+  --brand-text:    var(--green-700);
+  --on-brand:      var(--gray-0);
+
+  /* Status — foreground / subtle background / border */
+  --positive:      var(--green-600);
+  --positive-bg:   var(--green-50);
+  --positive-border: var(--green-200);
+
+  --negative:      var(--red-600);
+  --negative-bg:   var(--red-50);
+  --negative-border: var(--red-200);
+
+  --warning:       var(--amber-600);
+  --warning-bg:    var(--amber-50);
+  --warning-border: var(--amber-200);
+
+  --info:          var(--blue-600);
+  --info-bg:       var(--blue-50);
+  --info-border:   var(--blue-200);
+
+  --ai:            var(--violet-600);
+  --ai-bg:         var(--violet-50);
+  --ai-border:     var(--violet-100);
+
+  /* Focus */
+  --focus-ring:    0 0 0 3px rgba(22, 104, 72, 0.22);
+  --focus-ring-danger: 0 0 0 3px rgba(187, 58, 58, 0.22);
+}

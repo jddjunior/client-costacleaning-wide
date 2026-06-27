@@ -1,0 +1,77 @@
+/* ─────────────────────────────────────────────────────────────
+   Branch Avenue — Effects
+   Restrained, premium surface treatments. Gradient HAIRLINES and
+   low-contrast WASHES only — never a saturated full-bleed gradient.
+   Everything keyed to the pine brand + true-neutral grays so the
+   console still reads clean and "Figma-premium," not hyped.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Surface washes (very low contrast — barely-there depth) ── */
+  /* Apply to panels/cards as `background-image` over a base color. */
+  --wash-surface:   linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(247,248,249,0.6) 100%); /* @kind other */
+  --wash-raised:    linear-gradient(180deg, #ffffff 0%, #fafbfc 100%); /* @kind other */
+  --wash-app:       radial-gradient(1200px 480px at 50% -10%, rgba(22,104,72,0.05) 0%, rgba(22,104,72,0) 60%); /* @kind other */
+  --wash-inverse:   linear-gradient(180deg, #1a1f26 0%, #0e1116 100%); /* @kind other */
+
+  /* ── Brand gradients (kept narrow in hue, used for emphasis) ── */
+  --grad-brand:        linear-gradient(180deg, var(--green-500) 0%, var(--green-700) 100%);
+  --grad-brand-sheen:  linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 42%); /* @kind other */
+  --grad-brand-soft:   linear-gradient(135deg, var(--green-50) 0%, rgba(236,245,240,0) 70%);
+  --grad-ai:           linear-gradient(135deg, var(--violet-50) 0%, rgba(240,237,251,0) 72%);
+
+  /* ── Gradient hairline borders ───────────────────────────────
+     Use via the helper classes below (border-image can't be a
+     single token cleanly). These are the source stops. */
+  --hairline-top:     linear-gradient(180deg, var(--gray-200) 0%, var(--gray-150) 100%);
+  --hairline-brand:   linear-gradient(180deg, var(--green-300) 0%, var(--green-200) 100%);
+  --hairline-fade:    linear-gradient(90deg, transparent 0%, var(--border) 18%, var(--border) 82%, transparent 100%);
+
+  /* ── Inset highlights (the "top-edge sheen" on raised surfaces) */
+  --highlight-top:     inset 0 1px 0 rgba(255,255,255,0.7);   /* @kind shadow */
+  --highlight-inverse: inset 0 1px 0 rgba(255,255,255,0.08);  /* @kind shadow */
+
+  /* ── Brand glow (focus / active emphasis, not decoration) ───── */
+  --glow-brand:  0 0 0 1px var(--green-200), 0 6px 20px -6px rgba(22,104,72,0.35);
+  --glow-ai:     0 0 0 1px var(--violet-100), 0 6px 20px -6px rgba(91,67,179,0.30);
+
+  /* ── Separators ─────────────────────────────────────────────── */
+  --rule-fade: linear-gradient(90deg, transparent, var(--border) 12%, var(--border) 88%, transparent);
+}
+
+/* ── Helper classes ──────────────────────────────────────────────
+   Optional conveniences; the tokens above are the primary API. */
+
+/* Gradient hairline border via double-background trick: a padded
+   gradient ring around a solid fill. Radius set by --eff-radius. */
+.ba-gradient-border {
+  --eff-radius: var(--radius-xl);
+  position: relative;
+  border-radius: var(--eff-radius);
+  background:
+    linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box,
+    var(--hairline-brand) border-box;
+  border: 1px solid transparent;
+}
+
+/* Subtle raised card: wash + hairline + top highlight + soft shadow */
+.ba-raised {
+  background-color: var(--bg-surface);
+  background-image: var(--wash-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--highlight-top), var(--shadow-sm);
+}
+
+/* A fading horizontal rule */
+.ba-rule {
+  height: 1px;
+  border: 0;
+  background: var(--rule-fade);
+}
+
+/* Brand-gradient button surface (apply on top of a brand button) */
+.ba-brand-surface {
+  background-image: var(--grad-brand-sheen), var(--grad-brand);
+  box-shadow: var(--highlight-top), var(--shadow-sm);
+}
