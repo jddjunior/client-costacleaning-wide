@@ -1,0 +1,42 @@
+{
+ "lobby": {
+  "title": "File:Floor scrubbers.jpg",
+  "author": "Z22",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Floor_scrubbers.jpg",
+  "size": [
+   1920,
+   1440
+  ]
+ },
+ "openplan": {
+  "title": "File:H&K.jpg",
+  "author": "Handpicked Interiors",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:H%26K.jpg"
+ },
+ "corridor": {
+  "title": "File:Krankenhaus 002 2015 03 24.jpg",
+  "author": "Friedrich Haag",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Krankenhaus_002_2015_03_24.jpg"
+ },
+ "storefront": {
+  "title": "File:Vacant Storefront, Orlando Fashion Square Mall, Orlando, Florida.jpg",
+  "author": "Pokemonprime",
+  "license": "CC BY 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Vacant_Storefront,_Orlando_Fashion_Square_Mall,_Orlando,_Florida.jpg"
+ },
+ "suite": {
+  "title": "File:Office space in 140 William.jpg",
+  "author": "Orderinchaos",
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Office_space_in_140_William.jpg"
+ },
+ "store": {
+  "title": "File:Men's shoes in the Canberra Centre David Jones store August 2025.jpg",
+  "author": "Nick-D",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Men%27s_shoes_in_the_Canberra_Centre_David_Jones_store_August_2025.jpg"
+ }
+}

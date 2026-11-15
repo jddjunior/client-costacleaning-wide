@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://costacleaning.co/sitemap.xml
