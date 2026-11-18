@@ -28,13 +28,15 @@ async function logToSheet(d) {
   const key = process.env.COMPOSIO_CONSUMER_API_KEY;
   if (!sheetId || !key) return;
   const tab = process.env.LEADS_SHEET_TAB || 'Leads';
-  const row = [new Date().toISOString(), d.type, d.name, d.company, d.phone, d.email, d.facility, d.city, d.page, 'New', ''];
+  // Columns: Received (ET), every form field in FIELDS order, Status, Follow-up notes. Keep the sheet header in this order.
+  const when = new Date().toLocaleString('sv-SE', { timeZone: 'America/New_York' });
+  const row = [when, ...FIELDS.map(([k]) => d[k]), 'New', ''];
   try {
     const init = await mcpCall(key, null, { jsonrpc: '2.0', id: 1, method: 'initialize', params: { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'costa-leads', version: '1.1.0' } } });
     if (init.status !== 200) throw new Error('mcp_init_' + init.status);
     await mcpCall(key, init.sid, { jsonrpc: '2.0', method: 'notifications/initialized' });
     const call = await mcpCall(key, init.sid, { jsonrpc: '2.0', id: 2, method: 'tools/call', params: { name: 'COMPOSIO_MULTI_EXECUTE_TOOL', arguments: {
-      tools: [{ tool_slug: 'GOOGLESHEETS_SPREADSHEETS_VALUES_APPEND', arguments: { spreadsheetId: sheetId, range: tab + '!A:K', valueInputOption: 'RAW', insertDataOption: 'INSERT_ROWS', values: [row] } }],
+      tools: [{ tool_slug: 'GOOGLESHEETS_SPREADSHEETS_VALUES_APPEND', arguments: { spreadsheetId: sheetId, range: tab + '!A:' + String.fromCharCode(64 + FIELDS.length + 3), valueInputOption: 'RAW', insertDataOption: 'INSERT_ROWS', values: [row] } }],
       sync_response_to_workbench: false } } });
     let out = null;
     try { out = JSON.parse(call.json.result.content[0].text); } catch (e) { /* unexpected shape */ }
