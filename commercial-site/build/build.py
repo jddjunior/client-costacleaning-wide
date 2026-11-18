@@ -130,13 +130,13 @@ def header(current, cta="#quote"):
       </nav>
       <div class="header__actions">
         <a class="header__phone" href="tel:{TEL}">{icon("phone")}<span class="header__num">{PHONE}</span></a>
-        <a class="btn btn--primary btn--sm" href="{cta}">Get a free walkthrough</a>
+        <a class="btn btn--primary btn--sm" href="{cta}">Plan a FaceTime Walkthrough</a>
       </div>
       <button class="menu-btn btn btn--outline btn--sm" type="button" aria-expanded="false" aria-controls="mobile-nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span class="menu-btn__label">Menu</span></button>
     </div>
     <nav class="mobile-nav" id="mobile-nav" aria-label="Main" hidden>
       {mob}
-      <a class="btn btn--primary btn--block" href="{cta}">Get a free walkthrough</a>
+      <a class="btn btn--primary btn--block" href="{cta}">Plan a FaceTime Walkthrough</a>
     </nav>
   </div>
 </header>
@@ -184,8 +184,8 @@ def footer(photo_keys, cta="#quote"):
   </div>
 </footer>
 <div class="callbar">
-  <a class="btn btn--outline" href="tel:{TEL}">{icon("phone")}Call</a>
-  <a class="btn btn--primary" href="{cta}">Free walkthrough</a>
+  <a class="btn btn--outline" href="tel:{TEL}">{icon("phone")}<span class="callbar__lbl">Call</span></a>
+  <a class="btn btn--primary" href="{cta}">FaceTime Walkthrough</a>
 </div>
 <script src="assets/site.js" defer></script>
 </body>
@@ -313,7 +313,7 @@ def board(h_tag="h2", light=False):
         <tbody>{rows}</tbody>
       </table>
       <div class="board__foot"><p>All five are written into your service agreement, along with your checklist and your flat rate.</p>
-        <a class="btn btn--primary btn--sm" href="#quote">Get a free walkthrough</a></div>
+        <a class="btn btn--primary btn--sm" href="#quote">Plan a FaceTime Walkthrough</a></div>
     </div>
   </div>
 </section>"""
@@ -438,7 +438,7 @@ def cta_band(title="Ready for a cleaner you never have to chase?", text="Book a 
     return f"""<section class="navy cta-band" aria-labelledby="cta-title">
   <div class="container cta-band__inner">
     <div><h2 id="cta-title">{e(title)}</h2><p>{e(text)}</p></div>
-    <div class="cta-band__actions"><a class="btn btn--light" href="{href}">Get a free walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div>
+    <div class="cta-band__actions"><a class="btn btn--light" href="{href}">Plan a FaceTime Walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div>
   </div>
 </section>"""
 
@@ -512,7 +512,7 @@ def page_home():
     <div>
       <h1 id="hero-title">Fort Myers commercial cleaning you never have to chase</h1>
       <p class="hero__sub">Offices, medical practices, stores and facilities across Lee and Charlotte County. One point of contact, the same trained crew and a checklist every visit, all at one flat rate.</p>
-      <div class="hero__actions"><a class="btn btn--light" href="#quote">Get a free walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div>
+      <div class="hero__actions"><a class="btn btn--light" href="#quote">Plan a FaceTime Walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div>
       {proof_line(extra=False)}
     </div>
     {lead_form("Request your free walkthrough", "A real person answers. Replies average 8 minutes during office hours.")}
@@ -567,7 +567,7 @@ def page_service(s):
       {crumbs(trail)}
       <h1 id="hero-title">{e(s["h1"])}</h1>
       <p class="hero__sub">{e(s["lead"])}</p>
-      <div class="hero__actions"><a class="btn btn--light" href="#quote" data-service="{e(s["name"])}">Get a free walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div>
+      <div class="hero__actions"><a class="btn btn--light" href="#quote" data-service="{e(s["name"])}">Plan a FaceTime Walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div>
       {proof_line(extra=False)}
     </div>
     <figure class="phero__img">{img(s["img"], s["alt"], "(max-width: 900px) 100vw, 560px", s["w"], s["h"], eager=True)}</figure>
@@ -586,7 +586,7 @@ def page_service(s):
       <ul class="feat feat--one">{why}</ul>
       <p><a class="link-more" href="why-costa.html">See the Costa Standard{icon("arrow-right")}</a></p></div>
     <aside class="aside-card" aria-labelledby="sched-title"><h3 id="sched-title">Schedules</h3><ul class="sched">{sched}</ul>
-      <a class="btn btn--primary btn--block aside-card__btn" href="#quote" data-service="{e(s["name"])}">Get a free walkthrough</a></aside>
+      <a class="btn btn--primary btn--block aside-card__btn" href="#quote" data-service="{e(s["name"])}">Plan a FaceTime Walkthrough</a></aside>
   </div>
 </section>
 {faq_block(s["faq"], title=s["name"] + " questions", intro="Answers to what buyers ask before a walkthrough.", sid="faq")}
@@ -626,7 +626,7 @@ def page_services():
   <div class="container phero__grid phero__grid--solo">
     <div>{crumbs(trail)}<h1 id="hero-title">Commercial cleaning services in Fort Myers and Southwest Florida</h1>
       <p class="hero__sub">Six services, one point of contact and one flat rate in writing. Pick a service to see exactly what is included.</p>
-      <div class="hero__actions"><a class="btn btn--light" href="#quote">Get a free walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div></div>
+      <div class="hero__actions"><a class="btn btn--light" href="#quote">Plan a FaceTime Walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div></div>
   </div>
 </section>
 <section class="section"><div class="container rows">{rows}</div></section>
@@ -662,7 +662,7 @@ def page_industries():
   <div class="container phero__grid phero__grid--solo">
     <div>{crumbs(trail)}<h1 id="hero-title">Commercial cleaning for every kind of facility</h1>
       <p class="hero__sub">Offices, practices, stores, restaurants, gyms, warehouses, vacant suites and construction sites. Each one gets a checklist written for its rooms and its hours.</p>
-      <div class="hero__actions"><a class="btn btn--light" href="#quote">Get a free walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div></div>
+      <div class="hero__actions"><a class="btn btn--light" href="#quote">Plan a FaceTime Walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div></div>
   </div>
 </section>
 <section class="section section--tint"><div class="container"><div class="ind-rows">{cards}</div></div></section>
@@ -693,7 +693,7 @@ def page_areas():
   <div class="container phero__grid">
     <div>{crumbs(trail)}<h1 id="hero-title">Commercial cleaning across Lee and Charlotte County</h1>
       <p class="hero__sub">Eight cities from Punta Gorda to Bonita Springs, served from our Fort Myers home base by crews who know the area.</p>
-      <div class="hero__actions"><a class="btn btn--light" href="#quote">Get a free walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div></div>
+      <div class="hero__actions"><a class="btn btn--light" href="#quote">Plan a FaceTime Walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div></div>
     {area_map(big=True)}
   </div>
 </section>
@@ -739,7 +739,7 @@ def page_why():
   <div class="container phero__grid">
     <div>{crumbs(trail)}<h1 id="hero-title">Why facility managers switch to Costa</h1>
       <p class="hero__sub">Most cleaning problems are communication problems. Costa is built around five commitments you can hold us to, written into every agreement.</p>
-      <div class="hero__actions"><a class="btn btn--light" href="#quote">Get a free walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div>
+      <div class="hero__actions"><a class="btn btn--light" href="#quote">Plan a FaceTime Walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div>
       {proof_line(extra=False)}</div>
     <figure class="phero__img">{img("lobby", "A newly finished glass-walled lobby with floor scrubbers on a polished floor", "(max-width: 900px) 100vw, 560px", 1920, 1440, eager=True)}</figure>
   </div>
@@ -831,7 +831,7 @@ def page_about():
   <div class="container phero__grid phero__grid--solo">
     <div>{crumbs(trail)}<h1 id="hero-title">About Costa Cleaning Co.</h1>
       <p class="hero__sub">A Fort Myers commercial cleaning company serving offices, practices, stores and facilities across Lee and Charlotte County.</p>
-      <div class="hero__actions"><a class="btn btn--light" href="#quote">Get a free walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div></div>
+      <div class="hero__actions"><a class="btn btn--light" href="#quote">Plan a FaceTime Walkthrough</a><a class="btn btn--ghost" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div></div>
   </div>
 </section>
 <section class="section" aria-labelledby="who-title">
@@ -954,7 +954,7 @@ def page_404():
 <section class="lost"><div class="container">
   <h1>We couldn't find that page</h1>
   <p>It may have moved. Here are the pages most visitors are looking for, or call us and a real person will help.</p>
-  <div class="hero__actions"><a class="btn btn--primary" href="contact.html#quote">Get a free walkthrough</a><a class="btn btn--outline" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div>
+  <div class="hero__actions"><a class="btn btn--primary" href="contact.html#quote">Plan a FaceTime Walkthrough</a><a class="btn btn--outline" href="tel:{TEL}">{icon("phone")}Call {PHONE}</a></div>
   <div class="lost__links">
     <a href="services.html"><b>Services</b><span>Six commercial cleaning services</span></a>
     <a href="industries.html"><b>Industries</b><span>Offices, practices, stores and more</span></a>
