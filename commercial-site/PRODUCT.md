@@ -31,7 +31,7 @@ Five commitments a buyer can hold Costa to: Communication, Accountability, Depen
 ## Operating Context
 
 - Cleaning happens before opening, after closing or on weekends.
-- How a buyer starts: a free walkthrough, on site or by video, then one flat-rate price in writing, then recurring visits. For buyers switching vendors, the start date is planned around their current notice period.
+- How a buyer starts: a free walkthrough by FaceTime video (Costa does not do in-person walkthroughs; confirmed by James Nov 18, 2026), then one flat-rate price in writing, then recurring visits. For buyers switching vendors, the start date is planned around their current notice period.
 
 ## Capabilities and Constraints
 

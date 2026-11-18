@@ -308,7 +308,7 @@ def board(h_tag="h2", light=False):
     band = "section section--tint board-wrap--light" if light else "section navy"
     return f"""<section class="{band}" id="standard" aria-labelledby="standard-title">
   <div class="container">
-    <div class="head"><{h_tag} id="standard-title">The Costa Standard: five commitments you can hold us to</{h_tag}>
+    <div class="head"><{h_tag} id="standard-title">Our Five Commitments most companies skip</{h_tag}>
       <p>Every account gets the same five commitments in writing. Here is what each one means, and how to hold us to it.</p></div>
     <div class="board">
       <table>
@@ -438,7 +438,7 @@ def faq_block(items, title="Questions facility managers ask", intro="Straight an
   </div>
 </section>"""
 
-def cta_band(title="Ready for a cleaner you never have to chase?", text="Book a free walkthrough, on site or by video. You get one flat rate in writing, and no obligation.", href="#quote"):
+def cta_band(title="Ready for a reliable cleaner that wants it as perfect as you do?", text="Book a free walkthrough by FaceTime video. You get one flat rate in writing, and no obligation.", href="#quote"):
     return f"""<section class="navy cta-band" aria-labelledby="cta-title">
   <div class="container cta-band__inner">
     <div><h2 id="cta-title">{e(title)}</h2><p>{e(text)}</p></div>
@@ -446,7 +446,7 @@ def cta_band(title="Ready for a cleaner you never have to chase?", text="Book a 
   </div>
 </section>"""
 
-def book_section(title, sub, variant="service", service=None, facility=None, heading="Book a free walkthrough", text="We walk your space, on site or by video, then send one flat rate in writing."):
+def book_section(title, sub, variant="service", service=None, facility=None, heading="Book a free walkthrough", text="You walk us through your space on a FaceTime video call, then we send one flat rate in writing."):
     ticks = "".join(f'<li>{icon("check")}{e(t)}</li>' for t in ["No obligation, no hourly billing", "One point of contact from day one", "First clean on the date you choose"])
     return f"""<section class="section navy" aria-labelledby="book-title">
   <div class="container book">
@@ -771,7 +771,7 @@ def page_why():
 {switch_section()}
 {faq_block(faq, title="Questions before you switch")}
 {byline()}
-{book_section("Request a walkthrough", FORM_SUB, variant="service", heading="Plan your switch", text="Tell us about your building and when your current contract ends. We walk the space and send one flat rate in writing.")}
+{book_section("Request a walkthrough", FORM_SUB, variant="service", heading="Plan your switch", text="Tell us about your building and when your current contract ends. You walk us through the space on FaceTime, and we send one flat rate in writing.")}
 """
     body += footer(["lobby"])
     return body
@@ -781,14 +781,14 @@ PAGES["why-costa.html"] = page_why
 def page_contact():
     trail = [("Contact", None)]
     body = head("Get a Free Commercial Cleaning Walkthrough | Costa Cleaning Co. Fort Myers",
-                "Book a free commercial cleaning walkthrough in Fort Myers and Southwest Florida, on site or by video. Call (239) 980-6084 or send the form.",
+                "Book a free commercial cleaning walkthrough for your building in Fort Myers or Southwest Florida. Call (239) 980-6084 or send the form.",
                 "contact.html", [BUSINESS, crumb_schema([("Contact", "contact.html")])], ptype="ContactPage")
     body += header("contact.html")
     body += f"""
 <section class="phero" aria-labelledby="hero-title">
   <div class="container phero__grid phero__grid--solo">
     <div>{crumbs(trail)}<h1 id="hero-title">Get a free walkthrough</h1>
-      <p class="hero__sub">Tell us about your building. We walk the space with you, on site or by video, then send one flat rate in writing. No obligation.</p></div>
+      <p class="hero__sub">Tell us about your building. You walk us through it on a FaceTime video call, then we send one flat rate in writing. No obligation.</p></div>
   </div>
 </section>
 <section class="section section--tint">
@@ -804,7 +804,7 @@ def page_contact():
       <h2 class="h-card next__title">What happens next</h2>
       <ol class="next">
         <li><span><b>We call or email you</b> to set a walkthrough time, during office hours.</span></li>
-        <li><span><b>We walk the space</b> with you, on site or by video.</span></li>
+        <li><span><b>You walk us through the space</b> on a FaceTime video call.</span></li>
         <li><span><b>You get one flat rate</b> in writing, with your checklist and schedule.</span></li>
       </ol>
     </aside>

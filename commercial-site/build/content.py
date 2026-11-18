@@ -14,7 +14,7 @@ CLAIMS = [
     "A room-by-room checklist every visit, and regular quality walks",
     "Same flat rate before opening, after close and on weekends",
     "No long-term contract",
-    "Walkthroughs on site or by video",
+    "Walkthroughs by FaceTime video",
     "Certificate of insurance on request",
     "HEPA-filter vacuums and eco-friendly products",
     "Rated 5.0 on Google",
@@ -56,7 +56,7 @@ COMMITMENTS = [
      "You know your crew by name, and we tell you before any change."),
     ("Quality", "clipboard-check",
      "A room-by-room checklist completed every visit.",
-     "Ask for the checklist any time, and walk the space with us on regular quality walks."),
+     "Ask for the checklist any time, and go over it with your contact at regular quality check-ins."),
     ("Accommodating", "calendar-clock",
      "Cleaning before you open, after you close or on weekends.",
      "Same flat rate whatever the hour. Schedule changes go through your point of contact."),
@@ -78,7 +78,7 @@ COMPARE = [
 ]
 
 STEPS = [
-    ("Book a free walkthrough", "On site or by video, at a time that suits you. No obligation."),
+    ("Book a free walkthrough", "A FaceTime video call at a time that suits you. You show us the space. No obligation."),
     ("Get one flat rate in writing", "Your scope, room by room, priced once. No hourly billing."),
     ("Meet your crew", "Your point of contact confirms your crew, your checklist and your schedule."),
     ("First clean on your date", "Checklist completed every visit, with quality walks along the way."),
@@ -88,7 +88,7 @@ FAQ_HOME = [
     ("What areas do you serve?",
      "Fort Myers, Cape Coral, Bonita Springs, Estero, Lehigh Acres, North Fort Myers, Sanibel and Punta Gorda, across Lee and Charlotte County. Ask us about nearby areas."),
     ("How is pricing set?",
-     "After a free walkthrough, on site or by video, we send one flat rate in writing based on your square footage, how often we clean and the rooms in scope. No hourly billing."),
+     "After a free FaceTime video walkthrough, we send one flat rate in writing based on your square footage, how often we clean and the rooms in scope. No hourly billing."),
     ("Is there a long-term contract?",
      "No. We keep accounts by keeping our commitments."),
     ("Are your crews background-checked and insured?",
@@ -257,7 +257,7 @@ SERVICES = [
             ("Can you clean several units across our portfolio?", "Yes. One point of contact schedules every unit, and each gets its own flat rate in writing."),
             ("How quickly can you clean a vacant unit?", "Tell us the move-out date and we schedule the clean around it, before your first showing."),
             ("Do you clean after construction or a build-out?", "Yes. See post-construction cleaning for rough, final and touch-up phases."),
-            ("How is the price set?", "We send one flat rate per unit in writing, after a walkthrough on site or by video."),
+            ("How is the price set?", "We send one flat rate per unit in writing, after a FaceTime video walkthrough."),
         ],
     },
 ]

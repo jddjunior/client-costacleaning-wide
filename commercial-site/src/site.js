@@ -40,6 +40,29 @@
     matchMedia('(min-width: 1101px)').addEventListener('change', (e) => { if (e.matches) set(false); });
   }
 
+  /* First look at the hero form: a 10-second glow once per visit, starting when the form is on screen.
+     Any interaction with the form ends it early. */
+  const heroCard = d.querySelector('.hero .formcard');
+  if (heroCard) {
+    let seen = false;
+    try { seen = sessionStorage.getItem('costa-form-glow') === '1'; } catch (err) { /* storage blocked: glow anyway */ }
+    if (!seen) {
+      const stop = () => { heroCard.classList.remove('is-glow'); };
+      const start = () => {
+        try { sessionStorage.setItem('costa-form-glow', '1'); } catch (err) { /* ignore */ }
+        heroCard.classList.add('is-glow');
+        window.setTimeout(stop, 10000);
+        ['pointerdown', 'focusin'].forEach((t) => heroCard.addEventListener(t, stop, { once: true }));
+      };
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          if (entries.some((en) => en.isIntersecting)) { io.disconnect(); start(); }
+        }, { threshold: 0.35 });
+        io.observe(heroCard);
+      } else start();
+    }
+  }
+
   /* Walkthrough form: a tap-to-advance stepper. Without JavaScript every question shows at once. */
   const form = d.getElementById('lead-form');
   if (!form) return;
