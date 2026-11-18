@@ -239,7 +239,7 @@ def lead_form(title, sub, variant="compact", service=None, facility=None, submit
     return f"""<div class="formcard" id="quote">
   <h2 class="formcard__title" id="quote-title">{e(title)}</h2>
   <p class="formcard__sub">{e(sub)}</p>
-  <form class="form" id="lead-form" method="post" data-endpoint="" aria-labelledby="quote-title">
+  <form class="form" id="lead-form" method="post" data-endpoint="/api/lead" aria-labelledby="quote-title">
     {seg}
     <div class="form__grid">{"".join(rows)}</div>
     <button class="btn btn--primary btn--block" type="submit">{e(submit)}</button>
