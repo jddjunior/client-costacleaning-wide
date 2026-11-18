@@ -502,7 +502,7 @@ PAGES = {}
 def page_home():
     keys = ["openplan"] + [s["img"] for s in SERVICES]
     body = head("Commercial Cleaning in Fort Myers, FL | Costa Cleaning Co.",
-                "Commercial cleaning for offices, medical practices and retail stores in Fort Myers and Southwest Florida. One point of contact, the same crew, a checklist every visit, one flat rate.",
+                "Commercial cleaning for offices, medical practices and stores in Fort Myers and SW Florida. One crew, one checklist, one flat rate. Book a free walkthrough.",
                 "index.html", [BUSINESS, faq_schema(FAQ_HOME)], preload="openplan")
     body += header("index.html")
     body += f"""
@@ -609,7 +609,7 @@ for s in SERVICES:
 def page_services():
     trail = [("Services", None)]
     body = head("Commercial Cleaning Services in Fort Myers, FL | Costa Cleaning Co.",
-                "Office, medical, retail, post-construction, window and vacant suite cleaning across Fort Myers and Southwest Florida. One point of contact and one flat rate.",
+                "Office, medical, retail, post-construction, window and vacant suite cleaning in Fort Myers and SW Florida. One flat rate in writing. Book a free walkthrough.",
                 "services.html", [BUSINESS, crumb_schema([("Services", "services.html")]), faq_schema(FAQ_HOME[1:5])])
     body += header("services.html")
     rows = ""
@@ -644,7 +644,7 @@ IND_NOUN = {"offices": "office", "medical": "practice", "retail": "store", "rest
 def page_industries():
     trail = [("Industries", None)]
     body = head("Commercial Cleaning by Industry in Fort Myers, FL | Costa Cleaning Co.",
-                "Commercial cleaning for offices, medical and dental practices, retail stores, restaurants, gyms, warehouses, vacant suites and construction sites across Southwest Florida.",
+                "Commercial cleaning for offices, practices, stores, restaurants, gyms, warehouses, vacant suites and job sites in SW Florida. Book a free walkthrough.",
                 "industries.html", [BUSINESS, crumb_schema([("Industries", "industries.html")])])
     body += header("industries.html")
     cards = ""
@@ -677,7 +677,7 @@ PAGES["industries.html"] = page_industries
 def page_areas():
     trail = [("Service areas", None)]
     body = head("Commercial Cleaning in Lee and Charlotte County, FL | Costa Cleaning Co.",
-                "Commercial cleaning in Fort Myers, Cape Coral, Bonita Springs, Estero, Lehigh Acres, North Fort Myers, Sanibel and Punta Gorda. One point of contact and one flat rate.",
+                "Commercial cleaning in Fort Myers, Cape Coral, Bonita Springs, Estero, Lehigh Acres, North Fort Myers, Sanibel and Punta Gorda. Book a free walkthrough.",
                 "service-areas.html", [BUSINESS, crumb_schema([("Service areas", "service-areas.html")])])
     body += header("service-areas.html")
     cities = ""
@@ -729,7 +729,7 @@ def page_why():
     trail = [("Why Costa", None)]
     faq = FAQ_HOME[2:]
     body = head("Why Facility Managers Switch to Costa Cleaning Co. | Fort Myers, FL",
-                "The Costa Standard: one point of contact, the same trained crew, a checklist every visit, misses fixed free and one flat rate. See how a Costa visit works.",
+                "One point of contact, the same trained crew, a checklist every visit, misses fixed free and one flat rate. See how a visit works. Book a free walkthrough.",
                 "why-costa.html", [BUSINESS, crumb_schema([("Why Costa", "why-costa.html")]), faq_schema(faq)])
     body += header("why-costa.html")
     visit = "".join(f'<li class="step"><h3>{e(a)}</h3><p>{e(d)}</p></li>' for a, d in VISIT)
@@ -821,7 +821,7 @@ ABOUT_WORK = [("user-check", "Background-checked crews", "Every crew member is b
 def page_about():
     trail = [("About", None)]
     body = head("About Costa Cleaning Co. | Commercial Cleaning in Fort Myers, FL",
-                "Costa Cleaning Co. is a Fort Myers commercial cleaning company serving Lee and Charlotte County, built around five commitments clients can hold us to.",
+                "Costa Cleaning Co. is a Fort Myers commercial cleaning company serving Lee and Charlotte County, built on five written commitments. Book a free walkthrough.",
                 "about.html", [BUSINESS, crumb_schema([("About", "about.html")])], ptype="AboutPage")
     body += header("about.html")
     work = "".join(f'<li><span class="badge">{icon(ic)}</span><div><h3>{e(a)}</h3><p>{e(d)}</p></div></li>' for ic, a, d in ABOUT_WORK)
