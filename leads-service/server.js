@@ -1,6 +1,6 @@
 // Costa lead form receiver: POST /lead (JSON) -> email via Resend. No dependencies.
 // Env: RESEND_API_KEY (required), PORT, LEAD_TO_EMAIL, LEAD_FROM_EMAIL, ALLOWED_ORIGINS (comma list).
-// Optional sheet log (skipped unless both are set): LEADS_SHEET_ID, COMPOSIO_API_KEY; also COMPOSIO_CONNECTED_ACCOUNT_ID, LEADS_SHEET_TAB (default "Leads").
+// Optional sheet log (skipped unless both are set): LEADS_SHEET_ID, COMPOSIO_CONSUMER_API_KEY (Composio Connect ck_ key); LEADS_SHEET_TAB (default "Leads").
 const http = require('http');
 const TO = process.env.LEAD_TO_EMAIL || 'info@costacleaning.co';
 const FROM = process.env.LEAD_FROM_EMAIL || 'Costa Cleaning Website <leads@costacleaning.co>';
@@ -10,27 +10,37 @@ const FIELDS = [['type', 'Need'], ['frequency', 'How often'], ['project', 'Proje
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const clean = (v) => String(v == null ? '' : v).replace(/[\r\n]+/g, ' ').trim().slice(0, 300);
 
-// Append one row to the leads Google Sheet through Composio. Never throws: a sheet problem must not block the email.
+// Append one row to the leads Google Sheet through Composio Connect (MCP endpoint, x-consumer-api-key).
+// Never throws: a sheet problem must not block the email.
+const COMPOSIO_MCP = 'https://connect.composio.dev/mcp';
+async function mcpCall(key, sid, msg) {
+  const h = { 'x-consumer-api-key': key, 'Content-Type': 'application/json', Accept: 'application/json, text/event-stream' };
+  if (sid) h['mcp-session-id'] = sid;
+  const r = await fetch(COMPOSIO_MCP, { method: 'POST', headers: h, body: JSON.stringify(msg), signal: AbortSignal.timeout(8000) });
+  const text = await r.text();
+  const ct = r.headers.get('content-type') || '';
+  const payload = ct.includes('event-stream') ? (text.split('\n').filter((l) => l.startsWith('data:')).map((l) => l.slice(5).trim()).pop() || '') : text;
+  let json = null; try { json = payload ? JSON.parse(payload) : null; } catch (e) { /* not json */ }
+  return { status: r.status, sid: r.headers.get('mcp-session-id') || sid, json, raw: payload };
+}
 async function logToSheet(d) {
   const sheetId = process.env.LEADS_SHEET_ID;
-  const key = process.env.COMPOSIO_API_KEY;
+  const key = process.env.COMPOSIO_CONSUMER_API_KEY;
   if (!sheetId || !key) return;
   const tab = process.env.LEADS_SHEET_TAB || 'Leads';
   const row = [new Date().toISOString(), d.type, d.name, d.company, d.phone, d.email, d.facility, d.city, d.page, 'New', ''];
-  const body = {
-    arguments: { spreadsheetId: sheetId, range: tab + '!A:K', valueInputOption: 'RAW', insertDataOption: 'INSERT_ROWS', values: [row] },
-  };
-  if (process.env.COMPOSIO_CONNECTED_ACCOUNT_ID) body.connected_account_id = process.env.COMPOSIO_CONNECTED_ACCOUNT_ID;
   try {
-    const r = await fetch('https://backend.composio.dev/api/v3.1/tools/execute/GOOGLESHEETS_SPREADSHEETS_VALUES_APPEND', {
-      method: 'POST',
-      headers: { 'x-api-key': key, 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-      signal: AbortSignal.timeout(8000),
-    });
-    const j = await r.json().catch(() => ({}));
-    if (!r.ok || j.successful === false || j.error) console.error('sheet_log_failed', r.status, JSON.stringify(j.error || j).slice(0, 300));
-    else console.log('sheet_log_ok');
+    const init = await mcpCall(key, null, { jsonrpc: '2.0', id: 1, method: 'initialize', params: { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'costa-leads', version: '1.1.0' } } });
+    if (init.status !== 200) throw new Error('mcp_init_' + init.status);
+    await mcpCall(key, init.sid, { jsonrpc: '2.0', method: 'notifications/initialized' });
+    const call = await mcpCall(key, init.sid, { jsonrpc: '2.0', id: 2, method: 'tools/call', params: { name: 'COMPOSIO_MULTI_EXECUTE_TOOL', arguments: {
+      tools: [{ tool_slug: 'GOOGLESHEETS_SPREADSHEETS_VALUES_APPEND', arguments: { spreadsheetId: sheetId, range: tab + '!A:K', valueInputOption: 'RAW', insertDataOption: 'INSERT_ROWS', values: [row] } }],
+      sync_response_to_workbench: false } } });
+    let out = null;
+    try { out = JSON.parse(call.json.result.content[0].text); } catch (e) { /* unexpected shape */ }
+    const ok = call.status === 200 && out && out.successful && out.data && out.data.success_count === 1;
+    if (ok) console.log('sheet_log_ok');
+    else console.error('sheet_log_failed', call.status, String((out && JSON.stringify(out.data && out.data.results || out.error)) || call.raw).slice(0, 300));
   } catch (e) { console.error('sheet_log_failed', e.message); }
 }
 
