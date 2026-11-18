@@ -47,6 +47,7 @@ async def check_page(browser, name):
     rep["links"] = await page.evaluate(LINKS)
     rep["ids"] = await page.evaluate("[...document.querySelectorAll('[id]')].map(e => e.id)")
     rep["dupIds"] = await page.evaluate("(() => { const s = {}; document.querySelectorAll('[id]').forEach(e => s[e.id] = (s[e.id] || 0) + 1); return Object.keys(s).filter(k => s[k] > 1); })()")
+    rep["kw"] = await page.evaluate("[...document.querySelectorAll('meta[name=keywords]')].map(m => m.content)")
     STEP[0] = "axe"
     await page.add_script_tag(content=AXE)
     rep["axe"] = await page.evaluate("axe.run(document, {resultTypes: ['violations']}).then(r => r.violations.map(v => ({id: v.id, impact: v.impact, n: v.nodes.length, s: v.nodes.slice(0,3).map(n => n.target.join(' ') + ' :: ' + (n.failureSummary||'').slice(0,120))})))")
@@ -162,4 +163,6 @@ for n, x in r.items():
     print(f"   fold1280 {x['fold1280']} | phoneFold {x['phoneFold']} | overflow {x['overflow']} | targets {x['targets'][:6]}")
     print(f"   steps {x.get('stepperPath')} | form {x.get('formEmpty')} fixed {x.get('fixedWhileTyping')} valid {str(x.get('formValid'))[:50]} | prefill {x.get('prefill')} | menu {x['menu']} | dd {x.get('dropdownVisible')} | noJs {x.get('noJs')}")
     print(f"   kb {x['keyboard']}")
+    kw = x["kw"]; terms = [t.strip().lower() for t in (kw[0] if kw else "").split(",") if t.strip()]
+    print(f"   keywords tags {len(kw)} | terms {len(terms)} | dupTerms {sorted({t for t in terms if terms.count(t) > 1})}" + ("  <-- KEYWORDS PROBLEM" if len(kw) != 1 or not terms or len(terms) > 10 or len(set(terms)) != len(terms) else ""))
     if x['axe']: print("   axe detail:", json.dumps(x['axe'])[:900])

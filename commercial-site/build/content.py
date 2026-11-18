@@ -289,3 +289,25 @@ INDUSTRIES = [
      "Handover day goes better when dust and debris were handled in phases.",
      "Debris, dust, fixtures, glass and floors", "After trades, before handover", "post-construction-cleaning", "Construction site"),
 ]
+
+# Meta keywords, one entry per page. Google ignores this tag and Bing reads it
+# only as a light signal, so each list stays short and matches what the page
+# actually covers. Never pad these with every city or every service.
+KEYWORDS = {
+    "index.html": "commercial cleaning Fort Myers, commercial cleaning company Fort Myers FL, janitorial services Fort Myers, office cleaning Fort Myers, commercial cleaning Cape Coral, commercial cleaning Southwest Florida, Lee County commercial cleaning, Costa Cleaning Co",
+    "services.html": "commercial cleaning services Fort Myers, janitorial services Southwest Florida, office cleaning, medical office cleaning, retail cleaning, post-construction cleaning, commercial window cleaning, vacant suite cleaning",
+    "industries.html": "commercial cleaning by industry, office cleaning Fort Myers, medical and dental office cleaning, retail store cleaning, restaurant cleaning Fort Myers, gym cleaning, warehouse cleaning, construction site cleaning",
+    "service-areas.html": "commercial cleaning Fort Myers, commercial cleaning Cape Coral, commercial cleaning Bonita Springs, commercial cleaning Estero, commercial cleaning Lehigh Acres, commercial cleaning Punta Gorda, Lee County commercial cleaning, Charlotte County commercial cleaning",
+    "why-costa.html": "reliable commercial cleaning company, switch commercial cleaning company, commercial cleaner Fort Myers, same cleaning crew every visit, janitorial quality checklist, flat rate commercial cleaning",
+    "contact.html": "commercial cleaning quote Fort Myers, free commercial cleaning walkthrough, FaceTime cleaning walkthrough, janitorial services quote, office cleaning estimate Fort Myers FL",
+    "about.html": "Costa Cleaning Co, about Costa Cleaning, Fort Myers commercial cleaning company, commercial cleaner Lee County, commercial cleaner Charlotte County",
+    "privacy.html": "Costa Cleaning Co privacy policy",
+    "credits.html": "Costa Cleaning Co website credits",
+    "404.html": "Costa Cleaning Co",
+    "office-janitorial-cleaning.html": "office cleaning Fort Myers, janitorial services Fort Myers FL, commercial janitorial service, nightly office cleaning, office cleaning Cape Coral, janitorial cleaning Southwest Florida",
+    "medical-dental-office-cleaning.html": "medical office cleaning Fort Myers, dental office cleaning Fort Myers, medical practice cleaning, exam room cleaning, clinic cleaning Southwest Florida, medical office cleaning Cape Coral",
+    "retail-storefront-cleaning.html": "retail store cleaning Fort Myers, storefront cleaning, restaurant cleaning Fort Myers, retail cleaning service Southwest Florida, commercial restroom cleaning, retail floor cleaning",
+    "post-construction-cleaning.html": "post-construction cleaning Fort Myers, construction cleanup Fort Myers FL, final construction clean, rough and touch-up cleaning, post-construction cleaning Cape Coral, builders clean Southwest Florida",
+    "commercial-window-cleaning.html": "commercial window cleaning Fort Myers, storefront window cleaning, glass door cleaning, glass partition cleaning, commercial window washing Southwest Florida",
+    "vacant-suite-turnover-cleaning.html": "vacant suite cleaning Fort Myers, tenant turnover cleaning, vacant office cleaning, commercial move-out cleaning, property manager cleaning service, vacant retail unit cleaning",
+}

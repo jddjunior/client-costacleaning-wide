@@ -80,6 +80,7 @@ def head(title, desc, path, schema, preload=None, ptype="WebPage"):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
+<meta name="keywords" content="{e(KEYWORDS[path])}">
 <link rel="canonical" href="{canon}">
 <meta name="author" content="Costa Cleaning Co.">
 <meta name="theme-color" content="#082A6B">
