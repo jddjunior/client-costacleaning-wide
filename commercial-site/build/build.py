@@ -40,6 +40,10 @@ SPRITE = ('<svg width="0" height="0" style="position:absolute" aria-hidden="true
           f'<symbol id="costa-wave" viewBox="62.17 2 148 148"><g transform="translate(0,253) scale(0.1,-0.1)" fill="currentColor">{WAVE}</g></symbol>'
           + "".join(symbols) + "</svg>")
 
+# cache-busting: browsers keep /assets for a day, so each build links the exact file it was built with
+import hashlib
+ASSET_V = {k: hashlib.sha256((ROOT / "src" / f"site.{k}").read_bytes()).hexdigest()[:10] for k in ("css", "js")}
+
 def icon(name, cls="icon"):
     return f'<svg class="{cls}" aria-hidden="true"><use href="#i-{name}"/></svg>'
 
@@ -91,7 +95,7 @@ def head(title, desc, path, schema, preload=None, ptype="WebPage"):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v={ASSET_V['css']}">
 {pre}
 <script type="application/ld+json">{json.dumps({"@context": "https://schema.org", "@graph": schema}, ensure_ascii=False).replace("</", "<\\/")}</script>
 </head>
@@ -187,7 +191,7 @@ def footer(photo_keys, cta="#quote"):
   <a class="btn btn--outline" href="tel:{TEL}">{icon("phone")}<span class="callbar__lbl">Call</span></a>
   <a class="btn btn--primary" href="{cta}">FaceTime Walkthrough</a>
 </div>
-<script src="assets/site.js" defer></script>
+<script src="assets/site.js?v={ASSET_V['js']}" defer></script>
 </body>
 </html>
 """
