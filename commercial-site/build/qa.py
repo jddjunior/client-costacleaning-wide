@@ -62,16 +62,20 @@ async def check_page(browser, name):
     STEP[0] = "form"
     # form
     if await page.locator("#lead-form").count():
+        # tap the first answer of each question until the contact step shows
+        taps = []
+        for _ in range(6):
+            act = await page.evaluate("(document.querySelector('.fstep.is-active')||{}).dataset?.step")
+            if act in (None, "contact"): break
+            o = page.locator(".fstep.is-active .opt").first
+            await o.scroll_into_view_if_needed(); await o.click(); await page.wait_for_timeout(420); taps.append(act)
+        rep["stepperPath"] = taps + [await page.evaluate("(document.querySelector('.fstep.is-active')||{}).dataset?.step")]
         btn = page.locator("#lead-form button[type=submit]")
         await btn.scroll_into_view_if_needed(); await btn.click(); await page.wait_for_timeout(250)
         rep["formEmpty"] = await page.evaluate("({status: document.querySelector('.form__status').textContent, invalid: document.querySelectorAll('#lead-form [aria-invalid=true]').length, focus: document.activeElement.id})")
         await page.locator("#lead-form").screenshot(path=str(OUT / f"{stem}-form-errors.png"))
         await page.fill("#f-name", "Dana Ruiz"); await page.fill("#f-company", "Gulf Coast Dental")
         await page.fill("#f-phone", "239-555-0142"); await page.fill("#f-email", "dana@example.com")
-        await page.select_option("#f-facility", label="Office"); await page.select_option("#f-city", label="Estero")
-        if await page.locator("#f-service").count():
-            if not await page.evaluate("document.getElementById('f-service').value"):
-                await page.select_option("#f-service", index=1)
         rep["fixedWhileTyping"] = await page.evaluate("document.querySelectorAll('#lead-form [aria-invalid=true]').length")
         await btn.click(); await page.wait_for_timeout(250)
         rep["formValid"] = await page.evaluate("document.querySelector('.form__status').textContent")
@@ -84,7 +88,7 @@ async def check_page(browser, name):
         target = pre.nth(min(1, await pre.count() - 1))
         attrs = await target.evaluate("e => ({s: e.dataset.service, f: e.dataset.facility, c: e.dataset.city})")
         await target.scroll_into_view_if_needed(); await target.click(); await page.wait_for_timeout(700)
-        rep["prefill"] = {"want": attrs, "got": await page.evaluate("({s: (document.getElementById('f-service')||{}).value, f: (document.getElementById('f-facility')||{}).value, c: (document.getElementById('f-city')||{}).value, focus: document.activeElement.id})")}
+        rep["prefill"] = {"want": attrs, "got": await page.evaluate("({s: (document.getElementById('f-service')||{}).value, f: (document.querySelector('input[name=facility]:checked')||{}).value, c: (document.querySelector('input[name=city]:checked')||{}).value, step: (document.querySelector('.fstep.is-active')||{}).dataset?.step, focus: document.activeElement.className})")}
     STEP[0] = "kb"
     # keyboard first stops
     await page.goto(url, wait_until="networkidle")
@@ -156,6 +160,6 @@ print("broken links:", r.pop("_broken"))
 for n, x in r.items():
     print(f"\n== {n} | axe {[(a['id'], a['n']) for a in x['axe']]} | words {x['words']} | dup {x['dupIds']} | console {x['console'][:2]} | fonts {x['fonts']}")
     print(f"   fold1280 {x['fold1280']} | phoneFold {x['phoneFold']} | overflow {x['overflow']} | targets {x['targets'][:6]}")
-    print(f"   form {x.get('formEmpty')} fixed {x.get('fixedWhileTyping')} valid {str(x.get('formValid'))[:50]} | prefill {x.get('prefill')} | menu {x['menu']} | dd {x.get('dropdownVisible')} | noJs {x.get('noJs')}")
+    print(f"   steps {x.get('stepperPath')} | form {x.get('formEmpty')} fixed {x.get('fixedWhileTyping')} valid {str(x.get('formValid'))[:50]} | prefill {x.get('prefill')} | menu {x['menu']} | dd {x.get('dropdownVisible')} | noJs {x.get('noJs')}")
     print(f"   kb {x['keyboard']}")
     if x['axe']: print("   axe detail:", json.dumps(x['axe'])[:900])

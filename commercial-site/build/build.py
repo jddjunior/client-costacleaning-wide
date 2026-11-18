@@ -25,7 +25,7 @@ WAVE = "".join(f'<path d="{d}"/>' for d in paths)
 ICON_NAMES = ["building-2", "stethoscope", "store", "utensils", "dumbbell", "warehouse", "key-round", "hard-hat", "door-open",
               "phone", "message-square-text", "shield-check", "user-check", "clipboard-check", "calendar-clock", "clock", "map-pin",
               "check", "badge-check", "refresh-ccw", "file-check-2", "chevron-down", "chevron-right", "menu", "mail", "star",
-              "app-window", "spray-can", "users", "repeat-2", "plus", "arrow-right", "x"]
+              "app-window", "spray-can", "users", "repeat-2", "plus", "arrow-right", "x", "calendar-check", "ellipsis", "arrow-left", "circle-check", "pencil"]
 symbols = []
 for n in ICON_NAMES:
     raw = (ICONS / f"{n}.svg").read_text()
@@ -221,28 +221,72 @@ def field(fid, name, label, kind="text", auto=None, full=False, required=True, i
 
 SERVICE_OPTIONS = [s["name"] for s in SERVICES] + ["Not sure yet"]
 
+TYPE_OPTS = [("Recurring cleaning", "refresh-ccw", "Nightly, weekly or a few times a week"),
+             ("One-time project", "calendar-check", "Post-construction, suite turnovers or windows")]
+FREQ_OPTS = ["Five or more nights a week", "Two to four times a week", "Once a week", "Every other week", "Not sure yet"]
+PROJECT_OPTS = [("Post-construction clean", "hard-hat"), ("Vacant suite turnover", "door-open"), ("Window cleaning", "app-window"), ("Something else", "ellipsis")]
+FAC_ICON = {"Office": "building-2", "Medical or dental practice": "stethoscope", "Retail store": "store", "Restaurant": "utensils",
+            "Gym or studio": "dumbbell", "Warehouse": "warehouse", "Vacant suite": "door-open", "Construction site": "hard-hat", "Other": "ellipsis"}
+CITY_OPTS = [c[0] for c in CITIES] + ["Elsewhere in Southwest Florida"]
+# what each service page (or a "book" link for that service) already tells us
+SERVICE_PRESET = {
+    "Office and janitorial cleaning": {"type": "Recurring cleaning", "facility": "Office"},
+    "Medical and dental office cleaning": {"type": "Recurring cleaning", "facility": "Medical or dental practice"},
+    "Retail and storefront cleaning": {"type": "Recurring cleaning", "facility": "Retail store"},
+    "Post-construction cleaning": {"type": "One-time project", "project": "Post-construction clean", "facility": "Construction site"},
+    "Commercial window cleaning": {"project": "Window cleaning"},
+    "Vacant suite turnover cleaning": {"type": "One-time project", "project": "Vacant suite turnover", "facility": "Vacant suite"},
+}
+assert set(SERVICE_PRESET) == {s["name"] for s in SERVICES}
+assert all(v in FACILITY_OPTIONS for p in SERVICE_PRESET.values() for k, v in p.items() if k == "facility")
+
+def opt(name, value, picked, ico=None, sub=None, required=True):
+    chk = " checked" if picked == value else ""
+    req = " required" if required else ""
+    i = f'<span class="opt__icon">{icon(ico)}</span>' if ico else ""
+    s = f'<small>{e(sub)}</small>' if sub else ""
+    return (f'<label class="opt"><input type="radio" name="{name}" value="{e(value)}"{req}{chk}>{i}'
+            f'<span class="opt__text"><b>{e(value)}</b>{s}</span>{icon("circle-check", "icon opt__tick")}</label>')
+
+def step(key, question, body, when=None, cls=""):
+    w = f' data-when="{e(when)}"' if when else ""
+    return (f'<fieldset class="fstep{cls}" data-step="{key}"{w}><legend class="fstep__q"><span class="fstep__title" tabindex="-1">{e(question)}</span></legend>'
+            f'{body}</fieldset>')
+
 def lead_form(title, sub, variant="compact", service=None, facility=None, submit="Request my free walkthrough"):
-    seg = """<fieldset class="seg field--full"><legend>What do you need?</legend><div class="seg__opts">
-      <label><input type="radio" name="type" value="Recurring cleaning" checked>Recurring cleaning</label>
-      <label><input type="radio" name="type" value="One-time project">One-time project</label></div></fieldset>"""
+    pre = dict(SERVICE_PRESET.get(service, {}))
+    if facility:
+        pre["facility"] = facility
+    steps = [
+        step("type", "What do you need?", '<div class="opts opts--big">' + "".join(opt("type", v, pre.get("type"), ic, d) for v, ic, d in TYPE_OPTS) + "</div>"),
+        step("frequency", "How often should we clean?", '<div class="opts opts--list">' + "".join(opt("frequency", v, pre.get("frequency"), required=False) for v in FREQ_OPTS) + "</div>", when="Recurring cleaning"),
+        step("project", "What is the project?", '<div class="opts opts--list">' + "".join(opt("project", v, pre.get("project"), ic, required=False) for v, ic in PROJECT_OPTS) + "</div>", when="One-time project"),
+        step("facility", "What kind of building is it?", '<div class="opts opts--grid">' + "".join(opt("facility", v, pre.get("facility"), FAC_ICON[v]) for v in FACILITY_OPTIONS) + "</div>"),
+        step("city", "Where is the building?", '<div class="opts opts--grid opts--chips">' + "".join(opt("city", v, None) for v in CITY_OPTS) + "</div>"),
+    ]
     rows = [field("f-name", "name", "Your name", auto="name"), field("f-company", "company", "Company", auto="organization"),
-            field("f-phone", "phone", "Phone", kind="tel", auto="tel", inputmode="tel"), field("f-email", "email", "Work email", kind="email", auto="email"),
-            field("f-facility", "facility", "Facility type", select=opts(FACILITY_OPTIONS, "Choose one", facility)),
-            field("f-city", "city", "City", select=opts([c[0] for c in CITIES] + ["Elsewhere in Southwest Florida"], "Choose your city"))]
-    if variant in ("service", "full"):
-        rows.append(field("f-service", "service", "Service", full=True, select=opts(SERVICE_OPTIONS, "Choose a service", service)))
+            field("f-phone", "phone", "Phone", kind="tel", auto="tel", inputmode="tel"), field("f-email", "email", "Work email", kind="email", auto="email")]
+    more = ""
     if variant == "full":
-        rows.append(field("f-size", "size", "Size", required=False, optional=True, select=opts(["Under 2,500 sq ft", "2,500 to 10,000 sq ft", "10,000 to 25,000 sq ft", "Over 25,000 sq ft"], "Not sure")))
-        rows.append(field("f-frequency", "frequency", "How often", required=False, optional=True, select=opts(["Nightly", "Two to four times a week", "Weekly", "Every other week", "One time"], "Not sure yet")))
-        rows.append(field("f-contract", "contract_end", "Current contract ends", required=False, optional=True, full=True, select=opts(["We have no cleaner right now", "Within 30 days", "In one to three months", "More than three months away"], "Not sure")))
-        rows.append(field("f-notes", "notes", "Anything we should know", kind="textarea", required=False, optional=True, full=True))
+        extra = [field("f-size", "size", "Size", required=False, optional=True, select=opts(["Under 2,500 sq ft", "2,500 to 10,000 sq ft", "10,000 to 25,000 sq ft", "Over 25,000 sq ft"], "Not sure")),
+                 field("f-contract", "contract_end", "Current contract ends", required=False, optional=True, select=opts(["We have no cleaner right now", "Within 30 days", "In one to three months", "More than three months away"], "Not sure")),
+                 field("f-notes", "notes", "Anything we should know", kind="textarea", required=False, optional=True, full=True)]
+        more = f'<details class="form__more"><summary>{icon("plus")}Add building details <span>(optional)</span></summary><div class="form__grid">{"".join(extra)}</div></details>'
+    contact = (f'<div class="answers" hidden></div><div class="form__grid">{"".join(rows)}</div>{more}'
+               f'<button class="btn btn--primary btn--block" type="submit">{e(submit)}</button>')
+    steps.append(step("contact", "Last step: how do we reach you?", contact, cls=" fstep--contact"))
+    presets = e(json.dumps(SERVICE_PRESET, separators=(",", ":")))
     return f"""<div class="formcard" id="quote">
   <h2 class="formcard__title" id="quote-title">{e(title)}</h2>
   <p class="formcard__sub">{e(sub)}</p>
-  <form class="form" id="lead-form" method="post" data-endpoint="https://costa-leads-production.up.railway.app/lead" aria-labelledby="quote-title">
-    {seg}
-    <div class="form__grid">{"".join(rows)}</div>
-    <button class="btn btn--primary btn--block" type="submit">{e(submit)}</button>
+  <form class="form" id="lead-form" method="post" data-endpoint="https://costa-leads-production.up.railway.app/lead" aria-labelledby="quote-title" data-presets="{presets}">
+    <input type="hidden" name="service" id="f-service" value="{e(service or '')}">
+    <div class="stepper" hidden>
+      <div class="stepper__top"><p class="stepper__count" aria-live="polite"></p>
+        <button class="stepper__back" type="button">{icon("arrow-left")}Back</button></div>
+      <ol class="stepper__bar" aria-label="Form steps"></ol>
+    </div>
+    <div class="fsteps">{"".join(steps)}</div>
     <p class="form__status" role="status" aria-live="polite"></p>
     <p class="form__fine">No obligation. Your details go only to Costa Cleaning Co., and we will call or email to set a time. See our <a href="privacy.html">privacy policy</a>.</p>
   </form>

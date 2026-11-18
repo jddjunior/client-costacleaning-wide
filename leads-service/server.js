@@ -5,7 +5,8 @@ const http = require('http');
 const TO = process.env.LEAD_TO_EMAIL || 'info@costacleaning.co';
 const FROM = process.env.LEAD_FROM_EMAIL || 'Costa Cleaning Website <leads@costacleaning.co>';
 const ORIGINS = (process.env.ALLOWED_ORIGINS || 'https://costacleaning.co,https://www.costacleaning.co,https://costa-cleaning-commercial.vercel.app').split(',').map((s) => s.trim());
-const FIELDS = [['type', 'Need'], ['name', 'Name'], ['company', 'Company'], ['phone', 'Phone'], ['email', 'Email'], ['facility', 'Facility type'], ['city', 'City'], ['page', 'Page']];
+const FIELDS = [['type', 'Need'], ['frequency', 'How often'], ['project', 'Project'], ['service', 'Service'], ['name', 'Name'], ['company', 'Company'], ['phone', 'Phone'], ['email', 'Email'],
+  ['facility', 'Facility type'], ['city', 'City'], ['size', 'Size'], ['contract_end', 'Current contract ends'], ['notes', 'Notes'], ['page', 'Page']];
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const clean = (v) => String(v == null ? '' : v).replace(/[\r\n]+/g, ' ').trim().slice(0, 300);
 
