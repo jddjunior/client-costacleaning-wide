@@ -3,6 +3,19 @@
   const d = document;
   const PHONE = '(239) 980-6084';
 
+  /* Analytics: one call sends to PostHog and GA4 (both loaded in <head>; either may be blocked) */
+  const track = (phEvent, gaEvent, props) => {
+    try { if (window.posthog) window.posthog.capture(phEvent, props); } catch (e) {}
+    try { if (window.gtag) window.gtag('event', gaEvent, props); } catch (e) {}
+  };
+  d.addEventListener('click', (ev) => {
+    const a = ev.target.closest && ev.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+    if (!a) return;
+    const isTel = a.getAttribute('href').startsWith('tel:');
+    const where = a.closest('.callbar') ? 'call_bar' : a.closest('.header, .utility') ? 'header' : a.closest('footer') ? 'footer' : 'body';
+    track(isTel ? 'phone_click' : 'email_click', isTel ? 'phone_call_click' : 'email_click', { location: where, page: location.pathname });
+  });
+
   /* Header shadow once the page scrolls */
   const header = d.querySelector('.header');
   if (header) {
@@ -273,6 +286,11 @@
       body.page = location.pathname;
       const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
       if (!res.ok) throw new Error(String(res.status));
+      track('walkthrough_requested', 'generate_lead', {
+        request_type: body.type || '', frequency: body.frequency || '', project: body.project || '',
+        facility: body.facility || '', city: body.city || '', service: body.service || '', page: body.page
+      });
+      try { if (window.posthog && body.email) window.posthog.identify(String(body.email).toLowerCase(), { email: body.email, name: body.name, company: body.company, phone: body.phone }); } catch (e) {}
       form.reset();
       if (current) show(firstOpen(), false);
       status.textContent = 'Request received. We will call you to set a time for your walkthrough.';

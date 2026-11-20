@@ -64,6 +64,17 @@ UPDATED_TEXT = "November 15, 2026"
 REVIEWS_URL = "https://www.google.com/maps/search/?api=1&query=Costa%20Cleaning%20Co%20Fort%20Myers%20FL"
 WEBSITE = {"@type": "WebSite", "@id": f"{SITE}/#website", "url": f"{SITE}/", "name": "Costa Cleaning Co.", "inLanguage": "en-US", "publisher": {"@id": f"{SITE}/#business"}}
 
+# ---------- analytics ----------
+# GA4 property 565305910 (Foreverbranches account), web stream 16383160410.
+# PostHog: org "Costa Cleaning Co.", project 538933. Both keys are public, client-side IDs.
+GA4_ID = "G-BD8MJH9HZC"
+POSTHOG_KEY = "phc_CMeUE8m8Q4W6AATwWZ7sQRiCoNti7tymiRj646EiLuvo"
+POSTHOG_HOST = "https://us.i.posthog.com"
+ANALYTICS = f"""<script async src="https://www.googletagmanager.com/gtag/js?id={GA4_ID}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA4_ID}');</script>
+<script>!function(t,e){{var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){{function g(t,e){{var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){{t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){{var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e}},u.people.toString=function(){{return u.toString(1)+".people (stub)"}},o="init capture register register_once unregister identify alias set_config reset opt_in_capturing opt_out_capturing has_opted_out_capturing get_distinct_id get_property getFeatureFlag isFeatureEnabled onFeatureFlags reloadFeatureFlags group setPersonProperties startSessionRecording stopSessionRecording".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])}},e.__SV=1)}}(document,window.posthog||[]);
+posthog.init('{POSTHOG_KEY}',{{api_host:'{POSTHOG_HOST}',person_profiles:'identified_only',capture_pageview:true,capture_pageleave:true}});</script>"""
+
 def head(title, desc, path, schema, preload=None, ptype="WebPage"):
     canon = SITE + "/" + ("" if path == "index.html" else path)
     schema = list(schema) + [WEBSITE, {"@type": ptype, "@id": canon + "#webpage", "url": canon, "name": title, "description": desc,
@@ -98,6 +109,7 @@ def head(title, desc, path, schema, preload=None, ptype="WebPage"):
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/site.css?v={ASSET_V['css']}">
 {pre}
+{ANALYTICS}
 <script type="application/ld+json">{json.dumps({"@context": "https://schema.org", "@graph": schema}, ensure_ascii=False).replace("</", "<\\/")}</script>
 </head>
 <body>
